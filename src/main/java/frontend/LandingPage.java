@@ -9,21 +9,30 @@ public class LandingPage {
 	
     
     public static User user;
+    
+    public Login login=new Login();
 	
 	private void userRegistration(final Scanner scanner) {
 		final UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
 	}
 	
-	private User userLogin(String option) throws Exception {
-		final LoginController loginController=new LoginController();
+	private User userLogin(String option,final Scanner scanner) throws Exception {
 		if(option.equals("2"))
 		{
-		return loginController.userLoginByEmail();
+			System.out.println("Enter the email");
+			String email=scanner.next();
+			System.out.println("enter the password");
+			String password=scanner.next();
+		return login.login(option, email, password);
 		}
 		else
 		{
-			return loginController.userLoginByPhone();
+			System.out.println("Enter the mobileNumber");
+			String mobileNumber=scanner.next();
+			System.out.println("enter the password");
+			String password=scanner.next();
+			return login.login(option, mobileNumber, password);
 		}
 	}
 	
@@ -43,10 +52,10 @@ public class LandingPage {
 					cvmApp.userRegistration(scanner);
 					break;
 				case "2": 
-				    user= cvmApp.userLogin(input);
+				    user= cvmApp.userLogin(input,scanner);
 				    break;
 				case "3":
-					user= cvmApp.userLogin(input);
+					user= cvmApp.userLogin(input,scanner);
 					break;
 				default: System.out.println("enter the correct option");
 				}

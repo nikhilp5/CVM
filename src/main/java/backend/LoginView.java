@@ -10,12 +10,23 @@ public class LoginView {
 	
 	private User user;
 	
+	private ILoginQuery loginQuery;
+	
+	 private static LoginView instance;
+
+	 public static LoginView instance() {
+		 if (instance == null) {
+			 instance = new LoginView();
+		 }
+		 return instance;
+	 }
+	
 	public User getPasswordByEmail(String email)
 	{
 		try {
 			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
 			Statement statement= connection.createStatement();
-			String getQuery = "Select * From user where email='"+email+"'";
+			String getQuery = LoginQuery.instance().loginByEmail(email);
 			ResultSet rs = statement.executeQuery(getQuery);
 			
 			if(rs.next()) {
@@ -34,7 +45,7 @@ public class LoginView {
 		try {
 			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
 			Statement statement= connection.createStatement();
-			String getQuery = "SELECT * FROM user where mobile='"+phoneNumber+"'";
+			String getQuery = LoginQuery.instance().loginByMobile(phoneNumber);
 			ResultSet rs = statement.executeQuery(getQuery);
 			if(rs.next()){
 				  user=resultUser(rs);
@@ -44,6 +55,7 @@ public class LoginView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(user.getRole());
 		return user;
 	}
 	
@@ -60,6 +72,7 @@ public class LoginView {
 		user.setAddressCity(rs.getString("city"));
 		user.setAddressZipCode(rs.getString("zip"));
 		user.setPassword(rs.getString("password"));
+		user.setRole(rs.getString("role"));
 		return user;
 	}
 
