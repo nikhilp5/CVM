@@ -61,7 +61,7 @@ public class UserRegistration {
 			 final String password = firstPass;
 			 
 			 User user=new User(firstName,lastName,gender,mobileNumber,emailId,
-						dateOfBirth,address,city,areaCode,password);
+						dateOfBirth,address,city,areaCode,password,"USER");
 			 
 			 final IUserRegistrationController userRegistrationController =
 				        new UserRegistrationController(

@@ -13,4 +13,5 @@ public class UserDatabaseColumns {
 	public static final String user_city ="city";
 	public static final String user_zip ="zip";
 	public static final String user_password ="password";
+	public static final String user_role ="role";
 }

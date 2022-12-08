@@ -34,7 +34,7 @@ public class LandingPage {
 		    final LandingPage cvmApp = new LandingPage();
 			System.out.println("Covid Vaccination Management System \n Select an option");
 			while(true) {
-				System.out.println("1.User Registration\n"
+				System.out.println("1. User Registration\n"
 						+ "2. Login By Email\n"
 						+ "3. Login By MobileNumber");
 				final String input = scanner.nextLine();

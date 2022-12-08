@@ -23,7 +23,8 @@ public class UserRegistrationQuery implements IUserRegistrationQuery{
 				UserDatabaseColumns.user_address + ", " +
 				UserDatabaseColumns.user_city + ", " +
 				UserDatabaseColumns.user_zip + ", " +
-				UserDatabaseColumns.user_password + ")" +
+				UserDatabaseColumns.user_password + ", " +
+				UserDatabaseColumns.user_role + ")" +
 		        "values (" +
 		        "'" + user.getFirstName() + "', " +
 		        "'" + user.getLastName() + "', " +
@@ -34,7 +35,8 @@ public class UserRegistrationQuery implements IUserRegistrationQuery{
 		        "'" + user.getAddress() + "', " +
 		        "'" + user.getAddressCity() + "', " +
 		        "'" + user.getAddressZipCode() + "', " +
-		        "'" + user.getPassword() + "');";
+		        "'" + user.getPassword() + "', " +
+		        "'" + user.getRole()+ "');";
 	}
 
 }

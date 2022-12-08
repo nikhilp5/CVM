@@ -14,8 +14,10 @@ public class User {
 	private String addressCity;
 	private String addressZipCode;
 	private String password;
+	private String role;
+	
 	public User(String firstName, String lastName, String gender, String mobileNumber, String emailId,
-			String dateOfBirth, String address, String addressCity, String addressZipCode, String password) {
+			String dateOfBirth, String address, String addressCity, String addressZipCode, String password,String role) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -27,6 +29,7 @@ public class User {
 		this.addressCity = addressCity;
 		this.addressZipCode = addressZipCode;
 		this.password = password;
+		this.role=role;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -87,5 +90,11 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
