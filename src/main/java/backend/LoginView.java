@@ -10,9 +10,7 @@ public class LoginView {
 	
 	private User user;
 	
-	private ILoginQuery loginQuery;
-	
-	 private static LoginView instance;
+	private static LoginView instance;
 
 	 public static LoginView instance() {
 		 if (instance == null) {

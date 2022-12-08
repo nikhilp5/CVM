@@ -1,5 +1,7 @@
 package frontend;
 
+import java.util.Scanner;
+
 import backend.LoginController;
 import backend.User;
 import database.DatabaseConnection;
@@ -16,13 +18,17 @@ public class Login {
 	        }
 	        return login;
 	}
-	  public final User login(String option,String userParameter,String password) {
+	  public final User login(String option,Scanner scanner) {
 		  LoginController loginController=new LoginController();
 
 		  if(option.equals("2"))
 		  {
 			  try {
-				  user= loginController.userLoginByEmail(userParameter,password);
+					System.out.println("Enter the email");
+					String email=scanner.next();
+					System.out.println("enter the password");
+					String password=scanner.next();
+				  user= loginController.userLoginByEmail(email,password);
 			  } catch (Exception e) {
 				  // TODO Auto-generated catch block
 				  e.printStackTrace();
@@ -30,7 +36,11 @@ public class Login {
 		  }
 		  else
 		  {
-			  user= loginController.userLoginByPhone(userParameter,password);
+				System.out.println("Enter the mobileNumber");
+				String mobileNumber=scanner.next();
+				System.out.println("enter the password");
+				String password=scanner.next();
+			  user= loginController.userLoginByPhone(mobileNumber,password);
 		  }
 		  return user;	
 	  }

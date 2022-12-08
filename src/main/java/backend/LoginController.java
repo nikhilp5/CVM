@@ -6,35 +6,40 @@ import java.util.Base64;
 import java.util.Scanner;
 
 import database.DatabaseConnection;
+import frontend.Admin;
 
 public class LoginController {
 	
 	
 	private User user;
 	
+	
 	public User userLoginByEmail(String email,String password) throws Exception {
 		user=LoginView.instance().getPasswordByEmail(email);
-		String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
-		if(encodedPassword.equals(user.getPassword()))
-		{
-			return user;
-		}
-		else
-		{
-			return null;
-		}
+		user=userCheck(user,password);
+		return user;
 	}
 	
 	public User userLoginByPhone(String mobileNumber,String password) {
 		user=LoginView.instance().getPasswordByPhoneNumber(mobileNumber);
-		String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
-		if(encodedPassword.equals(user.getPassword()))
+		user=userCheck(user,password);
+		return user;
+	}
+	public User userCheck(User user,String password) {
+		if(user!=null)
 		{
-			return user;
+			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
+			if(encodedPassword.equals(user.getPassword()))
+			{
+				return user;
+			}
+			else
+			{
+				System.out.println("wrong password");
+				return null;
+			}
+			
 		}
-		else
-		{
-			return null;
-		}
+		return user;
 	}
 }

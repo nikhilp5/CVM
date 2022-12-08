@@ -13,27 +13,7 @@ public class LandingPage {
 	private void userRegistration(final Scanner scanner) {
 		final UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
-	}
-	
-	private User userLogin(String option,final Scanner scanner) throws Exception {
-		if(option.equals("2"))
-		{
-			System.out.println("Enter the email");
-			String email=scanner.next();
-			System.out.println("enter the password");
-			String password=scanner.next();
-		return Login.instance().login(option, email, password);
-		}
-		else
-		{
-			System.out.println("Enter the mobileNumber");
-			String mobileNumber=scanner.next();
-			System.out.println("enter the password");
-			String password=scanner.next();
-			return Login.instance().login(option, mobileNumber, password);
-		}
-	}
-	
+	}	
 	public static void main(String[] args) {
 		try {
 			//Connection currentConnection=DatabaseConnection.Instance().getDatabaseConnection();
@@ -50,10 +30,8 @@ public class LandingPage {
 					cvmApp.userRegistration(scanner);
 					break;
 				case "2": 
-				    user= cvmApp.userLogin(input,scanner);
-				    break;
 				case "3":
-					user= cvmApp.userLogin(input,scanner);
+					user= Login.instance().login(input, scanner);
 					break;
 				default: System.out.println("enter the correct option");
 				}
