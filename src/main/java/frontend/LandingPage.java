@@ -2,11 +2,29 @@ package frontend;
 
 import java.util.Scanner;
 
+import backend.LoginController;
+import backend.User;
+
 public class LandingPage {
+	
+    
+    public static User user;
 	
 	private void userRegistration(final Scanner scanner) {
 		final UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
+	}
+	
+	private User userLogin(int option) throws Exception {
+		final LoginController loginController=new LoginController();
+		if(option==2)
+		{
+		return loginController.userLoginByEmail();
+		}
+		else
+		{
+			return loginController.userLoginByPhone();
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -16,14 +34,21 @@ public class LandingPage {
 		    final LandingPage cvmApp = new LandingPage();
 			System.out.println("Covid Vaccination Management System \n Select an option");
 			while(true) {
-				System.out.println("1.User Registration");
-				final String input = scanner.nextLine();
+				System.out.println("1.User Registration\n"
+						+ "2. Login By Email\n"
+						+ "3. Login By MobileNumber");
+				final int input = scanner.nextInt();
 				switch(input) {
-				case "1":
+				case 1:
 					cvmApp.userRegistration(scanner);
 					break;
-				default:
+				case 2: 
+				    user= cvmApp.userLogin(input);
+				    break;
+				case 3:
+					user= cvmApp.userLogin(input);
 					break;
+				default: System.out.println("enter the correct option");
 				}
 			}
 		}

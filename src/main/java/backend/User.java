@@ -1,6 +1,9 @@
 package backend;
 
 public class User {
+	public User() {
+		super();
+	}
 	private String firstName;
 	private String lastName;
 	private String gender;
