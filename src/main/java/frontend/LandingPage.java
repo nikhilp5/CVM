@@ -15,9 +15,9 @@ public class LandingPage {
 		userRegistration.registerUser();
 	}
 	
-	private User userLogin(int option) throws Exception {
+	private User userLogin(String option) throws Exception {
 		final LoginController loginController=new LoginController();
-		if(option==2)
+		if(option.equals("2"))
 		{
 		return loginController.userLoginByEmail();
 		}
@@ -37,15 +37,15 @@ public class LandingPage {
 				System.out.println("1.User Registration\n"
 						+ "2. Login By Email\n"
 						+ "3. Login By MobileNumber");
-				final int input = scanner.nextInt();
+				final String input = scanner.nextLine();
 				switch(input) {
-				case 1:
+				case "1":
 					cvmApp.userRegistration(scanner);
 					break;
-				case 2: 
+				case "2": 
 				    user= cvmApp.userLogin(input);
 				    break;
-				case 3:
+				case "3":
 					user= cvmApp.userLogin(input);
 					break;
 				default: System.out.println("enter the correct option");
