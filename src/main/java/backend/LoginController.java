@@ -6,7 +6,6 @@ import java.util.Base64;
 import java.util.Scanner;
 
 import database.DatabaseConnection;
-import frontend.Admin;
 
 public class LoginController {
 	
