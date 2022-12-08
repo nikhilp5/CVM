@@ -9,9 +9,7 @@ public class LandingPage {
 	
     
     public static User user;
-    
-    public Login login=new Login();
-	
+    	
 	private void userRegistration(final Scanner scanner) {
 		final UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
@@ -24,7 +22,7 @@ public class LandingPage {
 			String email=scanner.next();
 			System.out.println("enter the password");
 			String password=scanner.next();
-		return login.login(option, email, password);
+		return Login.instance().login(option, email, password);
 		}
 		else
 		{
@@ -32,7 +30,7 @@ public class LandingPage {
 			String mobileNumber=scanner.next();
 			System.out.println("enter the password");
 			String password=scanner.next();
-			return login.login(option, mobileNumber, password);
+			return Login.instance().login(option, mobileNumber, password);
 		}
 	}
 	
