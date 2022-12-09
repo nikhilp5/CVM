@@ -17,10 +17,10 @@ public class LandingPage {
 	public static void main(String[] args) {
 		try {
 			//Connection currentConnection=DatabaseConnection.Instance().getDatabaseConnection();
-			final Scanner scanner = new Scanner(System.in);
 		    final LandingPage cvmApp = new LandingPage();
 			System.out.println("Covid Vaccination Management System \n Select an option");
 			while(true) {
+				Scanner scanner = new Scanner(System.in);
 				System.out.println("1. User Registration\n"
 						+ "2. Login By Email\n"
 						+ "3. Login By MobileNumber");
