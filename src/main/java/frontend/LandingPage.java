@@ -33,7 +33,9 @@ public class LandingPage {
 				case "3":
 					user= Login.instance().login(input, scanner);
 					break;
-				default: System.out.println("enter the correct option");
+				default: 
+					System.out.println("enter the correct option");
+					break;
 				}
 			}
 		}

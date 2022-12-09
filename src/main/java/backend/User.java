@@ -4,6 +4,7 @@ public class User {
 	public User() {
 		super();
 	}
+	private String userId;
 	private String firstName;
 	private String lastName;
 	private String gender;
@@ -96,5 +97,11 @@ public class User {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }

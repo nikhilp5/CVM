@@ -10,15 +10,15 @@ public class UserRegistrationController implements IUserRegistrationController{
 
 	private final IDatabaseConnection databaseConnection;
 
-	private final IUserRegistrationQuery  userRegistrationQuery;
+	private final IUserQuery  userQuery;
 
 
 	public UserRegistrationController(final IDatabaseConnection
 			databaseConnection,
-			final IUserRegistrationQuery
-			userRegistrationQuery) {
+			final IUserQuery
+			userQuery) {
 		this.databaseConnection =databaseConnection;
-		this.userRegistrationQuery =userRegistrationQuery;
+		this.userQuery =userQuery;
 }
 	@Override
 	public boolean register(User user) {
@@ -33,7 +33,7 @@ public class UserRegistrationController implements IUserRegistrationController{
 			String encodedPassword = Base64.getEncoder().encodeToString(user.getPassword().getBytes());
 			user.setPassword(encodedPassword);
 			Statement statement = databaseConnection.getDatabaseConnection().createStatement();
-		    String insertUserQuery = userRegistrationQuery.insertUser(user);
+		    String insertUserQuery = userQuery.insertUser(user);
 		    int rowCount=statement.executeUpdate(insertUserQuery);
 		    if (rowCount > 0) {
 		    	return true;
@@ -50,21 +50,21 @@ public class UserRegistrationController implements IUserRegistrationController{
 	private ArrayList<String> validateUserInputs(User user){
 		ArrayList<String> errorList=new ArrayList<String>();
 
-		if(!RegistrationValidation.nameValidation(user.getFirstName())) {
+		if(UserFieldValidation.nameValidation(user.getFirstName())) {
 			errorList.add("First Name is not Valid"); }
-		if(!RegistrationValidation.nameValidation(user.getLastName())) {
+		if(UserFieldValidation.nameValidation(user.getLastName())) {
 			errorList.add("Last Name is not Valid"); }
-		if(!RegistrationValidation.mobileNumberValidation(user.getMobileNumber())) {
+		if(UserFieldValidation.mobileNumberValidation(user.getMobileNumber())) {
 			errorList.add("Mobile Number is not Valid"); }
-		if(!RegistrationValidation.genderValidation(user.getGender())) {
+		if(UserFieldValidation.genderValidation(user.getGender())) {
 			errorList.add("Gender is not Valid"); }
-		if(!RegistrationValidation.emailValidation(user.getEmailId())) {
+		if(UserFieldValidation.emailValidation(user.getEmailId())) {
 			errorList.add("Email ID is not Valid"); }
-		if(!RegistrationValidation.dateValidation(user.getDateOfBirth())) {
+		if(UserFieldValidation.dateValidation(user.getDateOfBirth())) {
 			errorList.add("Date of Birth is not Valid"); }
-		if(!RegistrationValidation.areaCodeValidation(user.getAddressZipCode())) {
+		if(UserFieldValidation.areaCodeValidation(user.getAddressZipCode())) {
 			errorList.add("Area Code/Zip Code is not Valid"); }
-		if(!RegistrationValidation.passwordValidation(user.getPassword())) {
+		if(UserFieldValidation.passwordValidation(user.getPassword())) {
 			errorList.add("Password is not Valid"); }
 		return errorList;
 	}
