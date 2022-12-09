@@ -25,7 +25,10 @@ public class LoginController {
 		return user;
 	}
 	public User userCheck(User user,String password) {
-		if(user!=null)
+		if(user==null)
+		{
+			return user;
+		}else
 		{
 			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
 			if(encodedPassword.equals(user.getPassword()))
@@ -39,6 +42,6 @@ public class LoginController {
 			}
 			
 		}
-		return user;
+		
 	}
 }
