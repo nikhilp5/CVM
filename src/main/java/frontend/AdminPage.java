@@ -25,7 +25,7 @@ public class AdminPage {
 	}
 	
 	public void display(){
-		final Scanner scanner = new Scanner(System.in);
+		final Scanner scanner=new Scanner(System.in);
 	    final AdminPage adminPage = new AdminPage();
     	System.out.println("Welcome Admin \nSelect an option");
     	boolean logout=true;

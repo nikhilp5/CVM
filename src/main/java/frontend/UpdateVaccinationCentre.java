@@ -13,7 +13,11 @@ public class UpdateVaccinationCentre {
 			System.out.println("enter the centre number that you want to update");
 			String updateResult="";
 			String centre_number=scanner.nextLine();
-
+			char ch;
+			
+			do
+			{
+			scanner=new Scanner(System.in);
 			System.out.println("1. Centre code\n"
 					+ "2. Centre name\n"
 					+ "3. Centre address\n"
@@ -39,6 +43,13 @@ public class UpdateVaccinationCentre {
 			System.out.println(updateResult);
 			break;
 			}
+			if(updateResult.equals("wrong centre code"))
+			{
+				break;
+			}
+			System.out.println("do you want to update more fields");
+			ch=scanner.next().charAt(0);
+		}while(ch=='y');
 		}
 		catch(Exception e) {
 			e.printStackTrace();
