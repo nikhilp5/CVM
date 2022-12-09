@@ -6,6 +6,7 @@ import java.util.Base64;
 import java.util.Scanner;
 
 import database.DatabaseConnection;
+import frontend.AdminPage;
 
 public class LoginController {
 	
@@ -19,12 +20,12 @@ public class LoginController {
 		return user;
 	}
 	
-	public User userLoginByPhone(String mobileNumber,String password) {
+	public User userLoginByPhone(String mobileNumber,String password) throws Exception {
 		user=LoginView.instance().getPasswordByPhoneNumber(mobileNumber);
 		user=userCheck(user,password);
 		return user;
 	}
-	public User userCheck(User user,String password) {
+	public User userCheck(User user,String password) throws Exception {
 		if(user==null)
 		{
 			return user;
@@ -33,6 +34,7 @@ public class LoginController {
 			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
 			if(encodedPassword.equals(user.getPassword()))
 			{
+				roleCheck(user);
 				return user;
 			}
 			else
@@ -41,7 +43,14 @@ public class LoginController {
 				return null;
 			}
 			
+		}		
+	}
+	
+	public void roleCheck(User user) throws Exception {
+		if(user.getRole().equals("ADMIN"))
+		{
+			AdminPage admin=new AdminPage();
+			admin.display();
 		}
-		
 	}
 }
