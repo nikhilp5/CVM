@@ -54,8 +54,12 @@ public class VaccinationCentreDetailsController {
 		ResultSet rs=statement.executeQuery(selectResult);
 		if(rs.next())
 		{
-			Statement deleteQuery=connection.createStatement();
-			deleteQuery.execute(VaccinationCentreQuery.instance().deleteCentreDetails(centreCode));
+			Statement deleteSlotsQuery=connection.createStatement();
+			VaccinationSlotsQuery vaccinationSlotsQuery=new VaccinationSlotsQuery();
+			String deleteSlots=vaccinationSlotsQuery.deleteSlots(rs.getString("centre_id"));
+			deleteSlotsQuery.execute(deleteSlots);
+			Statement deleteCentreQuery=connection.createStatement();
+			deleteCentreQuery.execute(VaccinationCentreQuery.instance().deleteCentreDetails(centreCode));
 			return "deleted successfully";
 		}
 		else
@@ -112,4 +116,5 @@ public class VaccinationCentreDetailsController {
 			errorList.add("Centre Area Code is not valid"); }
 		return errorList;
 	}
+	
 }
