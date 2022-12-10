@@ -21,7 +21,7 @@ public class AddVaccinationCenter {
 	public final void add() {
 		try {
 			System.out.println("Enter Centre Code ");
-			final String centreCode = scanner.nextLine().trim();
+			final String centreCode = scanner.nextLine().trim().toUpperCase();
 			System.out.println("Enter Centre Name ");
 			final String centreName = scanner.nextLine().trim();
 			System.out.println("Enter Centre Address ");
