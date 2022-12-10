@@ -34,10 +34,10 @@ public final class UserFieldValidation {
 	  }
 	  try {
 		  final String[] dateArr = date.split("-");
-		  if (Integer.parseInt(dateArr[0])<=31 && dateArr[0].length() != 2) {
+		  if (Integer.parseInt(dateArr[0])>0 && Integer.parseInt(dateArr[0])<=31 && dateArr[0].length() != 2) {
 			  return true;
 		  }
-		  if (Integer.parseInt(dateArr[0])<=12 && dateArr[1].length() != 2) {
+		  if (Integer.parseInt(dateArr[1])>0 && Integer.parseInt(dateArr[1])<=12 && dateArr[1].length() != 2) {
 			  return true;
 		  }
 		  if (dateArr[2].length() != 4) {
@@ -94,5 +94,15 @@ public final class UserFieldValidation {
 			return true;
 		}
 		return false;
+	}
+  
+  public static boolean timeValidation(final String text) {
+	  if(isEmptyString(text)) {
+		  return true;
+	  }
+	  else {
+		    return !Pattern.matches("([01]?[0-9]|2[0-3]):[0-5][0-9]", text);
+		    //https://www.w3schools.blog/validate-24-hours-format-regular-expression-regex-java
+	  }
 	}
 }

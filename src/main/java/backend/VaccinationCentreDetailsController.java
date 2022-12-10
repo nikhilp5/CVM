@@ -98,7 +98,10 @@ public class VaccinationCentreDetailsController {
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
-		}	
+		}
+		finally {
+			DatabaseConnection.instance().stopDatabaseConnection();
+		}
 	}
 	
 	private ArrayList<String> validateVaccineCentreDetails(VaccinationCentreDetails vaccineCentreDetails){
@@ -117,4 +120,38 @@ public class VaccinationCentreDetailsController {
 		return errorList;
 	}
 	
+	public VaccinationCentreDetails checkVaccineCentreExists(String centreCode) {
+		try
+		{ 
+			if(UserFieldValidation.isEmptyString(centreCode)) {
+				System.out.println("Centre Code is null/empty");
+				return null;
+			}
+			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
+			Statement statement= connection.createStatement();
+			String selectQuery=VaccinationCentreQuery.instance().validCentreNumber(centreCode);
+			ResultSet rs=statement.executeQuery(selectQuery);
+			if(rs.next())
+			{
+				VaccinationCentreDetails vaccineCentre= new VaccinationCentreDetails();
+				vaccineCentre.setCentre_id(rs.getString(VaccinationCenterDatabaseColumns.centre_id));
+				vaccineCentre.setCentre_name(rs.getString(VaccinationCenterDatabaseColumns.centre_name));
+				vaccineCentre.setCentre_code(rs.getString(VaccinationCenterDatabaseColumns.centre_code));
+				vaccineCentre.setCentre_address(rs.getString(VaccinationCenterDatabaseColumns.centre_address));
+				vaccineCentre.setCentre_zip(rs.getString(VaccinationCenterDatabaseColumns.centre_zip));
+				vaccineCentre.setCentre_city(rs.getString(VaccinationCenterDatabaseColumns.centre_city));
+				return vaccineCentre;
+			}
+			else
+			{
+				return null;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}	
+		finally {
+			DatabaseConnection.instance().stopDatabaseConnection();
+		}
+	}
 }

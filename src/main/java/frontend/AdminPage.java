@@ -29,6 +29,11 @@ public class AdminPage {
 		deleteVaccinationCentre.delete(scanner);
 	}
 	
+	private void addTimeSlots(final Scanner scanner) {
+		AddTimeSlots addTimeSlots=new AddTimeSlots(scanner);
+		addTimeSlots.add();
+	}
+	
 	public void display(){
 		final Scanner scanner=new Scanner(System.in);
 	    final AdminPage adminPage = new AdminPage();
@@ -39,7 +44,8 @@ public class AdminPage {
 					+ "2. Add Vaccination center\n"
 					+ "3. Update Vaccination center\n"
 					+ "4. Delete Vaccination center\n"
-					+ "5. Logout\n");
+					+ "5. Add Time slots\n"
+					+ "6. Logout\n");
 			final String input = scanner.nextLine();
 				switch(input) {
 				case "1":
@@ -55,8 +61,9 @@ public class AdminPage {
 					adminPage.deleteVaccinationCentre(scanner);
 					break;
 				case "5":
-					logout=false;
+					adminPage.addTimeSlots(scanner);
 					break;
+				case "6":
 				default: System.out.println("enter the correct option");
 					break;
 				}
