@@ -9,6 +9,8 @@ public class AdminPage {
 	}
 	
 	private void addVaccinationCenter(final Scanner scanner) {
+		final AddVaccinationCenter addVaccinationCenter =new AddVaccinationCenter(scanner);
+		addVaccinationCenter.add();
 	}
 	
 	private void updateVaccinationCenter(final Scanner scanner){

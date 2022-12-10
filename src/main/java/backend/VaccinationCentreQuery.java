@@ -29,5 +29,21 @@ public class VaccinationCentreQuery implements IVaccinationCentreQuery {
 		return "Delete From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+
 				" where "+VaccinationCenterDatabaseColumns.centre_code+ "="+centreCode;
 	}
+	
+	@Override
+	public String addCentreDetails(VaccinationCentreDetails vaccineCentreDetails) {
+		return "insert into " + VaccinationCenterDatabaseColumns.vaccination_centre_details_table + "(" +
+				VaccinationCenterDatabaseColumns.centre_code + ", " +
+				VaccinationCenterDatabaseColumns.centre_name + ", " +
+				VaccinationCenterDatabaseColumns.centre_address + ", " +
+				VaccinationCenterDatabaseColumns.centre_city + ", " +
+				VaccinationCenterDatabaseColumns.centre_zip + ")" +	
+		        "values (" +
+		        "'" + vaccineCentreDetails.getCentre_code() + "', " +
+		        "'" + vaccineCentreDetails.getCentre_name() + "', " +
+		        "'" + vaccineCentreDetails.getCentre_address() + "', " +
+		        "'" + vaccineCentreDetails.getCentre_city() + "', " +
+		        "'" + vaccineCentreDetails.getCentre_zip()+ "');";
+	}
 
 }
