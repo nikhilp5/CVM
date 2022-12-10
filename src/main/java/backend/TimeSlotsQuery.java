@@ -1,6 +1,6 @@
 package backend;
 
-public class VaccinationSlotsQuery implements IVaccinationSlotsQuery {
+public class TimeSlotsQuery implements ITimeSlotsQuery {
 
 	@Override
 	public String deleteSlots(String centreid) {

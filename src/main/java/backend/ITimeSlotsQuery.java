@@ -1,6 +1,6 @@
 package backend;
 
-public interface IVaccinationSlotsQuery {
+public interface ITimeSlotsQuery {
 	
 	public String deleteSlots(String centreid);
 

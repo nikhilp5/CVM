@@ -55,7 +55,7 @@ public class VaccinationCentreDetailsController {
 		if(rs.next())
 		{
 			Statement deleteSlotsQuery=connection.createStatement();
-			VaccinationSlotsQuery vaccinationSlotsQuery=new VaccinationSlotsQuery();
+			TimeSlotsQuery vaccinationSlotsQuery=new TimeSlotsQuery();
 			String deleteSlots=vaccinationSlotsQuery.deleteSlots(rs.getString("centre_id"));
 			deleteSlotsQuery.execute(deleteSlots);
 			Statement deleteCentreQuery=connection.createStatement();
