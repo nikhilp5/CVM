@@ -18,7 +18,7 @@ public class VaccinationCentreDetailsController {
 	        return vaccinationCentreDetailsController;
 	}
 	  
-	public String vaccinationCentreDetailsController(String centreCode,String updateParameterName, Scanner scanner) {
+	public String updateVaccinationCentreDetailsController(String centreCode,String updateParameterName, Scanner scanner) {
 		try {
 			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
 			Statement statement= connection.createStatement();
@@ -42,5 +42,28 @@ public class VaccinationCentreDetailsController {
 			e.printStackTrace();
 			return "wrong centre code";
 		}
+	}
+	
+	public String deleteVaccinationCentreDetailsController(String centreCode) {
+		try
+		{
+		Connection connection=DatabaseConnection.instance().getDatabaseConnection();
+		Statement statement= connection.createStatement();
+		String selectResult=VaccinationCentreQuery.instance().validCentreNumber(centreCode);
+		ResultSet rs=statement.executeQuery(selectResult);
+		if(rs.next())
+		{
+			Statement deleteQuery=connection.createStatement();
+			deleteQuery.execute(VaccinationCentreQuery.instance().deleteCentreDetails(centreCode));
+			return "deleted successfully";
+		}
+		else
+		{
+			return "wrong centre code";
+		}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return centreCode;
 	}
 }

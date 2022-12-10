@@ -12,16 +12,22 @@ public class VaccinationCentreQuery implements IVaccinationCentreQuery {
 	}
 
 	@Override
-	public String validCentreNumber(String centreNumber) {
+	public String validCentreNumber(String centreCode) {
 		return "Select * From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+
-				" where "+VaccinationCenterDatabaseColumns.centre_code+ "='"+centreNumber+"' LIMIT 1";
+				" where "+VaccinationCenterDatabaseColumns.centre_code+ "='"+centreCode+"' LIMIT 1";
 	}
 
 	@Override
-	public String updateCentreDetails(String centreNumber, String updateParameterName,String updateParameterValue) {
+	public String updateCentreDetails(String centreCode, String updateParameterName,String updateParameterValue) {
 		return "Update "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+
 				" set "+updateParameterName+"='"+updateParameterValue+
-				"' where "+VaccinationCenterDatabaseColumns.centre_code+ "='"+centreNumber+"' LIMIT 1";
+				"' where "+VaccinationCenterDatabaseColumns.centre_code+ "='"+centreCode+"' LIMIT 1";
+	}
+
+	@Override
+	public String deleteCentreDetails(String centreCode) {
+		return "Delete From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+
+				" where "+VaccinationCenterDatabaseColumns.centre_code+ "="+centreCode;
 	}
 
 }

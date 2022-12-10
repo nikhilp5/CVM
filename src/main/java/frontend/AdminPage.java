@@ -21,7 +21,10 @@ public class AdminPage {
 		}
 	}
 	
-	private void deleteVaccinationCenter(final Scanner scanner) {
+	private void deleteVaccinationCentre(final Scanner scanner) {
+		
+		DeleteVaccinationCentre deleteVaccinationCentre=new DeleteVaccinationCentre();
+		deleteVaccinationCentre.delete(scanner);
 	}
 	
 	public void display(){
@@ -47,7 +50,7 @@ public class AdminPage {
 					adminPage.updateVaccinationCenter(scanner);
 					break;
 				case "4":
-					adminPage.deleteVaccinationCenter(scanner);
+					adminPage.deleteVaccinationCentre(scanner);
 					break;
 				case "5":
 					logout=false;

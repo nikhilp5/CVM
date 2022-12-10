@@ -27,19 +27,19 @@ public class UpdateVaccinationCentre {
 			System.out.println("select an option");
 			String input = scanner.nextLine();
 			switch(input) {
-			case "1": updateResult=VaccinationCentreDetailsController.instance().vaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_code,scanner);
+			case "1": updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_code,scanner);
 			System.out.println(updateResult);
 			break;
-			case "2": updateResult=VaccinationCentreDetailsController.instance().vaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_name,scanner);
+			case "2": updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_name,scanner);
 			System.out.println(updateResult);
 			break;
-			case "3": updateResult=VaccinationCentreDetailsController.instance().vaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_address,scanner);
+			case "3": updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_address,scanner);
 			System.out.println(updateResult);
 			break;
-			case "4": updateResult=VaccinationCentreDetailsController.instance().vaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_city,scanner);
+			case "4": updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_city,scanner);
 			System.out.println(updateResult);
 			break;
-			case "5": updateResult=VaccinationCentreDetailsController.instance().vaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_zip,scanner);
+			case "5": updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_zip,scanner);
 			System.out.println(updateResult);
 			break;
 			}
