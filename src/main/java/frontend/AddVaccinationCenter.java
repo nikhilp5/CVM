@@ -12,12 +12,10 @@ import database.IDatabaseConnection;
 public class AddVaccinationCenter {
 	private final IDatabaseConnection databaseConnection;
 	private final Scanner scanner;
-	private final IUserQuery  vaccineCenterQuery;
 
 	public AddVaccinationCenter(final Scanner scanner) {
 		this.scanner = scanner;
 		databaseConnection = DatabaseConnection.instance();
-		vaccineCenterQuery=UserQuery.instance();
 	}
 	
 	public final void add() {
