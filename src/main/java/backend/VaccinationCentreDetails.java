@@ -18,10 +18,9 @@ public class VaccinationCentreDetails {
 	public void setCentre_code(String centre_code) {
 		this.centre_code = centre_code;
 	}
-	public VaccinationCentreDetails(String centre_id,String centre_code, String centre_name, String centre_address, String centre_city,
+	public VaccinationCentreDetails(String centre_code, String centre_name, String centre_address, String centre_city,
 			String centre_zip) {
 		super();
-		this.centre_id = centre_id;
 		this.centre_code = centre_code;
 		this.centre_name = centre_name;
 		this.centre_address = centre_address;
