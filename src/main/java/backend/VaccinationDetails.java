@@ -1,6 +1,5 @@
 package backend;
 
-
 public class VaccinationDetails{
     private String user_id;
     private String vaccination_status;

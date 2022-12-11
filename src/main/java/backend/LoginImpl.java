@@ -2,19 +2,18 @@ package backend;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import database.DatabaseConnection;
 import java.sql.Statement;
 
-public class LoginView {
+public class LoginImpl {
 	
 	private User user;
 	
-	private static LoginView instance;
+	private static LoginImpl instance;
 
-	 public static LoginView instance() {
+	 public static LoginImpl instance() {
 		 if (instance == null) {
-			 instance = new LoginView();
+			 instance = new LoginImpl();
 		 }
 		 return instance;
 	 }
@@ -35,6 +34,9 @@ public class LoginView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		finally {
+			DatabaseConnection.instance().stopDatabaseConnection();
+		}
 		return user;
 	}
 	
@@ -53,6 +55,9 @@ public class LoginView {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		finally {
+			DatabaseConnection.instance().stopDatabaseConnection();
+		}
 		System.out.println(user.getRole());
 		return user;
 	}
@@ -60,18 +65,18 @@ public class LoginView {
 	public User resultUser(ResultSet rs) throws SQLException
 	{
 		User user=new User();
-		user.setUserId(rs.getString("user_id"));
-		user.setFirstName(rs.getString("firstname"));
-		user.setLastName(rs.getString("lastName"));
-		user.setGender(rs.getString("gender"));
-		user.setEmailId(rs.getString("email"));
-		user.setMobileNumber(rs.getString("mobile"));
-		user.setDateOfBirth(rs.getString("dob"));
-		user.setAddress(rs.getString("address"));
-		user.setAddressCity(rs.getString("city"));
-		user.setAddressZipCode(rs.getString("zip"));
-		user.setPassword(rs.getString("password"));
-		user.setRole(rs.getString("role"));
+		user.setUserId(rs.getString(UserDatabaseColumns.user_id));
+		user.setFirstName(rs.getString(UserDatabaseColumns.user_first_name));
+		user.setLastName(rs.getString(UserDatabaseColumns.user_last_name));
+		user.setGender(rs.getString(UserDatabaseColumns.user_gender));
+		user.setEmailId(rs.getString(UserDatabaseColumns.user_email));
+		user.setMobileNumber(rs.getString(UserDatabaseColumns.user_mobile));
+		user.setDateOfBirth(rs.getString(UserDatabaseColumns.user_dob));
+		user.setAddress(rs.getString(UserDatabaseColumns.user_address));
+		user.setAddressCity(rs.getString(UserDatabaseColumns.user_city));
+		user.setAddressZipCode(rs.getString(UserDatabaseColumns.user_zip));
+		user.setPassword(rs.getString(UserDatabaseColumns.user_password));
+		user.setRole(rs.getString(UserDatabaseColumns.user_role));
 		return user;
 	}
 

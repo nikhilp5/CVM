@@ -11,13 +11,13 @@ public class LoginController {
 	
 	
 	public User userLoginByEmail(String email,String password) throws Exception {
-		user=LoginView.instance().getPasswordByEmail(email);
+		user=LoginImpl.instance().getPasswordByEmail(email);
 		user=userCheck(user,password);
 		return user;
 	}
 	
 	public User userLoginByPhone(String mobileNumber,String password) throws Exception {
-		user=LoginView.instance().getPasswordByPhoneNumber(mobileNumber);
+		user=LoginImpl.instance().getPasswordByPhoneNumber(mobileNumber);
 		user=userCheck(user,password);
 		return user;
 	}

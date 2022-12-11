@@ -1,18 +1,25 @@
 package frontend;
-
 import java.util.Scanner;
 
 import backend.ITimeSlotsController;
+import backend.ITimeSlotsQuery;
 import backend.TimeSlots;
 import backend.TimeSlotsController;
+import backend.TimeSlotsQuery;
 import backend.VaccinationCentreDetails;
-import backend.VaccinationCentreDetailsController;
+import backend.VaccinationCentreDetailsImpl;
+import database.DatabaseConnection;
+import database.IDatabaseConnection;
 
 public class AddTimeSlots {
+	private final IDatabaseConnection databaseConnection;
+	private final ITimeSlotsQuery timeSlotsQuery;
 	private final Scanner scanner;
 
 	public AddTimeSlots(final Scanner scanner) {
 		this.scanner = scanner;
+		databaseConnection = DatabaseConnection.instance();
+		timeSlotsQuery=TimeSlotsQuery.instance();
 	}
 	
 	public final void add() {
@@ -20,7 +27,7 @@ public class AddTimeSlots {
 			System.out.println("Enter Centre Code");
 			final String centreCode = scanner.nextLine().trim().toLowerCase();
 
-			VaccinationCentreDetails centre=VaccinationCentreDetailsController.instance().checkVaccineCentreExists(centreCode);
+			VaccinationCentreDetails centre=VaccinationCentreDetailsImpl.instance().checkVaccineCentreExists(centreCode);
 
 			if(centre==null) {
 				System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
@@ -31,6 +38,9 @@ public class AddTimeSlots {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+		}
+		finally{
+			databaseConnection.stopDatabaseConnection();
 		}
 	}
 	
@@ -49,7 +59,8 @@ public class AddTimeSlots {
 			timeSlotEntry.setStartTime(startTime);
 			timeSlotEntry.setEndTime(endTime);
 			
-			final ITimeSlotsController timeSlotsController = new TimeSlotsController();
+
+			TimeSlotsController timeSlotsController=new TimeSlotsController();
 			
 			boolean timeSlotInserted=timeSlotsController.addTimeSlot(timeSlotEntry);
 			
@@ -62,6 +73,9 @@ public class AddTimeSlots {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+		}
+		finally {
+			 databaseConnection.stopDatabaseConnection();
 		}
 	}
 }
