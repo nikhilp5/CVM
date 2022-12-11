@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import database.DatabaseConnection;
 import frontend.AdminPage;
+import frontend.ShowDetails;
 
 public class LoginController {
 	
@@ -51,6 +52,11 @@ public class LoginController {
 		{
 			AdminPage admin=new AdminPage();
 			admin.display();
+		}
+		if(user.getRole().equals("USER")){
+			ShowDetails sh1 = new ShowDetails();
+			sh1.showUserDetails(user);
+			sh1.showVaccinationDetails(user);
 		}
 	}
 }

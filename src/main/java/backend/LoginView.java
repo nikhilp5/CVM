@@ -60,6 +60,7 @@ public class LoginView {
 	public User resultUser(ResultSet rs) throws SQLException
 	{
 		User user=new User();
+		user.setUserId(rs.getString("user_id"));
 		user.setFirstName(rs.getString("firstname"));
 		user.setLastName(rs.getString("lastName"));
 		user.setGender(rs.getString("gender"));
