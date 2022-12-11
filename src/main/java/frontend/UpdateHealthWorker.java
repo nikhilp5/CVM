@@ -4,24 +4,14 @@ import java.util.Scanner;
 
 import backend.HealthWorkerUpdateController;
 import backend.IHealthWorkerUpdateController;
-import backend.IUserRegistrationController;
-import backend.IUserQuery;
 import backend.User;
 import backend.UserDatabaseColumns;
-import backend.UserQuery;
-import backend.UserRegistrationController;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 public class UpdateHealthWorker {
-	private final IDatabaseConnection databaseConnection;
 	private final Scanner scanner;
-	private final IUserQuery  healthWorkerQuery;
 
 	public UpdateHealthWorker(final Scanner scanner) {
 		this.scanner = scanner;
-		databaseConnection = DatabaseConnection.instance();
-		healthWorkerQuery=UserQuery.instance();
 	}
 
 	public final void update() {
@@ -33,10 +23,7 @@ public class UpdateHealthWorker {
 			System.out.println("Enter email ID ");
 			final String emailId = scanner.nextLine().trim();
 			
-			final IHealthWorkerUpdateController healthWorkerUpdateController =
-			        new HealthWorkerUpdateController(
-			            databaseConnection,
-			            healthWorkerQuery);
+			final IHealthWorkerUpdateController healthWorkerUpdateController = new HealthWorkerUpdateController();
 			
 			User healthWorker=healthWorkerUpdateController.getHealthWorker(firstName,lastName,emailId);
 			
@@ -61,9 +48,6 @@ public class UpdateHealthWorker {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
-		finally{
-			databaseConnection.stopDatabaseConnection();
 		}
 	}
 	

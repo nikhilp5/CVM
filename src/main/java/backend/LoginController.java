@@ -1,11 +1,6 @@
 package backend;
 
-import java.nio.charset.StandardCharsets;
-import java.sql.Connection;
 import java.util.Base64;
-import java.util.Scanner;
-
-import database.DatabaseConnection;
 import frontend.AdminPage;
 import frontend.ShowDetails;
 

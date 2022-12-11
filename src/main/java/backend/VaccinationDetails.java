@@ -1,10 +1,5 @@
 package backend;
 
-import database.DatabaseConnection;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class VaccinationDetails{
     private String user_id;

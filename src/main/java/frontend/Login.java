@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import backend.LoginController;
 import backend.User;
-import database.DatabaseConnection;
 
 public class Login {
 	

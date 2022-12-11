@@ -2,7 +2,6 @@ package frontend;
 
 import java.util.Scanner;
 
-import backend.LoginController;
 import backend.User;
 
 public class LandingPage {

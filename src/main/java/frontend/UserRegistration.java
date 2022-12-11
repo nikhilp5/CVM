@@ -3,22 +3,14 @@ package frontend;
 import java.util.Scanner;
 
 import backend.IUserRegistrationController;
-import backend.IUserQuery;
 import backend.User;
 import backend.UserRegistrationController;
-import backend.UserQuery;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 public class UserRegistration {
-	  private final IDatabaseConnection databaseConnection;
-	  private final IUserQuery userQuery;
 	  private final Scanner scanner;
 
 	  public UserRegistration(final Scanner scanner) {
 		  this.scanner = scanner;
-		  databaseConnection = DatabaseConnection.instance();
-		  userQuery=UserQuery.instance();
 	  }
 	  
 	  public final void registerUser() {
@@ -63,10 +55,7 @@ public class UserRegistration {
 			 User user=new User(firstName,lastName,gender,mobileNumber,emailId,
 						dateOfBirth,address,city,areaCode,password,"USER");
 			 
-			 final IUserRegistrationController userRegistrationController =
-				        new UserRegistrationController(
-				            databaseConnection,
-				            userQuery);
+			 final IUserRegistrationController userRegistrationController = new UserRegistrationController();
 			 boolean userInserted=userRegistrationController.register(user);
 			 if(userInserted) {
 				 System.out.println("User registered succesfully");
@@ -77,9 +66,6 @@ public class UserRegistration {
 		  }
 		  catch(Exception e) {
 			  e.printStackTrace();
-		  }
-		  finally{
-			  databaseConnection.stopDatabaseConnection();
 		  }
 	  }
 	  

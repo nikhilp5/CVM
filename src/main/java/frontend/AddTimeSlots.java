@@ -1,32 +1,18 @@
 package frontend;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 import backend.ITimeSlotsController;
-import backend.ITimeSlotsQuery;
-import backend.IUserQuery;
-import backend.IUserRegistrationController;
 import backend.TimeSlots;
 import backend.TimeSlotsController;
-import backend.TimeSlotsQuery;
-import backend.User;
-import backend.UserQuery;
-import backend.UserRegistrationController;
 import backend.VaccinationCentreDetails;
 import backend.VaccinationCentreDetailsController;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 public class AddTimeSlots {
-	private final IDatabaseConnection databaseConnection;
-	private final ITimeSlotsQuery timeSlotsQuery;
 	private final Scanner scanner;
 
 	public AddTimeSlots(final Scanner scanner) {
 		this.scanner = scanner;
-		databaseConnection = DatabaseConnection.instance();
-		timeSlotsQuery=TimeSlotsQuery.instance();
 	}
 	
 	public final void add() {
@@ -46,9 +32,6 @@ public class AddTimeSlots {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		finally{
-			databaseConnection.stopDatabaseConnection();
-		}
 	}
 	
 		public final void addTimeSlots(VaccinationCentreDetails centre) {
@@ -66,10 +49,7 @@ public class AddTimeSlots {
 			timeSlotEntry.setStartTime(startTime);
 			timeSlotEntry.setEndTime(endTime);
 			
-			final ITimeSlotsController timeSlotsController =
-			        new TimeSlotsController(
-			            databaseConnection,
-			            timeSlotsQuery);
+			final ITimeSlotsController timeSlotsController = new TimeSlotsController();
 			
 			boolean timeSlotInserted=timeSlotsController.addTimeSlot(timeSlotEntry);
 			
@@ -82,9 +62,6 @@ public class AddTimeSlots {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
-		finally {
-			 databaseConnection.stopDatabaseConnection();
 		}
 	}
 }

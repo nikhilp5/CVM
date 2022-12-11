@@ -2,8 +2,6 @@ package frontend;
 
 import java.util.Scanner;
 
-import backend.IUserQuery;
-import backend.UserQuery;
 import backend.VaccinationCentreDetails;
 import backend.VaccinationCentreDetailsController;
 import database.DatabaseConnection;
