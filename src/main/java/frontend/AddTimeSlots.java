@@ -1,25 +1,16 @@
 package frontend;
 import java.util.Scanner;
 
-import backend.ITimeSlotsController;
-import backend.ITimeSlotsQuery;
 import backend.TimeSlots;
 import backend.TimeSlotsController;
-import backend.TimeSlotsQuery;
 import backend.VaccinationCentreDetails;
 import backend.VaccinationCentreDetailsImpl;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 public class AddTimeSlots {
-	private final IDatabaseConnection databaseConnection;
-	private final ITimeSlotsQuery timeSlotsQuery;
 	private final Scanner scanner;
 
 	public AddTimeSlots(final Scanner scanner) {
 		this.scanner = scanner;
-		databaseConnection = DatabaseConnection.instance();
-		timeSlotsQuery=TimeSlotsQuery.instance();
 	}
 	
 	public final void add() {
@@ -38,9 +29,6 @@ public class AddTimeSlots {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
-		finally{
-			databaseConnection.stopDatabaseConnection();
 		}
 	}
 	
@@ -73,9 +61,6 @@ public class AddTimeSlots {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
-		finally {
-			 databaseConnection.stopDatabaseConnection();
 		}
 	}
 }
