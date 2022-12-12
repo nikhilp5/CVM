@@ -31,7 +31,6 @@ public class LoginController {
 			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
 			if(encodedPassword.equals(user.getPassword()))
 			{
-				roleCheck(user);
 				return user;
 			}
 			else
@@ -41,23 +40,5 @@ public class LoginController {
 			}
 			
 		}		
-	}
-	
-	public void roleCheck(User user) throws Exception {
-		if(user.getRole().equals("ADMIN"))
-		{
-			AdminPage admin=new AdminPage();
-			admin.display();
-		}
-		if(user.getRole().equals("USER")){
-			ShowDetails sh1 = new ShowDetails();
-//			sh1.showUserDetails(user);
-//			sh1.showVaccinationDetails(user);
-//			sh1.showVaccinationCentre(user);
-		}
-		if(user.getRole().equals("HEALTH_WORKER")){
-			HealthWorkerPage healthWorkerPage = new HealthWorkerPage();
-			healthWorkerPage.display();
-		}
 	}
 }

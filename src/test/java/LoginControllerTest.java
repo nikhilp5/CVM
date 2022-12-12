@@ -38,7 +38,7 @@ public class LoginControllerTest {
 	@Test
 	public void userLoginByPhoneTestFailure() {
 		try {
-			user = loginController.userLoginByPhone("123456789", "@Hello1");
+			user = loginController.userLoginByPhone("312343232", "@Hello1");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,7 +58,7 @@ public class LoginControllerTest {
 	@Test
 	public void userCheckTestFailure() {
 		try {
-			user = loginController.userLoginByEmail("nikhil@gmail.com", "@Hello");
+			user = loginController.userLoginByEmail("test@gmail.com", "@Hello");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
