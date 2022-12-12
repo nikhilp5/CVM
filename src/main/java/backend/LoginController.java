@@ -5,24 +5,24 @@ import frontend.AdminPage;
 import frontend.HealthWorkerPage;
 import frontend.ShowDetails;
 
-public class LoginController {
+public class LoginController implements ILoginController {
 	
 	
 	private User user;
 	
 	
-	public User userLoginByEmail(String email,String password) throws Exception {
+	public User userLoginByEmail(String email,String password){
 		user=LoginImpl.instance().getPasswordByEmail(email);
 		user=userCheck(user,password);
 		return user;
 	}
 	
-	public User userLoginByPhone(String mobileNumber,String password) throws Exception {
+	public User userLoginByPhone(String mobileNumber,String password) {
 		user=LoginImpl.instance().getPasswordByPhoneNumber(mobileNumber);
 		user=userCheck(user,password);
 		return user;
 	}
-	public User userCheck(User user,String password) throws Exception {
+	public User userCheck(User user,String password) {
 		if(user==null)
 		{
 			return user;

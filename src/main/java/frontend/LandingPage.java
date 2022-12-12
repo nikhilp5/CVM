@@ -2,7 +2,7 @@ package frontend;
 
 import java.util.Scanner;
 
-import backend.RoleCheck;
+import backend.LoginChain;
 import backend.User;
 
 public class LandingPage {
@@ -33,8 +33,8 @@ public class LandingPage {
 				case "2": 
 				case "3":
 					user= Login.instance().login(input, scanner);
-					RoleCheck roleCheck=new RoleCheck();
-					roleCheck.roleCheck(user);
+					LoginChain loginChain=new LoginChain();
+					loginChain.process(user);
 					break;
 				case "4":
 					System.exit(0);
