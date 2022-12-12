@@ -7,11 +7,10 @@ public class GenderTest {
 	
 	@Test
 	public void isGenderValidTest() {
-		Gender genderTest=new Gender();
-		Assertions.assertTrue(genderTest.isGenderValid("MALE"));
-		Assertions.assertTrue(genderTest.isGenderValid("FEMALE"));
-		Assertions.assertTrue(genderTest.isGenderValid("OTHER"));
-		Assertions.assertFalse(genderTest.isGenderValid("NegativeTest"));
+		Assertions.assertTrue(Gender.isGenderValid("MALE"));
+		Assertions.assertTrue(Gender.isGenderValid("FEMALE"));
+		Assertions.assertTrue(Gender.isGenderValid("OTHER"));
+		Assertions.assertFalse(Gender.isGenderValid("NegativeTest"));
 	}
 	
 }

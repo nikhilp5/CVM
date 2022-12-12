@@ -3,9 +3,9 @@ package backend;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
-public final class UserFieldValidation {
+public  class UserFieldValidation {
 
-	public static boolean nameValidation(final String name) {
+	public static boolean nameValidation(String name) {
 		if(isEmptyString(name)) {
 			return true;
 		}
@@ -16,7 +16,7 @@ public final class UserFieldValidation {
 	}
 
 
-	public static boolean genderValidation(final String gender) {
+	public static boolean genderValidation(String gender) {
 		if(isEmptyString(gender)) {
 			return true;
 		}
@@ -27,16 +27,16 @@ public final class UserFieldValidation {
 	}
 
 
-	public static boolean dateValidation(final String date) {
+	public static boolean dateValidation(String date) {
 		if(isEmptyString(date)) {
 			return true;
 		}
 		try {
-			final String[] dateArr = date.split("-");
-			if (Integer.parseInt(dateArr[0])>0 && Integer.parseInt(dateArr[0])<=31 && dateArr[0].length() != 2) {
+			String[] dateArr = date.split("-");
+			if (Integer.parseInt(dateArr[0])<0 || Integer.parseInt(dateArr[0])>31 || dateArr[0].length() != 2) {
 				return true;
 			}
-			if (Integer.parseInt(dateArr[1])>0 && Integer.parseInt(dateArr[1])<=12 && dateArr[1].length() != 2) {
+			if (Integer.parseInt(dateArr[1])<0 || Integer.parseInt(dateArr[1])>12 || dateArr[1].length() != 2) {
 				return true;
 			}
 			if (dateArr[2].length() != 4) {
@@ -51,7 +51,7 @@ public final class UserFieldValidation {
 		}
 	}
 
-	public static boolean emailValidation(final String email) {
+	public static boolean emailValidation(String email) {
 		if (isEmptyString(email)) {
 			return true;
 		}
@@ -63,7 +63,7 @@ public final class UserFieldValidation {
 	}
 
 
-	public static boolean passwordValidation(final String password) {
+	public static boolean passwordValidation(String password) {
 		if(isEmptyString(password)) {
 			return true;
 		}
@@ -75,7 +75,7 @@ public final class UserFieldValidation {
 	}
 
 
-	public static boolean mobileNumberValidation(final String contactNumber) {
+	public static boolean mobileNumberValidation(String contactNumber) {
 		if(isEmptyString(contactNumber)) {
 			return true;
 		}
@@ -86,7 +86,7 @@ public final class UserFieldValidation {
 		}
 	}
 
-	public static boolean areaCodeValidation(final String zipCode) {
+	public static boolean areaCodeValidation(String zipCode) {
 		if(isEmptyString(zipCode)) {
 			return true;
 		}
@@ -97,14 +97,14 @@ public final class UserFieldValidation {
 	}
 
 
-	public static boolean isEmptyString(final String text) {
+	public static boolean isEmptyString(String text) {
 		if(text==null || text.trim().isEmpty()) {
 			return true;
 		}
 		return false;
 	}
 
-	public static boolean timeValidation(final String text) {
+	public static boolean timeValidation(String text) {
 		if(isEmptyString(text)) {
 			return true;
 		}
