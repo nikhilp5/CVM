@@ -1,7 +1,6 @@
 package frontend;
 import java.util.Scanner;
 
-import backend.ITimeSlotsController;
 import backend.ITimeSlotsQuery;
 import backend.TimeSlots;
 import backend.TimeSlotsController;
