@@ -68,5 +68,31 @@ public class UserQuery implements IUserQuery{
 		query=query.concat(" where user_id= "+user.getUserId());
 		return query;
 	}
+	@Override
+	public String getUser(String firstName,String lastName,String emailId) {
+		return "select * from "+UserDatabaseColumns.user_table+" where LOWER("+UserDatabaseColumns.user_first_name+")"
+				+" = '"+firstName
+				+"' and LOWER(" +UserDatabaseColumns.user_last_name+")"
+				+" = '"+lastName
+				+"' and LOWER(" +UserDatabaseColumns.user_email+")"
+				+" = '"+emailId +"' and role='USER' limit 1";
+	}
 
+	@Override
+	public String updateUser(User user,HashMap<String,String> updateValues) {
+		String query="update "+UserDatabaseColumns.user_table+" set ";
+		int count = 1;
+		for (String key : updateValues.keySet()) {
+			query=query+key+"= '"+updateValues.get(key)+"'";
+			if(count==updateValues.size()) {
+				break;
+			}
+			else {
+				count++;
+				query=query.concat(" , ");
+			}
+		}
+		query=query.concat(" where user_id= "+user.getUserId());
+		return query;
+	}
 }

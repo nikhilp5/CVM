@@ -2,6 +2,7 @@ package backend;
 
 import java.util.Base64;
 import frontend.AdminPage;
+import frontend.HealthWorkerPage;
 import frontend.ShowDetails;
 
 public class LoginController {
@@ -53,6 +54,10 @@ public class LoginController {
 			sh1.showUserDetails(user);
 			sh1.showVaccinationDetails(user);
 			sh1.showVaccinationCentre(user);
+		}
+		if(user.getRole().equals("HEALTH_WORKER")){
+			HealthWorkerPage healthWorkerPage = new HealthWorkerPage();
+			healthWorkerPage.display();
 		}
 	}
 }
