@@ -1,35 +1,41 @@
 package frontend;
 
-import backend.BookAppointment;
-import backend.User;
-import backend.VaccinationCentreDetails;
-import backend.VaccinationDetails;
+import backend.*;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class BookAppointmentView {
+    ShowAppointmentSlots apt = new ShowAppointmentSlots();
     VaccinationCentreDetails vac_center;
+    BookAppointment bk1 = new BookAppointment();
+    User newUser;
     Scanner scanner = new Scanner(System.in);
     private List<VaccinationCentreDetails> vac_centres;
-    public void bookAppoinment(User user, VaccinationDetails vac_details) {
+    public void bookAppointment(User user, VaccinationDetails vac_details) {
         while (true) {
             System.out.println("Book Your Appointment \n Select a vaccination centre: ");
-            int total = showVaccinationCentres(user, vac_details);
+            showVaccinationCentres(user, vac_details);
+            newUser = user;
             String input = scanner.nextLine();
             int index = Integer.parseInt(input);
             index= index - 1 ;
             System.out.println("List size: " + vac_centres.size());
             if(index < vac_centres.size()){
-                vac_centres.get(index).getCentre_name();
-                break;
+                apt.showAvailableSlots(vac_centres.get(index));
+                input = scanner.nextLine();
+                index = Integer.parseInt(input);
+                index= index - 1;
+                if(apt.checkUserAppointmentSlot(index, user)) {
+                    break;
+                }
             }
             else{
                 System.out.println(" Incorrect Centre selection !!");
             }
         }
     }
-    public int showVaccinationCentres(User user, VaccinationDetails vac_details) {
+    public void showVaccinationCentres(User user, VaccinationDetails vac_details) {
         int index = 1;
         if (vac_details.getVaccination_status().contains("fully")) {
             System.out.println("User fully vaccinated !!!");
@@ -45,6 +51,5 @@ public class BookAppointmentView {
                 index++;
             }
         }
-        return index;
     }
 }

@@ -43,7 +43,7 @@ public class ShowDetails extends User implements IShowDetails{
     }
     public void showVaccinationCentre(User user){
         BookAppointmentView bk = new BookAppointmentView();
-        bk.bookAppoinment(user,vac_details);
+        bk.bookAppointment(user,vac_details);
     }
 
 }

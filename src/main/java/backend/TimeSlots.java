@@ -6,6 +6,7 @@ public class TimeSlots {
 	private String endTime;
 	private String centreId;
 	private String date;
+	private String time_slot_id;
 	
 	public TimeSlots() {
 		super();
@@ -49,6 +50,14 @@ public class TimeSlots {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public void setTime_slot_id(String time_slot_id) {
+		this.time_slot_id = time_slot_id;
+	}
+
+	public String getTime_slot_id() {
+		return this.time_slot_id;
 	}
 }
 

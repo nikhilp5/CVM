@@ -5,5 +5,14 @@ public class BookAppointmentQuery {
         System.out.println("User_city: "+user_city);
         return "Select * From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+" where "+VaccinationCenterDatabaseColumns.centre_city+ "='"+user_city+"'";
     }
-    
+    public String insertAppointment(User user, TimeSlots apt) {
+        return "insert into " + BookAppointmentDatabaseColumns.bookAppointment_table+ "(" +
+                BookAppointmentDatabaseColumns.user_id + ", " +
+                BookAppointmentDatabaseColumns.centre_id + ", " +
+                BookAppointmentDatabaseColumns.time_slot_id + ")" +
+                "values (" +
+                "'" + user.getUserId() + "', " +
+                "'" + apt.getCentreId() + "', " +
+                "'" + apt.getTime_slot_id()+ "');";
+    }
 }

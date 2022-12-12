@@ -12,20 +12,17 @@ import java.util.Map;
 public class BookAppointment implements IBookAppointment{
     BookAppointmentQuery book_query = new BookAppointmentQuery();
     List<VaccinationCentreDetails> vac_centres = new ArrayList<VaccinationCentreDetails>();
-    @Override
-    public Map<String, String> getAvailableSlots(VaccinationCentreDetails vac_centre) {
-        return null;
-    }
+
     @Override
     public List<VaccinationCentreDetails> getVaccinationCentres(User user) {
-        //List<VaccinationCentreDetails> vac_centres = new ArrayList<VaccinationCentreDetails>();
         try {
             Connection connection = DatabaseConnection.instance().getDatabaseConnection();
             Statement statement = connection.createStatement();
             String vacCentreQuery = book_query.getVaccinationCentreQuery(user.getAddressCity());
             ResultSet rs = statement.executeQuery(vacCentreQuery);
-            if(rs.next()) {
+            if(rs.isBeforeFirst()) {
                 vac_centres = resultVaccinationCentres(rs);
+                System.out.println("No of centres: "+ vac_centres.size());
             }
             else{
                 System.out.println("No vaccination centre available");
@@ -40,6 +37,7 @@ public class BookAppointment implements IBookAppointment{
         try{
             while (rs.next()) {
                 VaccinationCentreDetails vac_centre = new VaccinationCentreDetails();
+                vac_centre.setCentre_id(rs.getString(VaccinationCenterDatabaseColumns.centre_id));
                 vac_centre.setCentre_city(rs.getString(VaccinationCenterDatabaseColumns.centre_city));
                 vac_centre.setCentre_name(rs.getString(VaccinationCenterDatabaseColumns.centre_name));
                 vac_centre.setCentre_address(rs.getString(VaccinationCenterDatabaseColumns.centre_address));
@@ -55,6 +53,26 @@ public class BookAppointment implements IBookAppointment{
         }
         return vac_centres;
     }
+    public boolean bookAppointment(TimeSlots slot,User user){
+        boolean flag = false;
+        try {
+            Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
+            String bookAppointmentQuery = book_query.insertAppointment(user, slot);
+            int rowCount = statement.executeUpdate(bookAppointmentQuery);
+            if(rowCount > 0){
+                flag = true;
+            }
+            else{
+                flag = false;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            DatabaseConnection.instance().stopDatabaseConnection();
+        }
+        return flag;
+    }
 }
-
 
