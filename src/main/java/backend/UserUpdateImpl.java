@@ -10,8 +10,10 @@ import java.util.HashMap;
 public class UserUpdateImpl {
     private static UserUpdateImpl userUpdateImpl;
 
-    public static UserUpdateImpl instance() {
-        if (userUpdateImpl == null) {
+    public static UserUpdateImpl instance()
+    {
+        if (userUpdateImpl == null)
+        {
             userUpdateImpl = new UserUpdateImpl();
         }
         return userUpdateImpl;
@@ -25,7 +27,7 @@ public class UserUpdateImpl {
     public User checkUserExists(String firstName,String lastName,String emailId) {
         try {
             Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
-            String selectUserQuery = UserQuery.instance().getHealthWorker(firstName,lastName,emailId);
+            String selectUserQuery = UserQuery.instance().getUser(firstName,lastName,emailId);
             ResultSet rs=statement.executeQuery(selectUserQuery);
             User user = new User();
             while(rs.next()) {
@@ -69,7 +71,7 @@ public class UserUpdateImpl {
             String updateUserQuery = UserQuery.instance().updateUser(user,updateValues);
             int rowCount=statement.executeUpdate(updateUserQuery);
             if (rowCount > 0) 
-           {
+            {
                 return true;
             }
             return false;

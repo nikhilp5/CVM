@@ -17,7 +17,8 @@ public class UserUpdateController implements IUserUpdateController {
     }
 
     @Override
-    public boolean updateUserDetails(User user,final HashMap<String,String> updateValues) {
+    public boolean updateUserDetails(User user,final HashMap<String,String> updateValues)
+    {
         return userUpdateImpl.updateUserDetails(user, updateValues);
     }
 }

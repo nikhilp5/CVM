@@ -92,7 +92,7 @@ public class UserQuery implements IUserQuery{
 				query=query.concat(" , ");
 			}
 		}
-		query=query.concat(" where user_id= "+user.getUserId());
+		query = query.concat(" where user_id= " +user.getUserId());
 		return query;
 	}
 }

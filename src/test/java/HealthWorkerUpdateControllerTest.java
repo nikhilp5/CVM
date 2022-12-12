@@ -12,8 +12,8 @@ import database.DatabaseConnection;
 import database.IDatabaseConnection;
 
 public class HealthWorkerUpdateControllerTest {
-	public final IDatabaseConnection databaseConnection=DatabaseConnection.instance();
-	public final IUserQuery  healthWorkerQuery=UserQuery.instance();
+	public final IDatabaseConnection databaseConnection = DatabaseConnection.instance();
+	public final IUserQuery  healthWorkerQuery = UserQuery.instance();
 
 	HealthWorkerUpdateController healthWorkerUpdateController = new HealthWorkerUpdateController();
 	

@@ -29,21 +29,26 @@ public class UpdateUser {
 
             User user= userUpdateController.getUser(firstName,lastName,emailId);
 
-            if(user == null) {
+            if(user == null)
+            {
                 System.out.println("User doesn't Exist. Enter proper Details.");
             }
-            else {
+            else
+            {
                 HashMap<String,String> columnValueUpdate=this.getAllUpdateKeyValues();
                 if(columnValueUpdate.size()==0) {
-                    System.out.println("No Details to update");
+                    System.out.println("No Details to Update");
                 }
-                else {
+                else
+                {
                     boolean UserUpdated= userUpdateController.updateUserDetails(user,columnValueUpdate);
-                    if(UserUpdated) {
-                        System.out.println("Health Worker Updated");
+                    if(UserUpdated)
+                    {
+                        System.out.println("User Updated");
                     }
-                    else {
-                        System.out.println("Health Worker Not Updated");
+                    else
+                    {
+                        System.out.println("User Not Updated");
                     }
                 }
             }
@@ -53,14 +58,16 @@ public class UpdateUser {
         }
     }
 
-    public final HashMap<String,String> getAllUpdateKeyValues() {
+    public final HashMap<String,String> getAllUpdateKeyValues()
+    {
         HashMap<String,String> columnValue=new HashMap<String,String>();
-        boolean breakLoop=true;
-        String value=new String();
-        while(breakLoop) {
+        boolean breakLoop = true;
+        String value = new String();
+        while(breakLoop)
+        {
             System.out.println("Enter Required Field and Value");
-            System.out.println("PRESS 10 TO UPDATE ALL VALUES AFTER ENTERING THE FIELD AND VALUE");
             System.out.println("Enter choice");
+            System.out.println("Press 10 to Update all the value fields");
             System.out.println("1. Update First Name\n"
                     + "2. Update Last Name\n"
                     + "3. Update Gender\n"
@@ -70,9 +77,10 @@ public class UpdateUser {
                     + "7. Update Address\n"
                     + "8. Update City\n"
                     + "9. Update Area Code\n"
-                    + "10. UPDATE ALL ENTERED VALUE\n");
+                    + "10. Update all the value fields\n");
             String input=scanner.nextLine();
-            switch(input) {
+            switch(input)
+            {
                 case "1":
                     value=this.setValue(scanner);
                     columnValue.put(UserDatabaseColumns.user_first_name, value);
@@ -110,7 +118,7 @@ public class UpdateUser {
                     columnValue.put(UserDatabaseColumns.user_zip, value);
                     break;
                 case "10":
-                    System.out.println("Updation in process");
+                    System.out.println("Updation is in process");
                     breakLoop=false;
                     break;
                 default:
