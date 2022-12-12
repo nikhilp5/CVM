@@ -16,7 +16,6 @@ public class BookAppointment implements IBookAppointment{
     public Map<String, String> getAvailableSlots(VaccinationCentreDetails vac_centre) {
         return null;
     }
-
     @Override
     public List<VaccinationCentreDetails> getVaccinationCentres(User user) {
         //List<VaccinationCentreDetails> vac_centres = new ArrayList<VaccinationCentreDetails>();

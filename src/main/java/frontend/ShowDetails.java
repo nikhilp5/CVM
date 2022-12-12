@@ -46,6 +46,4 @@ public class ShowDetails extends User implements IShowDetails{
         bk.bookAppoinment(user,vac_details);
     }
 
-
-
 }
