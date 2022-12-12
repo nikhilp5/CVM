@@ -73,6 +73,9 @@ public class AdminPage {
 					adminPage.deleteAllTimeSlots(scanner);
 					break;
 				case "7":
+					System.out.println("Logged Out Successfully");
+					logout=false;
+					break;
 				default: System.out.println("enter the correct option");
 					break;
 				}

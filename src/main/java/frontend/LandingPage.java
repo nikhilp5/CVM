@@ -23,7 +23,8 @@ public class LandingPage {
 				Scanner scanner = new Scanner(System.in);
 				System.out.println("1. User Registration\n"
 						+ "2. Login By Email\n"
-						+ "3. Login By MobileNumber");
+						+ "3. Login By MobileNumber\n"
+						+ "4. Exit");
 				final String input = scanner.nextLine();
 				switch(input) {
 				case "1":
@@ -34,6 +35,9 @@ public class LandingPage {
 					user= Login.instance().login(input, scanner);
 					RoleCheck roleCheck=new RoleCheck();
 					roleCheck.roleCheck(user);
+					break;
+				case "4":
+					System.exit(0);
 					break;
 				default: 
 					System.out.println("enter the correct option");
