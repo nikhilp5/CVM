@@ -8,4 +8,7 @@ public class TimeSlotsController implements ITimeSlotsController{
 		return timeSlotsImpl.addTimeSlot(timeSlotEntry);
 	}
 
+	public boolean deleteAllTimeSlot(VaccinationCentreDetails centre) {
+		return timeSlotsImpl.deleteAllTimeSlot(centre);
+	}
 }
