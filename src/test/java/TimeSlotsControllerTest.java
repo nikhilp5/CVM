@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import backend.TimeSlotsController;
 import backend.TimeSlotsDatabaseColumns;
 import backend.TimeSlotsQuery;
-
+import backend.VaccinationCentreDetails;
 import backend.ITimeSlotsController;
 import backend.ITimeSlotsQuery;
 import backend.TimeSlots;
@@ -39,4 +39,20 @@ public class TimeSlotsControllerTest {
 		}
 	}
 
+	@Test
+	public void deleteTimeSlotTest() {
+		try {
+			TimeSlots timeSlotEntry=new TimeSlots ("13:00", "15:00","999", "10-10-2020");
+			timeSlotsController.addTimeSlot(timeSlotEntry);
+			VaccinationCentreDetails centre=new VaccinationCentreDetails();
+			centre.setCentre_id("999");
+			Assertions.assertTrue(timeSlotsController.deleteAllTimeSlot(centre));
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			databaseConnection.stopDatabaseConnection();
+		}
+	}
 }
