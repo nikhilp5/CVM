@@ -1,10 +1,12 @@
 package frontend;
 
-import backend.User;
-import backend.VaccinationDetails;
-import backend.VaccinationDetailsController;
+import backend.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowDetails extends User implements IShowDetails{
+    private VaccinationDetails vac_details;
     @Override
     public void showUserDetails(User user) {
         System.out.println("Name: "+user.getFirstName()+" "+ user.getLastName());
@@ -17,8 +19,7 @@ public class ShowDetails extends User implements IShowDetails{
     public void showVaccinationDetails(User user) {
         try {
             VaccinationDetailsController vac_con = new VaccinationDetailsController();
-            VaccinationDetails vac_details = vac_con.fetchVaccinationDetails(user);
-            System.out.println(vac_details.getVaccination_status());
+            vac_details = vac_con.fetchVaccinationDetails(user);
             if(vac_details.getVaccination_status().contains("vaccinated")) {
                 System.out.println("Vaccination_status: "+vac_details.getVaccination_status());
                 System.out.println("Vaccine Name: " + vac_details.getVaccine_name());
@@ -40,5 +41,11 @@ public class ShowDetails extends User implements IShowDetails{
             System.out.println(e);
         }
     }
+    public void showVaccinationCentre(User user){
+        BookAppointmentView bk = new BookAppointmentView();
+        bk.bookAppoinment(user,vac_details);
+    }
+
+
 
 }

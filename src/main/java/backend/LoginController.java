@@ -52,6 +52,7 @@ public class LoginController {
 			ShowDetails sh1 = new ShowDetails();
 			sh1.showUserDetails(user);
 			sh1.showVaccinationDetails(user);
+			sh1.showVaccinationCentre(user);
 		}
 	}
 }
