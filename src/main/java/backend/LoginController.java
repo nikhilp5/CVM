@@ -51,9 +51,9 @@ public class LoginController {
 		}
 		if(user.getRole().equals("USER")){
 			ShowDetails sh1 = new ShowDetails();
-			sh1.showUserDetails(user);
-			sh1.showVaccinationDetails(user);
-			sh1.showVaccinationCentre(user);
+//			sh1.showUserDetails(user);
+//			sh1.showVaccinationDetails(user);
+//			sh1.showVaccinationCentre(user);
 		}
 		if(user.getRole().equals("HEALTH_WORKER")){
 			HealthWorkerPage healthWorkerPage = new HealthWorkerPage();
