@@ -48,7 +48,7 @@ public class UserQuery implements IUserQuery{
 				+"' and LOWER(" +UserDatabaseColumns.user_last_name+")"
 				+" = '"+lastName
 				+"' and LOWER(" +UserDatabaseColumns.user_email+")"
-				+" = '"+emailId +"' and role='HEALTH_WORKER' limit 1";
+				+" = '"+emailId +"' and role='"+UserType.healthworker+"' limit 1";
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class UserQuery implements IUserQuery{
 				+"' and LOWER(" +UserDatabaseColumns.user_last_name+")"
 				+" = '"+lastName
 				+"' and LOWER(" +UserDatabaseColumns.user_email+")"
-				+" = '"+emailId +"' and role='USER' limit 1";
+				+" = '"+emailId +"' and role='"+UserType.user+"' limit 1";
 	}
 
 	@Override

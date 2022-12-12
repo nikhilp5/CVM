@@ -5,6 +5,7 @@ import java.util.Scanner;
 import backend.IUserRegistrationController;
 import backend.User;
 import backend.UserRegistrationController;
+import backend.UserType;
 
 public class UserRegistration {
 	  private final Scanner scanner;
@@ -53,7 +54,7 @@ public class UserRegistration {
 			 final String password = firstPass;
 			 
 			 User user=new User(firstName,lastName,gender,mobileNumber,emailId,
-						dateOfBirth,address,city,areaCode,password,"USER");
+						dateOfBirth,address,city,areaCode,password,UserType.user);
 			 
 			 final IUserRegistrationController userRegistrationController = new UserRegistrationController();
 			 boolean userInserted=userRegistrationController.register(user);

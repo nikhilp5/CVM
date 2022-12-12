@@ -10,6 +10,7 @@ import backend.User;
 import backend.UserDatabaseColumns;
 import backend.UserQuery;
 import backend.UserRegistrationController;
+import backend.UserType;
 import database.DatabaseConnection;
 import database.IDatabaseConnection;
 
@@ -23,7 +24,7 @@ public class UserRegistrationControllerTest {
 		try {
 			User user=new User("firstNameTest","lastNameTest","MALE","123456789","test@gmail.com",
 					"10-10-2020","TestAddress", "TestAddressCity", 
-					"B3kC94","Hello@123","USER");
+					"B3kC94","Hello@123",UserType.user);
 			Assertions.assertTrue(userRegistrationController.register(user));
 			String queryForDeletionAfterTest="delete from "+ UserDatabaseColumns.user_table
 					+" where "+ UserDatabaseColumns.user_first_name
