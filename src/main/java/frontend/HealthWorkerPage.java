@@ -10,6 +10,7 @@ public class HealthWorkerPage {
     }
 
     private void cancelAppointment() {
+
     }
 
     public void display() {
