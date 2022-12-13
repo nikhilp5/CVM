@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class VaccinationDetailsController implements IVaccinationDetailsController{
     private VaccinationDetails vac_details = new VaccinationDetails();
-
+    
     @Override
     public VaccinationDetails fetchVaccinationDetails(User user) {
         try {
