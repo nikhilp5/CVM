@@ -42,7 +42,6 @@ public class BookAppointmentController implements IBookAppointmentController{
     public List<BookAppointment> getUserAppointments(User user){
         try{
             bookedAppointments = bookImpl.getBookedAppointments(user);
-            System.out.println("getUserAppointments: "+bookedAppointments.size());
         }
         catch (Exception e){
             e.printStackTrace();
