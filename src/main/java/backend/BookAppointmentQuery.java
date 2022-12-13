@@ -15,4 +15,9 @@ public class BookAppointmentQuery {
                 "'" + apt.getCentreId() + "', " +
                 "'" + apt.getTime_slot_id()+ "');";
     }
+    public String deleteAppointmentByTimeSlot(String centreId) {
+        return "delete from "+ BookAppointmentDatabaseColumns.bookAppointment_table+
+        		" where "+BookAppointmentDatabaseColumns.centre_id+
+        		" in ('"+centreId+"')";
+    }
 }

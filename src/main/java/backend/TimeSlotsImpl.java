@@ -58,6 +58,9 @@ public class TimeSlotsImpl {
 			String deleteSlotsQuery = TimeSlotsQuery.instance().deleteSlots(centre.getCentre_id());
 			int rowCount=statement.executeUpdate(deleteSlotsQuery);
 			if (rowCount >= 0) {
+				BookAppointmentQuery book_query = new BookAppointmentQuery();
+				String query=book_query.deleteAppointmentByTimeSlot(centre.getCentre_id());
+				statement.executeUpdate(query);
 				return true;
 			}
 			return false;
