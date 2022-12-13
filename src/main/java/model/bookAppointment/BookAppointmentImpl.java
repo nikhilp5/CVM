@@ -101,7 +101,6 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
             ResultSet rs = statement.executeQuery(bookedQuery);
             if(rs.isBeforeFirst()) {
                 bookedAppointments = resultBookedAppointments(rs);
-                System.out.println("getBookedAppointment" +bookedAppointments.size());
             }
         }
         catch (Exception e){

@@ -15,11 +15,12 @@ public class ShowVaccinationCentres {
         VaccinationCentreDetailsImpl vaccinationCentreDetails=new VaccinationCentreDetailsImpl();
         VaccinationCentreDetailsController vac_ctrl = new VaccinationCentreDetailsController(vaccinationCentreDetails);
         vac_centres = vac_ctrl.selectVaccinationCentres(user);
+        System.out.println("No of Centres in your City: " + vac_centres.size());
         System.out.println("Vaccine Centres: ");
         for (VaccinationCentreDetails vac_centre : vac_centres) {
-            System.out.println(index + " " + vac_centre.getCentre_name());
-            System.out.println("Centre code: "+ vac_centre.getCentre_code());
-            System.out.println("Address: "+ vac_centre.getCentre_address());
+            System.out.println(index +  ")           "+ vac_centre.getCentre_name());
+            System.out.println(         "Centre code: "+ vac_centre.getCentre_code());
+            System.out.println(         "Address:     "+ vac_centre.getCentre_address());
             index++;
         }
         return vac_centres;

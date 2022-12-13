@@ -64,7 +64,7 @@ public class UserRegistration {
 				 System.out.println("User Registered Successfully");
 			 }
 			 else {
-				 System.out.println("User not Registered");
+				 System.out.println("User Not Registered");
 			 }
 		  }
 		  catch(Exception e) {
@@ -74,10 +74,10 @@ public class UserRegistration {
 	  
 	  private final void confirmPassword(String firstPass,String secondPass) {
 		  while(!firstPass.equals(secondPass)) {
-			  System.out.println("Enter password");
+			  System.out.println("Enter Password");
 			  firstPass = scanner.nextLine().trim();
 
-			  System.out.println("Confirm password");
+			  System.out.println("Confirm Password");
 			  secondPass = scanner.nextLine().trim();
 		  }
 	  }

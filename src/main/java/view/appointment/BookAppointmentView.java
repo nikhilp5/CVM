@@ -18,7 +18,6 @@ public class BookAppointmentView {
             String input = scanner.nextLine();
             int index = Integer.parseInt(input);
             index= index - 1 ;
-            System.out.println("No of Centres in your City: " + vac_centres.size());
             if(index < vac_centres.size()){
                 apt.showAvailableSlots(vac_centres.get(index));
                 input = scanner.nextLine();

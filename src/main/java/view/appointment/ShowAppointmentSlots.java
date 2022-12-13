@@ -18,7 +18,7 @@ public class ShowAppointmentSlots {
     private List<TimeSlots> timeSlots;
     public void showAvailableSlots(VaccinationCentreDetails vac_details){
         int index=1;
-        System.out.println("centre_name: "+ vac_details.getCentre_name()+" id: "+ vac_details.centre_id);
+        System.out.println("Centre_name: "+ vac_details.getCentre_name()+" id: "+ vac_details.centre_id);
         timeSlots = bk_ctrl.getAvailableAppointmentSlots(vac_details);
         if(timeSlots.isEmpty())
         {
@@ -27,7 +27,7 @@ public class ShowAppointmentSlots {
         else {
             for (TimeSlots timeSlot : timeSlots) {
                 System.out.println(index + " Date: " + timeSlot.getDate());
-                System.out.println("Time: " + timeSlot.getStartTime() + " " + timeSlot.getEndTime());
+                System.out.println(" Time: " + timeSlot.getStartTime() + " " + timeSlot.getEndTime());
                 index++;
             }
         }
@@ -53,7 +53,7 @@ public class ShowAppointmentSlots {
             int index = 1;
             bookedAppointments = bk_ctrl.getUserAppointments(user);
             for (BookAppointment bookAppointment : bookedAppointments){
-                System.out.println(index + " user_id " + bookAppointment.getUser_id()+" Centre_id: "+ bookAppointment.getCentre_id()+" Time_slot_id: "+ bookAppointment.getTime_slot_id());
+                System.out.println(index + " User_id " + bookAppointment.getUser_id()+" Centre_id: "+ bookAppointment.getCentre_id()+" Time_slot_id: "+ bookAppointment.getTime_slot_id());
                 index++;
             }
         }
