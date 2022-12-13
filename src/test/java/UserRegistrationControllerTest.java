@@ -7,9 +7,9 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import controller.UserRegistrationController;
-import model.User;
-import model.UserRegistrationImpl;
+import controller.userRegistration.UserRegistrationController;
+import model.user.User;
+import model.user.UserRegistrationImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserRegistrationControllerTest {

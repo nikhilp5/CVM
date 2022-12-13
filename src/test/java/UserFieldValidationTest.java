@@ -2,8 +2,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import model.Gender;
-import model.UserFieldValidation;
+import model.user.Gender;
+import model.user.UserFieldValidation;
 
 
 public class UserFieldValidationTest {	

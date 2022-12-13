@@ -9,10 +9,10 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import controller.UserUpdateController;
-import model.User;
-import model.UserDatabaseColumns;
-import model.UserUpdateImpl;
+import controller.userUpdate.UserUpdateController;
+import model.user.User;
+import model.user.UserDatabaseColumns;
+import model.user.UserUpdateImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserUpdateControllerTest

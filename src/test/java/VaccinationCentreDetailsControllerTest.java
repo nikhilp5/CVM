@@ -7,10 +7,10 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import controller.VaccinationCentreDetailsController;
-import model.VaccinationCenterDatabaseColumns;
-import model.VaccinationCentreDetails;
-import model.VaccinationCentreDetailsImpl;
+import controller.vaccinationCentreDetails.VaccinationCentreDetailsController;
+import model.vaccinationCentre.VaccinationCenterDatabaseColumns;
+import model.vaccinationCentre.VaccinationCentreDetails;
+import model.vaccinationCentre.VaccinationCentreDetailsImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class VaccinationCentreDetailsControllerTest {
