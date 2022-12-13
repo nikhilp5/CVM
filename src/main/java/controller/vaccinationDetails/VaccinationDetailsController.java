@@ -1,19 +1,16 @@
 package controller.vaccinationDetails;
 
-import database.DatabaseConnection;
 import model.user.User;
 import model.vaccinationDetails.VaccinationDetails;
-import model.vaccinationDetails.VaccinationDetailsDatabaseColumns;
 import model.vaccinationDetails.VaccinationDetailsImpl;
-import model.vaccinationDetails.VaccinationDetailsQuery;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class VaccinationDetailsController implements IVaccinationDetailsController{
     private VaccinationDetails vac_details = new VaccinationDetails();
-    private VaccinationDetailsImpl vac_impl = new VaccinationDetailsImpl();
+    private VaccinationDetailsImpl vac_impl;
+    
+    public VaccinationDetailsController(VaccinationDetailsImpl vac_impl) {
+    	this.vac_impl=vac_impl;
+    }
     
     @Override
     public VaccinationDetails fetchVaccinationDetails(User user) {

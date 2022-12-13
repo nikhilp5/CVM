@@ -4,6 +4,7 @@ import controller.vaccinationDetails.VaccinationDetailsController;
 import model.user.User;
 import model.vaccinationCentre.VaccinationCentreDetails;
 import model.vaccinationDetails.VaccinationDetails;
+import model.vaccinationDetails.VaccinationDetailsImpl;
 import view.appointment.BookAppointmentView;
 import view.vaccinationCentre.ShowVaccinationCentres;
 
@@ -24,7 +25,8 @@ public class ShowDetails extends User implements IShowDetails{
     {
         try
         {
-            VaccinationDetailsController vac_con = new VaccinationDetailsController();
+        	VaccinationDetailsImpl vaccinationDetailsImpl=new VaccinationDetailsImpl();
+            VaccinationDetailsController vac_con = new VaccinationDetailsController(vaccinationDetailsImpl);
             System.out.println("\n *Vaccination Details*\n ");
             vac_details = vac_con.fetchVaccinationDetails(user);
             if(vac_details.getVaccination_status().contains("vaccinated")) {
