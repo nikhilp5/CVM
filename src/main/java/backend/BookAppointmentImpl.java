@@ -15,6 +15,7 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
     }
 
     private List<TimeSlots> appointmentSlots = new ArrayList<>();
+    private List<BookAppointment> bookedAppointments = new ArrayList<>();
     @Override
     public boolean bookAppointment(TimeSlots slot,User user){
         boolean flag = false;
@@ -95,5 +96,43 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
             return false;
         }
     }
+    public List<BookAppointment> getBookedAppointments(User user){
+        try{
+            Connection connection = DatabaseConnection.instance().getDatabaseConnection();
+            Statement statement = connection.createStatement();
+            String bookedQuery = book_query.getBookedAppointmentQuery(user.getUserId());
+            System.out.println(bookedQuery);
+            ResultSet rs = statement.executeQuery(bookedQuery);
+            if(rs.isBeforeFirst()) {
+                bookedAppointments = resultBookedAppointments(rs);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            DatabaseConnection.instance().stopDatabaseConnection();
+        }
+        return bookedAppointments;
+    }
+    public List<BookAppointment> resultBookedAppointments(ResultSet rs){
+        try{
+            while (rs.next()) {
+                BookAppointmentImpl bookAppointment = new BookAppointmentImpl();
+                bookAppointment.setCentre_id(rs.getString(BookAppointmentDatabaseColumns.centre_id));
+                bookAppointment.setTime_slot_id(rs.getString(BookAppointmentDatabaseColumns.time_slot_id));
+                System.out.println(bookAppointment.getTime_slot_id());
+                bookAppointment.setUser_id(rs.getString(BookAppointmentDatabaseColumns.user_id));
+                bookedAppointments.add(bookAppointment);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            DatabaseConnection.instance().stopDatabaseConnection();
+        }
+        return bookedAppointments;
+    }
+
 }
 

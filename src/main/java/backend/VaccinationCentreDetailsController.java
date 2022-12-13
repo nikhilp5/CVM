@@ -1,5 +1,8 @@
 package backend;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VaccinationCentreDetailsController {
 	
 	private VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
@@ -27,5 +30,10 @@ public class VaccinationCentreDetailsController {
 	public boolean addVaccinationCentreDetails(VaccinationCentreDetails vaccineCentreDetails) {
 		boolean insertionResult=vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccineCentreDetails);
 		return insertionResult;
+	}
+	public List<VaccinationCentreDetails> selectVaccinationCentres(User user){
+		List<VaccinationCentreDetails> vac_centres = new ArrayList<>();
+		vac_centres = vaccinationCentreDetailsImpl.getVaccinationCentres(user);
+		return vac_centres;
 	}
 }

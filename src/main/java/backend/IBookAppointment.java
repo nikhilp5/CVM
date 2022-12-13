@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 public interface IBookAppointment {
-    //public List<VaccinationCentreDetails> getVaccinationCentres(User user);
     public boolean bookAppointment(TimeSlots slot,User user);
     public List<TimeSlots> getAvailableAppointmentSlots(VaccinationCentreDetails vac_centre);
 }

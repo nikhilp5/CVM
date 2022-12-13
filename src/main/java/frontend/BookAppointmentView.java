@@ -2,21 +2,19 @@ package frontend;
 
 import backend.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class BookAppointmentView {
     ShowAppointmentSlots apt = new ShowAppointmentSlots();
-    VaccinationCentreDetails vac_center;
-    BookAppointmentImpl bk1 = new BookAppointmentImpl();
     User newUser;
     Scanner scanner = new Scanner(System.in);
     private List<VaccinationCentreDetails> vac_centres;
-    public void bookAppointment(User user, VaccinationDetails vac_details) {
+    public void bookAppointment(User user, List<VaccinationCentreDetails> vac_centre_list) {
         while (true) {
-            System.out.println("Book Your Appointment \n Select a vaccination centre: ");
-            showVaccinationCentres(user, vac_details);
             newUser = user;
+            vac_centres = vac_centre_list;
             String input = scanner.nextLine();
             int index = Integer.parseInt(input);
             index= index - 1 ;
@@ -27,31 +25,14 @@ public class BookAppointmentView {
                 index = Integer.parseInt(input);
                 index= index - 1;
                 if(apt.checkUserAppointmentSlot(index, user)) {
+                    apt.showBookedAppointment(user);
                     break;
                 }
             }
             else{
-                System.out.println(" Incorrect Centre selection !!");
+                System.out.println("Incorrect Centre selection !!");
             }
         }
     }
-    public void showVaccinationCentres(User user, VaccinationDetails vac_details) {
-        int index = 1;
-        if (vac_details.getVaccination_status().contains("fully")) {
-            System.out.println("User fully vaccinated !!!");
-        }
 
-        else {
-            BookAppointmentImpl bk = new BookAppointmentImpl();
-            VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
-            vac_centres = vaccinationCentreDetailsImpl.getVaccinationCentres(user);
-            System.out.println("Vaccine Centres: ");
-            for (VaccinationCentreDetails vac_centre : vac_centres) {
-                System.out.println(index + " " + vac_centre.getCentre_name());
-                System.out.println("Centre code: "+ vac_centre.getCentre_code());
-                System.out.println("Address: "+ vac_centre.getCentre_address());
-                index++;
-            }
-        }
-    }
 }

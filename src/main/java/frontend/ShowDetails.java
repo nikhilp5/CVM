@@ -40,9 +40,18 @@ public class ShowDetails extends User implements IShowDetails{
             System.out.println(e);
         }
     }
-    public void showVaccinationCentre(User user){
+    public void showVaccineCentres(User user){
+        ShowVaccinationCentres showCentre = new ShowVaccinationCentres();
         BookAppointmentView bk = new BookAppointmentView();
-        bk.bookAppointment(user,vac_details);
+        if(vac_details.getVaccination_status().contains("fully")){
+            System.out.println("Fully Vaccinated");
+        }
+        else {
+            System.out.println("Book Your Appointment \nSelect a vaccination centre: ");
+            List<VaccinationCentreDetails> vac_centres = showCentre.showVaccinationCentres(user);
+
+            bk.bookAppointment(user, vac_centres);
+        }
     }
 
 }

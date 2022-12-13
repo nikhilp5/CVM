@@ -44,7 +44,6 @@ public class LoginImpl {
 				}
 			connection.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {
