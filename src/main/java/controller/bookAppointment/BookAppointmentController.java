@@ -48,11 +48,4 @@ public class BookAppointmentController implements IBookAppointmentController{
         }
         return bookedAppointments;
     }
-    public boolean IsAppointmentExist(User user){
-        bookedAppointments = getUserAppointments(user);
-        if(bookedAppointments.size() > 0){
-            return true;
-        }
-        return false;
-    }
 }

@@ -49,9 +49,9 @@ public class ShowAppointmentSlots {
     public void showBookedAppointment(User user)
     {
         List<BookAppointment> bookedAppointments;
-        if(bk_ctrl.IsAppointmentExist(user)){
+        bookedAppointments = bk_ctrl.getUserAppointments(user);
+        if(bookedAppointments.size() > 0){
             int index = 1;
-            bookedAppointments = bk_ctrl.getUserAppointments(user);
             for (BookAppointment bookAppointment : bookedAppointments){
                 System.out.println(index + " User_id " + bookAppointment.getUser_id()+" Centre_id: "+ bookAppointment.getCentre_id()+" Time_slot_id: "+ bookAppointment.getTime_slot_id());
                 index++;

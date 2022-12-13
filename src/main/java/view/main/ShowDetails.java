@@ -59,7 +59,7 @@ public class ShowDetails extends User implements IShowDetails{
             System.out.println("Fully Vaccinated");
         }
         else {
-            System.out.println("\n BOOK YOUR APPOINTMENT \n*Select a Vaccination Centre* ");
+            System.out.println("\n BOOK YOUR APPOINTMENT\n ");
             List<VaccinationCentreDetails> vac_centres = showCentre.showVaccinationCentres(user);
             bk.bookAppointment(user, vac_centres);
         }
