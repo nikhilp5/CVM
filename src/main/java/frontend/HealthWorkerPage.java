@@ -19,7 +19,7 @@ public class HealthWorkerPage {
         boolean logout = true;
         while (logout) {
             System.out.println("1. Update User\n"
-                    + "2. Cancel Appointment\n "
+                    + "2. Cancel Appointment\n"
                     + "3. Logout\n");
             final String input = scanner.nextLine();
             switch (input) {
@@ -30,6 +30,9 @@ public class HealthWorkerPage {
                     healthWorkerPage.cancelAppointment();
                     break;
                 case "3":
+					System.out.println("Logged Out Successfully");
+					logout=false;
+					break;
                 default:
                     System.out.println("enter the correct option");
                     break;

@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class UserUpdateImpl {
+public class UserUpdateImpl extends UserUpdateTemplate{
     private static UserUpdateImpl userUpdateImpl;
 
     public static UserUpdateImpl instance()

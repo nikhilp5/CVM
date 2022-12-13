@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import database.DatabaseConnection;
 
-public class HealthWorkerUpdateImpl {
+public class HealthWorkerUpdateImpl extends UserUpdateTemplate{
 
 	private static HealthWorkerUpdateImpl healthWorkerUpdateImpl;
 	
@@ -18,12 +18,12 @@ public class HealthWorkerUpdateImpl {
 		return healthWorkerUpdateImpl;
 	}
 	
-	public User getHealthWorker(String firstName, String lastName, String emailId) {
-		User healthWorker=this.checkHealthWorkerExists(firstName, lastName, emailId);
+	public User getUser(String firstName, String lastName, String emailId) {
+		User healthWorker=this.checkUserExists(firstName, lastName, emailId);
 		return healthWorker;
 	}
 	
-	public User checkHealthWorkerExists(String firstName,String lastName,String emailId) {
+	public User checkUserExists(String firstName,String lastName,String emailId) {
 		try {
 			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
 			String selectUserQuery = UserQuery.instance().getHealthWorker(firstName,lastName,emailId);
@@ -53,7 +53,7 @@ public class HealthWorkerUpdateImpl {
 		}
 	}
 
-	public boolean updateHealthWorkerDetails(User user,final HashMap<String,String> updateValues) {
+	public boolean updateUserDetails(User user,final HashMap<String,String> updateValues) {
 		try {
 			ArrayList<String> errorList=validateUserInputs(updateValues);
 			if(errorList.size()!=0) {
