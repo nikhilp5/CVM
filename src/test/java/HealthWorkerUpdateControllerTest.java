@@ -17,8 +17,8 @@ import model.user.UserDatabaseColumns;
 @TestInstance(Lifecycle.PER_CLASS)
 public class HealthWorkerUpdateControllerTest {
 	
-	public HealthWorkerUpdateController healthWorkerUpdateController;
-	public HealthWorkerUpdateImpl healthWorkerUpdateImpl;
+	private HealthWorkerUpdateController healthWorkerUpdateController;
+	private HealthWorkerUpdateImpl healthWorkerUpdateImpl;
 	static User user=new User();
 	
 	@BeforeAll

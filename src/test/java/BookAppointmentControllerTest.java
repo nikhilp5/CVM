@@ -20,11 +20,11 @@ import model.vaccinationCentre.VaccinationCentreDetails;
 @TestInstance(Lifecycle.PER_CLASS)
 public class BookAppointmentControllerTest {
 
-	public BookAppointmentController bookAppointmentController;
-	public BookAppointmentImpl bookAppointmentImpl;
-	public User user=new User();
-	public TimeSlots timeSlots=new TimeSlots();
-	public VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
+	private BookAppointmentController bookAppointmentController;
+	private BookAppointmentImpl bookAppointmentImpl;
+	private User user=new User();
+	TimeSlots timeSlots=new TimeSlots();
+	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
 	
 	@BeforeAll
 	public void mockTimeSlots() {

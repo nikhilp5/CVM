@@ -14,8 +14,8 @@ import model.user.User;
 @TestInstance(Lifecycle.PER_CLASS)
 public class LoginControllerTest {
 	
-	LoginController loginController;
-	LoginImpl loginImpl;
+	private LoginController loginController;
+	private LoginImpl loginImpl;
 	static User user=new User();
 	
 	@BeforeAll

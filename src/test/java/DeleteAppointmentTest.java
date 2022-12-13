@@ -16,10 +16,10 @@ import model.vaccinationCentre.VaccinationCentreDetails;
 @TestInstance(Lifecycle.PER_CLASS)
 public class DeleteAppointmentTest {
 	
-	public DeleteAppointmentController deleteAppointmentController;
-	public BookAppointmentImpl deleteAppointmentImpl;
-	public User user=new User();
-	public VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
+	private DeleteAppointmentController deleteAppointmentController;
+	private BookAppointmentImpl deleteAppointmentImpl;
+	User user=new User();
+	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
 	
 	@BeforeAll
 	public void setup() {

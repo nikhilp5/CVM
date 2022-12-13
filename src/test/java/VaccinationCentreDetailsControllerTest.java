@@ -1,6 +1,9 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -8,6 +11,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
 import controller.vaccinationCentreDetails.VaccinationCentreDetailsController;
+import model.user.User;
 import model.vaccinationCentre.VaccinationCenterDatabaseColumns;
 import model.vaccinationCentre.VaccinationCentreDetails;
 import model.vaccinationCentre.VaccinationCentreDetailsImpl;
@@ -18,6 +22,7 @@ public class VaccinationCentreDetailsControllerTest {
 	VaccinationCentreDetailsController vaccinationCentreDetailsController;
 	VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
 	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
+	User user=new User();
 	
 	@BeforeAll
 	public void setup() {
@@ -77,5 +82,19 @@ public class VaccinationCentreDetailsControllerTest {
 	public void addVaccinationCentreDetailsTestFailure() {
 		when(vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails)).thenReturn(false);
 		assertEquals(false,vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails));
+	}
+	
+	@Test
+	public void selectVaccinationCentresTestSuccess() {
+		List<VaccinationCentreDetails> vaccinationCentres=new ArrayList<VaccinationCentreDetails>();
+		when(vaccinationCentreDetailsImpl.getVaccinationCentres(user)).thenReturn(vaccinationCentres);
+		assertEquals(vaccinationCentres,vaccinationCentreDetailsController.selectVaccinationCentres(user));
+	}
+	
+	@Test
+	public void selectVaccinationCentresTestFailure() {
+		List<VaccinationCentreDetails> vaccinationCentres=new ArrayList<VaccinationCentreDetails>();
+		when(vaccinationCentreDetailsImpl.getVaccinationCentres(null)).thenReturn(vaccinationCentres);
+		assertEquals(vaccinationCentres,vaccinationCentreDetailsController.selectVaccinationCentres(null));
 	}
 }

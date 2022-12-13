@@ -14,8 +14,8 @@ import model.user.UserRegistrationImpl;
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserRegistrationControllerTest {
 	
-	UserRegistrationController userRegistrationController;
-	UserRegistrationImpl userRegistrationImpl;
+	private UserRegistrationController userRegistrationController;
+	private UserRegistrationImpl userRegistrationImpl;
 	User user=new User();
 	
 	@BeforeAll

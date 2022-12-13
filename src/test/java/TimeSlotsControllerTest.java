@@ -15,8 +15,8 @@ import model.vaccinationCentre.VaccinationCentreDetails;
 @TestInstance(Lifecycle.PER_CLASS)
 public class TimeSlotsControllerTest {
 	
-	TimeSlotsController timeSlotsController;
-	TimeSlotsImpl timeSlotsImpl;
+	private TimeSlotsController timeSlotsController;
+	private TimeSlotsImpl timeSlotsImpl;
 	TimeSlots timeSlots=new TimeSlots();
 	
 	@BeforeAll

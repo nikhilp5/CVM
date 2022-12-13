@@ -17,8 +17,8 @@ import model.user.UserUpdateImpl;
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserUpdateControllerTest
 {
-	public UserUpdateController userUpdateController;
-	public UserUpdateImpl userUpdateImpl;
+	private UserUpdateController userUpdateController;
+	private UserUpdateImpl userUpdateImpl;
 	static User user=new User();
 	
 	@BeforeAll

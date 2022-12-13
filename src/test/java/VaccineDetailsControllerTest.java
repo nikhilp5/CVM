@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestInstance(Lifecycle.PER_CLASS)
 public class VaccineDetailsControllerTest {
 	
-	public VaccinationDetailsController vaccinationDetailsController;
-	public VaccinationDetailsImpl vaccinationDetailsImpl;
-	public VaccinationDetails vaccinationDetails=new VaccinationDetails();
-	public User user=new User();
+	private VaccinationDetailsController vaccinationDetailsController;
+	private VaccinationDetailsImpl vaccinationDetailsImpl;
+	VaccinationDetails vaccinationDetails=new VaccinationDetails();
+	User user=new User();
 	
 	@BeforeAll
 	public void setup() {
