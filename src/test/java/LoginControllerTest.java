@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
-import backend.LoginController;
-import backend.LoginImpl;
-import backend.User;
+
+import controller.LoginController;
+import model.LoginImpl;
+import model.User;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class LoginControllerTest {

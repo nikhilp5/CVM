@@ -1,8 +1,9 @@
 
-import backend.Gender;
-import backend.UserFieldValidation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import model.Gender;
+import model.UserFieldValidation;
 
 
 public class UserFieldValidationTest {	

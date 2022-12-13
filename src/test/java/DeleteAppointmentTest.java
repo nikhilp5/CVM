@@ -7,10 +7,10 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.BookAppointmentImpl;
-import backend.DeleteAppointmentController;
-import backend.User;
-import backend.VaccinationCentreDetails;
+import controller.DeleteAppointmentController;
+import model.BookAppointmentImpl;
+import model.User;
+import model.VaccinationCentreDetails;
 
 
 @TestInstance(Lifecycle.PER_CLASS)

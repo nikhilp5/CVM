@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import backend.Gender;
+import model.Gender;
 
 public class GenderTest {
 	
