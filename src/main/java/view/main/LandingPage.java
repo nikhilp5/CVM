@@ -11,7 +11,7 @@ public class LandingPage {
     public static User user;
     	
 	private void userRegistration(final Scanner scanner) {
-		final UserRegistration userRegistration =new UserRegistration(scanner);
+		UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
 	}	
 	public static void main(String[] args) {

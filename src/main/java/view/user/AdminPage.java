@@ -10,12 +10,12 @@ import java.util.Scanner;
 public class AdminPage {
 	
 	private void updateHealthWorker(final Scanner scanner) {
-		final UpdateHealthWorker updateHealthWorker =new UpdateHealthWorker(scanner);
+		UpdateHealthWorker updateHealthWorker =new UpdateHealthWorker(scanner);
 		updateHealthWorker.update();
 	}
 	
 	private void addVaccinationCenter(final Scanner scanner) {
-		final AddVaccinationCenter addVaccinationCenter =new AddVaccinationCenter(scanner);
+		AddVaccinationCenter addVaccinationCenter =new AddVaccinationCenter(scanner);
 		addVaccinationCenter.add();
 	}
 	
