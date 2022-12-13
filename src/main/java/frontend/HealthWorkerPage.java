@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class HealthWorkerPage {
 
-    private void updateUser(final Scanner scanner) {
-        final UpdateUser updateUser = new UpdateUser(scanner);
+    private void updateUser( Scanner scanner) {
+        UpdateUser updateUser = new UpdateUser(scanner);
         updateUser.update();
     }
 
-    private void cancelAppointment() {
+    private void cancelAppointment(Scanner scanner) {
+        CancelAppointment cancelAppointment = new CancelAppointment(scanner);
+        cancelAppointment.updateAppointment();
 
     }
 
@@ -28,12 +30,12 @@ public class HealthWorkerPage {
                     healthWorkerPage.updateUser(scanner);
                     break;
                 case "2":
-                    healthWorkerPage.cancelAppointment();
+                    healthWorkerPage.cancelAppointment(scanner);
                     break;
                 case "3":
-					System.out.println("Logged Out Successfully");
-					logout=false;
-					break;
+                    System.out.println("Logged Out Successfully");
+                    logout = false;
+                    break;
                 default:
                     System.out.println("enter the correct option");
                     break;

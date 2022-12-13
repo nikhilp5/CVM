@@ -21,4 +21,11 @@ public class BookAppointmentQuery {
         		" where "+BookAppointmentDatabaseColumns.centre_id+
         		" in ('"+centreId+"')";
     }
+
+    public String deleteAppointmentForUserAndCentre(String userId,String centreId){
+        return "delete from "+ BookAppointmentDatabaseColumns.bookAppointment_table+
+                " where "+BookAppointmentDatabaseColumns.centre_id+
+                " in ('"+centreId+"')"+" and "+BookAppointmentDatabaseColumns.user_id+
+                " in ('"+userId+"')";
+    }
 }

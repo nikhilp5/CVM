@@ -79,5 +79,21 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
         }
         return appointmentSlots;
     }
+
+    public boolean deleteAppointmentForUserAndCentre(User user,VaccinationCentreDetails centre){
+        try {
+            Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
+            String deleteSlotsQuery = book_query.deleteAppointmentForUserAndCentre(user.getUserId(),centre.getCentre_id());
+            int rowCount = statement.executeUpdate(deleteSlotsQuery);
+            if (rowCount >= 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            DatabaseConnection.instance().stopDatabaseConnection();
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
 

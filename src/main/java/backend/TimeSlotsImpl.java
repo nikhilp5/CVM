@@ -71,4 +71,23 @@ public class TimeSlotsImpl {
 			return false;
 		}
 	}
+
+	public boolean deleteTimeSlotForUserAndCentre(User user,VaccinationCentreDetails centre) {
+		try {
+			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
+			String deleteSlotsQuery = TimeSlotsQuery.instance().deleteSlots(centre.getCentre_id());
+			int rowCount = statement.executeUpdate(deleteSlotsQuery);
+			if (rowCount >= 0) {
+				BookAppointmentQuery book_query = new BookAppointmentQuery();
+				String query = book_query.deleteAppointmentByTimeSlot(centre.getCentre_id());
+				statement.executeUpdate(query);
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			DatabaseConnection.instance().stopDatabaseConnection();
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

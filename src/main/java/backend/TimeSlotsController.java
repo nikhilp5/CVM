@@ -11,4 +11,8 @@ public class TimeSlotsController implements ITimeSlotsController{
 	public boolean deleteAllTimeSlot(VaccinationCentreDetails centre) {
 		return timeSlotsImpl.deleteAllTimeSlot(centre);
 	}
+
+	public boolean deleteTimeSlotForUserAndCentre(User user,VaccinationCentreDetails centre){
+		return timeSlotsImpl.deleteTimeSlotForUserAndCentre(user,centre);
+	}
 }

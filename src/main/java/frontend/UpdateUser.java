@@ -4,9 +4,10 @@ import backend.UserUpdateController;
 import backend.IUserUpdateController;
 import backend.User;
 import backend.UserDatabaseColumns;
+import java.util.Scanner;
 
 import java.util.HashMap;
-import java.util.Scanner;
+
 
 public class UpdateUser {
 
