@@ -40,6 +40,7 @@ public class BookAppointmentView {
         if (vac_details.getVaccination_status().contains("fully")) {
             System.out.println("User fully vaccinated !!!");
         }
+
         else {
             BookAppointmentImpl bk = new BookAppointmentImpl();
             vac_centres = VaccinationCentreDetailsImpl.instance().getVaccinationCentres(user);

@@ -13,6 +13,7 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
     public BookAppointmentImpl(){
         super();
     }
+
     private List<TimeSlots> appointmentSlots = new ArrayList<>();
     @Override
     public boolean bookAppointment(TimeSlots slot,User user){

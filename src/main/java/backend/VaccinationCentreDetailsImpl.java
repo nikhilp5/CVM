@@ -180,6 +180,7 @@ public class VaccinationCentreDetailsImpl {
 		}
 		return vac_centres;
 	}
+
 	public List<VaccinationCentreDetails> resultVaccinationCentres(ResultSet rs){
 		try{
 			while (rs.next()) {

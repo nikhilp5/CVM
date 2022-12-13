@@ -14,7 +14,6 @@ public class ShowDetails extends User implements IShowDetails{
         System.out.println("Gender: "+user.getGender());
         System.out.println("Address: "+user.getAddress()+" "+user.getAddressZipCode()+" "+user.getAddressCity());
     }
-
     @Override
     public void showVaccinationDetails(User user) {
         try {
