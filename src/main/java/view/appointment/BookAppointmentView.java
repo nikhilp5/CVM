@@ -25,7 +25,6 @@ public class BookAppointmentView {
                 index= index - 1;
                 if(apt.checkUserAppointmentSlot(index, user)) {
                     System.out.println("Your Appointment Booked !!!!..");
-                    apt.showBookedAppointment(user);
                     break;
                 }
             }
