@@ -41,7 +41,8 @@ public class CancelAppointment {
                 if (centre == null) {
                     System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
                 } else {
-                    IDeleteAppointmentController deleteAppointmentController=new DeleteAppointmentController();
+                	BookAppointmentImpl deleteAppointmentImpl=new BookAppointmentImpl();
+                    IDeleteAppointmentController deleteAppointmentController=new DeleteAppointmentController(deleteAppointmentImpl);
                     boolean result=deleteAppointmentController.deleteAppointmentForUserAndCentre(user,centre);
                     if(result){
                         System.out.println("Appointment deleted successfully");
