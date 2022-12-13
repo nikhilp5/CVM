@@ -36,7 +36,7 @@ public class AddVaccinationCenter {
 
 			boolean centreInserted=vaccinationCentreDetailsController.addVaccinationCentreDetails(vaccinationCentreDetails);
 			if(centreInserted) {
-				System.out.println("Vaccine Centre registered succesfully");
+				System.out.println("Vaccine Centre registered Successfully");
 			}
 			else {
 				System.out.println("Vaccine Centre not registered");

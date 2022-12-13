@@ -19,8 +19,10 @@ public class ShowDetails extends User implements IShowDetails{
         System.out.println("Address: "+user.getAddress()+" "+user.getAddressZipCode()+" "+user.getAddressCity());
     }
     @Override
-    public void showVaccinationDetails(User user) {
-        try {
+    public void showVaccinationDetails(User user)
+    {
+        try
+        {
             VaccinationDetailsController vac_con = new VaccinationDetailsController();
             vac_details = vac_con.fetchVaccinationDetails(user);
             if(vac_details.getVaccination_status().contains("vaccinated")) {
@@ -30,7 +32,9 @@ public class ShowDetails extends User implements IShowDetails{
                 System.out.println("Dose 1 Date: " + vac_details.getDose1_date());
                 System.out.println("Dose 1 HealthWorker: " + vac_details.getDose1_healthWorker());
                 System.out.println("Dose 1 VaccinationCenter: " + vac_details.getDose1_vaccinationCenter());
-                if(vac_details.getVaccination_status().contains("fully_vaccinated")) {
+
+                if(vac_details.getVaccination_status().contains("fully_vaccinated"))
+                {
                     System.out.println("Dose 2: " + vac_details.getDose2());
                     System.out.println("Dose 2 Date: " + vac_details.getDose2_date());
                     System.out.println("Dose 2 HealthWorker: " + vac_details.getDose2_healthWorker());
@@ -51,7 +55,7 @@ public class ShowDetails extends User implements IShowDetails{
             System.out.println("Fully Vaccinated");
         }
         else {
-            System.out.println("Book Your Appointment \nSelect a vaccination centre: ");
+            System.out.println("BOOK YOUR APPOINTMENT \n*Select a vaccination centre*\n ");
             List<VaccinationCentreDetails> vac_centres = showCentre.showVaccinationCentres(user);
 
             bk.bookAppointment(user, vac_centres);

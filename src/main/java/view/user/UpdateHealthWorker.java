@@ -31,7 +31,7 @@ public class UpdateHealthWorker {
 			User healthWorker=healthWorkerUpdateController.getHealthWorker(firstName,lastName,emailId);
 			
 			if(healthWorker==null) {
-				System.out.println("User doesn't Exist.Enter proper Details.");
+				System.out.println("User doesn't Exist. Enter proper Details.");
 			}
 			else {
 				HashMap<String,String> columnValueUpdate=this.getAllUpdateKeyValues();

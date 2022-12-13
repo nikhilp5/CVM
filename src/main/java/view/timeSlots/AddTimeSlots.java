@@ -23,7 +23,7 @@ public class AddTimeSlots {
 			VaccinationCentreDetails centre=vaccinationCentreDetailsImpl.checkVaccineCentreExists(centreCode);
 
 			if(centre==null) {
-				System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
+				System.out.println("Centre doesn't exist. Enter proper Centre Code.");
 			}
 			else {
 				this.addTimeSlots(centre);
@@ -55,10 +55,10 @@ public class AddTimeSlots {
 			boolean timeSlotInserted=timeSlotsController.addTimeSlot(timeSlotEntry);
 			
 			if(timeSlotInserted) {
-				 System.out.println("Time Slot added succesfully");
+				 System.out.println("Time-Slot added Successfully");
 			 }
 			 else {
-				 System.out.println("Time Slot not added");
+				 System.out.println("Time-Slot not added");
 			 }
 		}
 		catch(Exception e) {

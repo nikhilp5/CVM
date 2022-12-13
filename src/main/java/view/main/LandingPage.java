@@ -17,13 +17,13 @@ public class LandingPage {
 	public static void main(String[] args) {
 		try {
 		    final LandingPage cvmApp = new LandingPage();
-			System.out.println("Covid Vaccination Management System \n Select an option");
+			System.out.println("\n COVID VACCINATION MANAGEMENT SYSTEM \n *Select an option* \n");
 			while(true) {
 				Login login=new Login();
 				Scanner scanner = new Scanner(System.in);
 				System.out.println("1. User Registration\n"
-						+ "2. Login By Email\n"
-						+ "3. Login By MobileNumber\n"
+						+ "2. Login By Email-ID\n"
+						+ "3. Login By Mobile-Number\n"
 						+ "4. Exit");
 				final String input = scanner.nextLine();
 				switch(input) {
@@ -39,7 +39,7 @@ public class LandingPage {
 					System.exit(0);
 					break;
 				default: 
-					System.out.println("enter the correct option");
+					System.out.println("*Select the Correct Option*\n");
 					break;
 				}
 			}

@@ -41,7 +41,7 @@ public class UserRegistration {
 			  System.out.println("Enter City(Address)");
 			  final String city = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter Areacode(Address)");
+			  System.out.println("Enter AreaCode(Address)");
 			  final String areaCode = scanner.nextLine().trim();
 			  
 			  System.out.println("Enter password");
@@ -61,10 +61,10 @@ public class UserRegistration {
 			 final IUserRegistrationController userRegistrationController = new UserRegistrationController(userRegistrationImpl);
 			 boolean userInserted=userRegistrationController.register(user);
 			 if(userInserted) {
-				 System.out.println("User registered succesfully");
+				 System.out.println("User Registered Successfully");
 			 }
 			 else {
-				 System.out.println("User not registered");
+				 System.out.println("User not Registered");
 			 }
 		  }
 		  catch(Exception e) {

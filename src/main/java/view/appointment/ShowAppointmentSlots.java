@@ -18,7 +18,7 @@ public class ShowAppointmentSlots {
         timeSlots = bk_ctrl.getAvailableAppointmentSlots(vac_details);
         if(timeSlots.isEmpty())
         {
-         System.out.println("No Time Slot Available at this Centre !!");
+         System.out.println("No Time-Slots available at this Centre !!");
         }
         else {
             for (TimeSlots timeSlot : timeSlots) {

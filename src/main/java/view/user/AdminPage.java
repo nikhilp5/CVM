@@ -48,7 +48,7 @@ public class AdminPage {
 	public void display(){
 		final Scanner scanner=new Scanner(System.in);
 	    final AdminPage adminPage = new AdminPage();
-    	System.out.println("Welcome Admin \nSelect an option");
+    	System.out.println("\n WELCOME ADMIN \n*Select an option*\n");
     	boolean logout=true;
 	    while(logout) {
 			System.out.println("1. Update Health Worker\n"
@@ -79,10 +79,10 @@ public class AdminPage {
 					adminPage.deleteAllTimeSlots(scanner);
 					break;
 				case "7":
-					System.out.println("Logged Out Successfully");
+					System.out.println("Logged out Successfully");
 					logout=false;
 					break;
-				default: System.out.println("enter the correct option");
+				default: System.out.println("Enter the correct option");
 					break;
 				}
 	    }

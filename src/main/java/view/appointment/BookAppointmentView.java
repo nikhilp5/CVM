@@ -30,7 +30,7 @@ public class BookAppointmentView {
                 }
             }
             else{
-                System.out.println("Incorrect Centre selection !!");
+                System.out.println("Incorrect Centre Selection !!");
             }
         }
     }

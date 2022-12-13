@@ -23,7 +23,7 @@ public class DeleteAllTimeSlots {
 			VaccinationCentreDetails centre=vaccinationCentreDetailsImpl.checkVaccineCentreExists(centreCode);
 
 			if(centre==null) {
-				System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
+				System.out.println("Centre doesn't Exist. Enter proper Centre Code.");
 			}
 			else {
 				TimeSlotsImpl timeSlotsImpl=new TimeSlotsImpl();
@@ -32,10 +32,10 @@ public class DeleteAllTimeSlots {
 				boolean timeSlotInserted=timeSlotsController.deleteAllTimeSlot(centre);
 
 				if(timeSlotInserted) {
-					System.out.println("Time Slot delete for centre "+centre.getCentre_name());
+					System.out.println("Time-Slot delete for centre "+centre.getCentre_name());
 				}
 				else {
-					System.out.println("Time Slots not deleted");
+					System.out.println("Time-Slot not deleted");
 				}
 			}
 

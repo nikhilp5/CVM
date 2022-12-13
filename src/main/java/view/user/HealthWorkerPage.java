@@ -20,7 +20,7 @@ public class HealthWorkerPage {
     public void display() {
         final Scanner scanner = new Scanner(System.in);
         final HealthWorkerPage healthWorkerPage = new HealthWorkerPage();
-        System.out.println("Welcome Health Worker \nSelect an option \n");
+        System.out.println("\n WELCOME HEALTH WORKER \n *Select an option* \n");
         boolean logout = true;
         while (logout) {
             System.out.println("1. Update User\n"

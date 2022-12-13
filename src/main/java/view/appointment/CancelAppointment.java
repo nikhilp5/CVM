@@ -25,7 +25,7 @@ public class CancelAppointment {
             final String firstName = scanner.nextLine().trim().toLowerCase();
             System.out.println("Enter Last name ");
             final String lastName = scanner.nextLine().trim().toLowerCase();
-            System.out.println("Enter email ID ");
+            System.out.println("Enter Email ID ");
             final String emailId = scanner.nextLine().trim();
             
             UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
@@ -47,16 +47,16 @@ public class CancelAppointment {
                 VaccinationCentreDetails centre = vaccinationCentreDetailsImpl.checkVaccineCentreExists(centreCode);
 
                 if (centre == null) {
-                    System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
+                    System.out.println("Centre doesn't Exist. Enter proper Centre Code.");
                 } else {
                 	BookAppointmentImpl deleteAppointmentImpl=new BookAppointmentImpl();
                     IDeleteAppointmentController deleteAppointmentController=new DeleteAppointmentController(deleteAppointmentImpl);
                     boolean result=deleteAppointmentController.deleteAppointmentForUserAndCentre(user,centre);
                     if(result){
-                        System.out.println("Appointment deleted successfully");
+                        System.out.println("Appointment Cancelled Successfully");
                     }
                     else{
-                        System.out.println("Error in Deletion");
+                        System.out.println("Error in Cancellation");
                     }
                 }
             }

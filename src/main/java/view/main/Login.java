@@ -18,9 +18,9 @@ public class Login {
 		  if(option.equals("2"))
 		  {
 			  try {
-					System.out.println("Enter the email");
+					System.out.println("Enter the Email-ID");
 					String email=scanner.next();
-					System.out.println("enter the password");
+					System.out.println("Enter the Password");
 					String password=scanner.next();
 				    user= loginController.userLoginByEmail(email,password);
 			  } catch (Exception e) {
@@ -30,9 +30,9 @@ public class Login {
 		  }
 		  else
 		  {
-				System.out.println("Enter the mobileNumber");
+				System.out.println("Enter the Mobile-Number");
 				String mobileNumber=scanner.next();
-				System.out.println("enter the password");
+				System.out.println("Enter the Password");
 				String password=scanner.next();
 			  user= loginController.userLoginByPhone(mobileNumber,password);
 		  }
@@ -42,7 +42,7 @@ public class Login {
 	  public void Chain(User user) {
 		  if(user==null)
 		  {
-			  System.out.println("wrong password");
+			  System.out.println("Wrong Password");
 		  }
 		  else
 		  {

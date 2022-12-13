@@ -23,7 +23,7 @@ public class UpdateUser {
             final String firstName = scanner.nextLine().trim().toLowerCase();
             System.out.println("Enter Last name ");
             final String lastName = scanner.nextLine().trim().toLowerCase();
-            System.out.println("Enter email ID ");
+            System.out.println("Enter Email ID ");
             final String emailId = scanner.nextLine().trim();
             
             UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
