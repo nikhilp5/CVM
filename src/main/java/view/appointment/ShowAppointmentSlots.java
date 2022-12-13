@@ -2,14 +2,18 @@ package view.appointment;
 
 import controller.bookAppointment.BookAppointmentController;
 import model.bookAppointment.BookAppointment;
+import model.bookAppointment.BookAppointmentImpl;
 import model.timeSlots.TimeSlots;
 import model.user.User;
 import model.vaccinationCentre.VaccinationCentreDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShowAppointmentSlots {
-    BookAppointmentController bk_ctrl = new BookAppointmentController();
+
+    BookAppointmentImpl bookImpl=new BookAppointmentImpl();
+    BookAppointmentController bk_ctrl = new BookAppointmentController(bookImpl);
     TimeSlots slot = new TimeSlots();
     private List<TimeSlots> timeSlots;
     public void showAvailableSlots(VaccinationCentreDetails vac_details){

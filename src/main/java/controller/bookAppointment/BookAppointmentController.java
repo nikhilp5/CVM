@@ -1,5 +1,6 @@
 package controller.bookAppointment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.bookAppointment.BookAppointment;
@@ -9,8 +10,12 @@ import model.user.User;
 import model.vaccinationCentre.VaccinationCentreDetails;
 
 public class BookAppointmentController implements IBookAppointmentController{
-    BookAppointmentImpl bookImpl = new BookAppointmentImpl();
+    BookAppointmentImpl bookImpl;
 
+    public BookAppointmentController( BookAppointmentImpl bookImpl){
+        this.bookImpl=bookImpl;
+    }
+    List<BookAppointment> bookedAppointments = new ArrayList<>();
     @Override
     public boolean addAppointment(TimeSlots slot,User user){
         boolean result = false;
@@ -35,9 +40,9 @@ public class BookAppointmentController implements IBookAppointmentController{
     }
     @Override
     public List<BookAppointment> getUserAppointments(User user){
-        List<BookAppointment> bookedAppointments = null;
         try{
             bookedAppointments = bookImpl.getBookedAppointments(user);
+            System.out.println("getUserAppointments: "+bookedAppointments.size());
         }
         catch (Exception e){
             e.printStackTrace();
@@ -45,8 +50,8 @@ public class BookAppointmentController implements IBookAppointmentController{
         return bookedAppointments;
     }
     public boolean IsAppointmentExist(User user){
-        List<BookAppointment> bookAppointments = getUserAppointments(user);
-        if(bookAppointments.isEmpty()){
+        bookedAppointments = getUserAppointments(user);
+        if(bookedAppointments.size() > 0){
             return true;
         }
         return false;

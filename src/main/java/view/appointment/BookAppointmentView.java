@@ -18,13 +18,14 @@ public class BookAppointmentView {
             String input = scanner.nextLine();
             int index = Integer.parseInt(input);
             index= index - 1 ;
-            System.out.println("List size: " + vac_centres.size());
+            System.out.println("No of Centres in your City: " + vac_centres.size());
             if(index < vac_centres.size()){
                 apt.showAvailableSlots(vac_centres.get(index));
                 input = scanner.nextLine();
                 index = Integer.parseInt(input);
                 index= index - 1;
                 if(apt.checkUserAppointmentSlot(index, user)) {
+                    System.out.println("Your Appointment Booked !!!!..");
                     apt.showBookedAppointment(user);
                     break;
                 }

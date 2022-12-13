@@ -47,15 +47,10 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
         try {
             Connection connection = DatabaseConnection.instance().getDatabaseConnection();
             Statement statement = connection.createStatement();
-            System.out.println("Centre_id: "+ vac_centre.centre_id);
             String aptmtQuery = book_query.getAppointmentSlotsQuery(vac_centre.centre_id);
-            System.out.println(aptmtQuery);
             ResultSet rs = statement.executeQuery(aptmtQuery);
             if(rs.isBeforeFirst()) {
                 appointmentSlots = resultAppointmentSlots(rs);
-            }
-            else{
-                System.out.println("No Slot available at Centre: " + vac_centre.centre_id);
             }
         }
         catch (Exception e) {
@@ -66,13 +61,11 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
     public List<TimeSlots> resultAppointmentSlots(ResultSet rs){
         try{
             while (rs.next()) {
-                System.out.println("Inside timeslot loop");
                 TimeSlots timeSlot = new TimeSlots();
                 timeSlot.setTime_slot_id(rs.getString(TimeSlotsDatabaseColumns.time_slot_id));
                 timeSlot.setCentreId(rs.getString(TimeSlotsDatabaseColumns.centre_id));
                 timeSlot.setDate(rs.getString(TimeSlotsDatabaseColumns.date));
                 timeSlot.setStartTime(rs.getString(TimeSlotsDatabaseColumns.start_time));
-                System.out.println("start time: "+timeSlot.getStartTime());
                 timeSlot.setEndTime(rs.getString(TimeSlotsDatabaseColumns.end_time));
                 appointmentSlots.add(timeSlot);
             }
@@ -105,10 +98,10 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
             Connection connection = DatabaseConnection.instance().getDatabaseConnection();
             Statement statement = connection.createStatement();
             String bookedQuery = book_query.getBookedAppointmentQuery(user.getUserId());
-            System.out.println(bookedQuery);
             ResultSet rs = statement.executeQuery(bookedQuery);
             if(rs.isBeforeFirst()) {
                 bookedAppointments = resultBookedAppointments(rs);
+                System.out.println("getBookedAppointment" +bookedAppointments.size());
             }
         }
         catch (Exception e){
@@ -125,7 +118,6 @@ public class BookAppointmentImpl extends BookAppointment implements IBookAppoint
                 BookAppointmentImpl bookAppointment = new BookAppointmentImpl();
                 bookAppointment.setCentre_id(rs.getString(BookAppointmentDatabaseColumns.centre_id));
                 bookAppointment.setTime_slot_id(rs.getString(BookAppointmentDatabaseColumns.time_slot_id));
-                System.out.println(bookAppointment.getTime_slot_id());
                 bookAppointment.setUser_id(rs.getString(BookAppointmentDatabaseColumns.user_id));
                 bookedAppointments.add(bookAppointment);
             }
