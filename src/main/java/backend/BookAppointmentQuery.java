@@ -1,9 +1,9 @@
 package backend;
 
 public class BookAppointmentQuery {
-    public String getVaccinationCentreQuery(String user_city){
-        System.out.println("User_city: "+user_city);
-        return "Select * From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+" where "+VaccinationCenterDatabaseColumns.centre_city+ "='"+user_city+"'";
+    public String getAppointmentSlotsQuery(String centre_id){
+        System.out.println("centre_id: "+centre_id);
+        return "Select * From "+TimeSlotsDatabaseColumns.time_slots_table+" where "+TimeSlotsDatabaseColumns.centre_id+ " = '"+centre_id+"'";
     }
     public String insertAppointment(User user, TimeSlots apt) {
         return "insert into " + BookAppointmentDatabaseColumns.bookAppointment_table+ "(" +

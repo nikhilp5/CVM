@@ -5,14 +5,13 @@ import backend.*;
 import java.util.List;
 
 public class ShowAppointmentSlots {
-    AppointmentSlots apt = new AppointmentSlots();
-    BookAppointment bk1 = new BookAppointment();
+    BookAppointmentImpl bk1 = new BookAppointmentImpl();
     TimeSlots slot = new TimeSlots();
     private List<TimeSlots> timeSlots;
     public void showAvailableSlots(VaccinationCentreDetails vac_details){
         int index=1;
         System.out.println("centre_name: "+ vac_details.getCentre_name()+" id: "+ vac_details.centre_id);
-        timeSlots = apt.getAvailableSlots(vac_details);
+        timeSlots = bk1.getAvailableAppointmentSlots(vac_details);
         System.out.println("Available Time Slots for Centre: "+ vac_details.getCentre_name());
         System.out.println("time_slot size: "+timeSlots.size());
         for (TimeSlots timeSlot : timeSlots){

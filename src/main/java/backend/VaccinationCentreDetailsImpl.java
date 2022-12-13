@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import database.DatabaseConnection;
 
 public class VaccinationCentreDetailsImpl {
-	
+	List<VaccinationCentreDetails> vac_centres = new ArrayList<>();
 	public static VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
 	
 	  public static VaccinationCentreDetailsImpl instance() {
@@ -158,5 +159,46 @@ public class VaccinationCentreDetailsImpl {
 		finally {
 			DatabaseConnection.instance().stopDatabaseConnection();
 		}
+	}
+	public List<VaccinationCentreDetails> getVaccinationCentres(User user) {
+		try {
+			Connection connection = DatabaseConnection.instance().getDatabaseConnection();
+			Statement statement = connection.createStatement();
+			String vacCentreQuery = VaccinationCentreQuery.instance().getVaccinationCentreQuery(user.getAddressCity());
+			System.out.println(vacCentreQuery);
+			ResultSet rs = statement.executeQuery(vacCentreQuery);
+			if(rs.isBeforeFirst()) {
+				vac_centres = resultVaccinationCentres(rs);
+				System.out.println("No of centres: "+ vac_centres.size());
+			}
+			else{
+				System.out.println("No vaccination centre available");
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return vac_centres;
+	}
+	public List<VaccinationCentreDetails> resultVaccinationCentres(ResultSet rs){
+		try{
+			while (rs.next()) {
+				VaccinationCentreDetails vac_centre = new VaccinationCentreDetails();
+				vac_centre.setCentre_id(rs.getString(VaccinationCenterDatabaseColumns.centre_id));
+				vac_centre.setCentre_city(rs.getString(VaccinationCenterDatabaseColumns.centre_city));
+				System.out.println(vac_centre.centre_city);
+				vac_centre.setCentre_name(rs.getString(VaccinationCenterDatabaseColumns.centre_name));
+				vac_centre.setCentre_address(rs.getString(VaccinationCenterDatabaseColumns.centre_address));
+				vac_centre.setCentre_code(rs.getString(VaccinationCenterDatabaseColumns.centre_code));
+				vac_centre.setCentre_zip(rs.getString(VaccinationCenterDatabaseColumns.centre_zip));
+				vac_centres.add(vac_centre);
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		finally {
+			DatabaseConnection.instance().stopDatabaseConnection();
+		}
+		return vac_centres;
 	}
 }

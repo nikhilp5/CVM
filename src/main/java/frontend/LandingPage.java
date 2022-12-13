@@ -48,9 +48,6 @@ public class LandingPage {
 		catch(Exception e) {
 
 		}
-		finally{
-			//DatabaseConnection.Instance().stopDatabaseConnection();
-		}
 	}
 
 }

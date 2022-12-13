@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class BookAppointmentView {
     ShowAppointmentSlots apt = new ShowAppointmentSlots();
     VaccinationCentreDetails vac_center;
-    BookAppointment bk1 = new BookAppointment();
+    BookAppointmentImpl bk1 = new BookAppointmentImpl();
     User newUser;
     Scanner scanner = new Scanner(System.in);
     private List<VaccinationCentreDetails> vac_centres;
@@ -41,8 +41,8 @@ public class BookAppointmentView {
             System.out.println("User fully vaccinated !!!");
         }
         else {
-            BookAppointment bk = new BookAppointment();
-            vac_centres = bk.getVaccinationCentres(user);
+            BookAppointmentImpl bk = new BookAppointmentImpl();
+            vac_centres = VaccinationCentreDetailsImpl.instance().getVaccinationCentres(user);
             System.out.println("Vaccine Centres: ");
             for (VaccinationCentreDetails vac_centre : vac_centres) {
                 System.out.println(index + " " + vac_centre.getCentre_name());

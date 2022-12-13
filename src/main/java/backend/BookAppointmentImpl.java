@@ -8,16 +8,41 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppointmentSlots implements IAppointmentSlots{
+public class BookAppointmentImpl extends BookAppointment implements IBookAppointment{
+    BookAppointmentQuery book_query = new BookAppointmentQuery();
+    public BookAppointmentImpl(){
+        super();
+    }
     private List<TimeSlots> appointmentSlots = new ArrayList<>();
-    private AppointmentSlotsQuery aptQuery =  new AppointmentSlotsQuery();
     @Override
-    public List<TimeSlots> getAvailableSlots(VaccinationCentreDetails vac_centre) {
+    public boolean bookAppointment(TimeSlots slot,User user){
+        boolean flag = false;
+        try {
+            Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
+            String bookAppointmentQuery = book_query.insertAppointment(user, slot);
+            int rowCount = statement.executeUpdate(bookAppointmentQuery);
+            if(rowCount > 0){
+                flag = true;
+            }
+            else{
+                flag = false;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            DatabaseConnection.instance().stopDatabaseConnection();
+        }
+        return flag;
+    }
+    @Override
+    public List<TimeSlots> getAvailableAppointmentSlots(VaccinationCentreDetails vac_centre) {
         try {
             Connection connection = DatabaseConnection.instance().getDatabaseConnection();
             Statement statement = connection.createStatement();
             System.out.println("Centre_id: "+ vac_centre.centre_id);
-            String aptmtQuery = aptQuery.getAppointmentSlotsQuery(vac_centre.centre_id);
+            String aptmtQuery = book_query.getAppointmentSlotsQuery(vac_centre.centre_id);
             System.out.println(aptmtQuery);
             ResultSet rs = statement.executeQuery(aptmtQuery);
             if(rs.isBeforeFirst()) {
@@ -54,3 +79,4 @@ public class AppointmentSlots implements IAppointmentSlots{
         return appointmentSlots;
     }
 }
+
