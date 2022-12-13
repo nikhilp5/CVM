@@ -1,8 +1,6 @@
 package frontend;
 
 import backend.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShowDetails extends User implements IShowDetails{

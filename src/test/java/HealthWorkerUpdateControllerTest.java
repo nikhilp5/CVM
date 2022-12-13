@@ -3,7 +3,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -12,14 +11,8 @@ import org.mockito.Mockito;
 
 import backend.HealthWorkerUpdateController;
 import backend.HealthWorkerUpdateImpl;
-import backend.IUserQuery;
-import backend.LoginController;
-import backend.LoginImpl;
 import backend.User;
 import backend.UserDatabaseColumns;
-import backend.UserQuery;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class HealthWorkerUpdateControllerTest {

@@ -1,9 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import java.sql.Statement;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -11,17 +8,9 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
 import backend.TimeSlotsController;
-import backend.TimeSlotsDatabaseColumns;
 import backend.TimeSlotsImpl;
-import backend.TimeSlotsQuery;
 import backend.VaccinationCentreDetails;
-import backend.ITimeSlotsController;
-import backend.ITimeSlotsQuery;
-import backend.LoginController;
-import backend.LoginImpl;
 import backend.TimeSlots;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TimeSlotsControllerTest {

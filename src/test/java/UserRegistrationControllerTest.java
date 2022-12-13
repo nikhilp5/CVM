@@ -1,29 +1,15 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-import java.sql.Statement;
-import java.util.Base64;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.IUserQuery;
-import backend.IUserRegistrationController;
 import backend.User;
-import backend.UserDatabaseColumns;
-import backend.UserQuery;
 import backend.UserRegistrationController;
 import backend.UserRegistrationImpl;
-import backend.UserType;
-import backend.VaccinationCentreDetails;
-import backend.VaccinationCentreDetailsController;
-import backend.VaccinationCentreDetailsImpl;
-import database.DatabaseConnection;
-import database.IDatabaseConnection;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserRegistrationControllerTest {

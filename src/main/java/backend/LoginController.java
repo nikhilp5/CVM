@@ -1,7 +1,5 @@
 package backend;
 
-import java.util.Base64;
-
 public class LoginController {
 	
 	private LoginImpl loginImpl;

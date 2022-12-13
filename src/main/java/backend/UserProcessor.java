@@ -1,6 +1,5 @@
 package backend;
 
-import frontend.AdminPage;
 import frontend.ShowDetails;
 
 public class UserProcessor extends LoginProcessor {

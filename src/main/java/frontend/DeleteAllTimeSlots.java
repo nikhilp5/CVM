@@ -5,7 +5,6 @@ import java.util.Scanner;
 import backend.TimeSlotsController;
 import backend.TimeSlotsImpl;
 import backend.VaccinationCentreDetails;
-import backend.VaccinationCentreDetailsController;
 import backend.VaccinationCentreDetailsImpl;
 
 public class DeleteAllTimeSlots {

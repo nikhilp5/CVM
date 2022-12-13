@@ -1,7 +1,6 @@
 package backend;
 
 import frontend.HealthWorkerPage;
-import frontend.ShowDetails;
 
 public class HealthWorkerProcessor extends LoginProcessor {
 
