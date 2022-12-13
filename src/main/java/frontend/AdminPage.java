@@ -51,7 +51,7 @@ public class AdminPage {
 					+ "4. Delete Vaccination center\n"
 					+ "5. Add Time slots\n"
 					+ "6. Delete all Time slots for a center\n"
-					+ "7. Logout\n");
+					+ "7. Logout \n");
 			final String input = scanner.nextLine();
 				switch(input) {
 				case "1":

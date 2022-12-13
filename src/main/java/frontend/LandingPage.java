@@ -18,13 +18,13 @@ public class LandingPage {
 		try {
 			//Connection currentConnection=DatabaseConnection.Instance().getDatabaseConnection();
 		    final LandingPage cvmApp = new LandingPage();
-			System.out.println("Covid Vaccination Management System \n Select an option");
+			System.out.println("Covid Vaccination Management System \n Select an option \n");
 			while(true) {
 				Scanner scanner = new Scanner(System.in);
 				System.out.println("1. User Registration\n"
 						+ "2. Login By Email\n"
 						+ "3. Login By MobileNumber\n"
-						+ "4. Exit");
+						+ "4. Exit \n");
 				final String input = scanner.nextLine();
 				switch(input) {
 				case "1":
@@ -40,7 +40,7 @@ public class LandingPage {
 					System.exit(0);
 					break;
 				default: 
-					System.out.println("enter the correct option");
+					System.out.println("enter the correct option \n");
 					break;
 				}
 			}

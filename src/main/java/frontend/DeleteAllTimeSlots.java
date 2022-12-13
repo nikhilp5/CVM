@@ -15,13 +15,13 @@ public class DeleteAllTimeSlots {
 
 	public final void deleteAll() {
 		try {
-			System.out.println("Enter Centre Code");
+			System.out.println("Enter Centre Code \n");
 			final String centreCode = scanner.nextLine().trim().toLowerCase();
 
 			VaccinationCentreDetails centre=VaccinationCentreDetailsImpl.instance().checkVaccineCentreExists(centreCode);
 
 			if(centre==null) {
-				System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
+				System.out.println("Centre doesn't Exist.Enter proper Centre Code. \n");
 			}
 			else {
 				TimeSlotsController timeSlotsController=new TimeSlotsController();

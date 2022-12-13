@@ -18,7 +18,7 @@ public class HealthWorkerPage {
     public void display() {
         final Scanner scanner = new Scanner(System.in);
         final HealthWorkerPage healthWorkerPage = new HealthWorkerPage();
-        System.out.println("Welcome Health Worker \nSelect an option");
+        System.out.println("Welcome Health Worker \nSelect an option \n");
         boolean logout = true;
         while (logout) {
             System.out.println("1. Update User\n"
@@ -33,11 +33,11 @@ public class HealthWorkerPage {
                     healthWorkerPage.cancelAppointment(scanner);
                     break;
                 case "3":
-                    System.out.println("Logged Out Successfully");
+                    System.out.println("Logged Out Successfully \n");
                     logout = false;
                     break;
                 default:
-                    System.out.println("enter the correct option");
+                    System.out.println("enter the correct option \n");
                     break;
             }
 

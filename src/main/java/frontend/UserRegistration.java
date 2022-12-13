@@ -16,37 +16,37 @@ public class UserRegistration {
 	  
 	  public final void registerUser() {
 		  try {			  
-			  System.out.println("Enter first name");
+			  System.out.println("Enter first name \n");
 			  final String firstName = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter last name");
+			  System.out.println("Enter last name \n");
 			  final String lastName = scanner.nextLine().trim();
 
-			  System.out.println("Enter gender");
+			  System.out.println("Enter gender (MALE/FEMALE/OTHER) \n");
 			  final String gender = scanner.nextLine().trim().toUpperCase();
 			  
-			  System.out.println("Enter mobile number");
+			  System.out.println("Enter mobile number \n");
 			  final String mobileNumber = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter email ID");
+			  System.out.println("Enter email ID \n");
 			  final String emailId = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter Date Of Birth");
+			  System.out.println("Enter Date Of Birth(dd-mm-yyyy) \n");
 			  final String dateOfBirth = scanner.nextLine().trim();
 
-			  System.out.println("Enter Address");
+			  System.out.println("Enter Address \n");
 			  final String address = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter City(Address)");
+			  System.out.println("Enter City(Address) \n");
 			  final String city = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter Areacode(Address)");
+			  System.out.println("Enter Areacode(Address) \n");
 			  final String areaCode = scanner.nextLine().trim();
 			  
-			  System.out.println("Enter password");
+			  System.out.println("Enter password(1 Uppercase/1 Lowercase/1 Number/1 Special Character)\n ");
 			  String firstPass = scanner.nextLine().trim();
 
-			  System.out.println("Confirm password");
+			  System.out.println("Confirm password \n");
 			  String secondPass = scanner.nextLine().trim();
 
 			 this.confirmPassword(firstPass, secondPass);
@@ -59,10 +59,10 @@ public class UserRegistration {
 			 final IUserRegistrationController userRegistrationController = new UserRegistrationController();
 			 boolean userInserted=userRegistrationController.register(user);
 			 if(userInserted) {
-				 System.out.println("User registered succesfully");
+				 System.out.println("User registered succesfully \n");
 			 }
 			 else {
-				 System.out.println("User not registered");
+				 System.out.println("User not registered \n");
 			 }
 		  }
 		  catch(Exception e) {
@@ -72,10 +72,10 @@ public class UserRegistration {
 	  
 	  private final void confirmPassword(String firstPass,String secondPass) {
 		  while(!firstPass.equals(secondPass)) {
-			  System.out.println("Enter password");
+			  System.out.println("Enter password \n ");
 			  firstPass = scanner.nextLine().trim();
 
-			  System.out.println("Confirm password");
+			  System.out.println("Confirm password \n ");
 			  secondPass = scanner.nextLine().trim();
 		  }
 	  }
