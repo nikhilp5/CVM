@@ -31,8 +31,10 @@ public class AddVaccinationCenter {
 
 			VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails(centreCode,centreName,
 					centreAddress, centreCity,centreAreaCode);
+			
+			VaccinationCentreDetailsController vaccinationCentreDetailsController=new VaccinationCentreDetailsController();
 
-			boolean centreInserted=VaccinationCentreDetailsController.instance().addVaccinationCentreDetails(vaccinationCentreDetails);
+			boolean centreInserted=vaccinationCentreDetailsController.addVaccinationCentreDetails(vaccinationCentreDetails);
 			if(centreInserted) {
 				System.out.println("Vaccine Centre registered succesfully");
 			}

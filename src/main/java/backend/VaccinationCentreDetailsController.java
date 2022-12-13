@@ -2,30 +2,30 @@ package backend;
 
 public class VaccinationCentreDetailsController {
 	
-	public static VaccinationCentreDetailsController vaccinationCentreDetailsController;
+	private VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
 	
-	  public static VaccinationCentreDetailsController instance() {
-	        if (vaccinationCentreDetailsController == null) {
-	        	vaccinationCentreDetailsController= new VaccinationCentreDetailsController();
-	        }
-	        return vaccinationCentreDetailsController;
+	public VaccinationCentreDetailsController(VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl)
+	{
+		this.vaccinationCentreDetailsImpl=vaccinationCentreDetailsImpl;
 	}
-	  
+	
+	public VaccinationCentreDetailsController() {
+		super();
+	}
+
 	public String updateVaccinationCentreDetailsController(String centreCode,String updateParameterName, String value) {
-		String updateResult=VaccinationCentreDetailsImpl.instance().
+		String updateResult=vaccinationCentreDetailsImpl.
 				updateVaccinationCentreDetails(centreCode, updateParameterName, value);
 		return updateResult;
 	}
 	
 	public String deleteVaccinationCentreDetailsController(String centreCode) {
-		String deleteResult=VaccinationCentreDetailsImpl.instance()
-				.deleteVaccinationCentreDetails(centreCode);
+		String deleteResult=vaccinationCentreDetailsImpl.deleteVaccinationCentreDetails(centreCode);
 		return deleteResult;
 	}
 	
 	public boolean addVaccinationCentreDetails(VaccinationCentreDetails vaccineCentreDetails) {
-		boolean insertionResult=VaccinationCentreDetailsImpl.instance()
-				.addVaccinationCentreDetails(vaccineCentreDetails);
+		boolean insertionResult=vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccineCentreDetails);
 		return insertionResult;
 	}
 }

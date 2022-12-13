@@ -19,8 +19,10 @@ public class CancelAppointment {
             final String lastName = scanner.nextLine().trim().toLowerCase();
             System.out.println("Enter email ID ");
             final String emailId = scanner.nextLine().trim();
+            
+            UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
 
-            final IUserUpdateController userUpdateController = new UserUpdateController();
+            final IUserUpdateController userUpdateController = new UserUpdateController(userUpdateImpl);
 
             User user = userUpdateController.getUser(firstName, lastName, emailId);
 
@@ -31,8 +33,10 @@ public class CancelAppointment {
             else {
                 System.out.println("Enter Centre Code");
                 final String centreCode = scanner.nextLine().trim().toLowerCase();
+                
+                VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
 
-                VaccinationCentreDetails centre = VaccinationCentreDetailsImpl.instance().checkVaccineCentreExists(centreCode);
+                VaccinationCentreDetails centre = vaccinationCentreDetailsImpl.checkVaccineCentreExists(centreCode);
 
                 if (centre == null) {
                     System.out.println("Centre doesn't Exist.Enter proper Centre Code.");

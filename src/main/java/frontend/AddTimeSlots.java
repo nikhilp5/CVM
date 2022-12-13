@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import backend.TimeSlots;
 import backend.TimeSlotsController;
+import backend.TimeSlotsImpl;
 import backend.VaccinationCentreDetails;
 import backend.VaccinationCentreDetailsImpl;
 
@@ -15,13 +16,14 @@ public class AddTimeSlots {
 	
 	public final void add() {
 		try {
-			System.out.println("Enter Centre Code \n");
+			VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
+			System.out.println("Enter Centre Code");
 			final String centreCode = scanner.nextLine().trim().toLowerCase();
 
-			VaccinationCentreDetails centre=VaccinationCentreDetailsImpl.instance().checkVaccineCentreExists(centreCode);
+			VaccinationCentreDetails centre=vaccinationCentreDetailsImpl.checkVaccineCentreExists(centreCode);
 
 			if(centre==null) {
-				System.out.println("Centre doesn't Exist.Enter proper Centre Code. \n");
+				System.out.println("Centre doesn't Exist.Enter proper Centre Code.");
 			}
 			else {
 				this.addTimeSlots(centre);
@@ -47,8 +49,8 @@ public class AddTimeSlots {
 			timeSlotEntry.setStartTime(startTime);
 			timeSlotEntry.setEndTime(endTime);
 			
-
-			TimeSlotsController timeSlotsController=new TimeSlotsController();
+			TimeSlotsImpl timeSlotsImpl=new TimeSlotsImpl();
+			TimeSlotsController timeSlotsController=new TimeSlotsController(timeSlotsImpl);
 			
 			boolean timeSlotInserted=timeSlotsController.addTimeSlot(timeSlotEntry);
 			

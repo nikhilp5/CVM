@@ -1,45 +1,30 @@
 package backend;
 
 import java.util.Base64;
-import frontend.AdminPage;
-import frontend.HealthWorkerPage;
-import frontend.ShowDetails;
 
-public class LoginController implements ILoginController {
+public class LoginController {
 	
+	private LoginImpl loginImpl;
 	
+	public LoginController(LoginImpl loginImpl)
+	{
+		this.loginImpl=loginImpl;
+	}
+	public LoginController() {
+		super();
+	}
 	private User user;
 	
 	
-	public User userLoginByEmail(String email,String password){
-		user=LoginImpl.instance().getPasswordByEmail(email);
-		user=userCheck(user,password);
+	public User userLoginByEmail(String email,String password) throws Exception {
+		user=loginImpl.getPasswordByEmail(email);
+		user=loginImpl.userCheck(user,password);
 		return user;
 	}
 	
-	public User userLoginByPhone(String mobileNumber,String password) {
-		user=LoginImpl.instance().getPasswordByPhoneNumber(mobileNumber);
-		user=userCheck(user,password);
+	public User userLoginByPhone(String mobileNumber,String password) throws Exception {
+		user=loginImpl.getPasswordByPhoneNumber(mobileNumber);
+		user=loginImpl.userCheck(user,password);
 		return user;
 	}
-	public User userCheck(User user,String password) {
-		if(user==null)
-		{
-			return user;
-		}else
-		{
-			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
-			if(encodedPassword.equals(user.getPassword()))
-			{
-				return user;
-			}
-			else
-			{
-				System.out.println("wrong password");
-				return null;
-			}
-			
-		}		
-	}
-
 }

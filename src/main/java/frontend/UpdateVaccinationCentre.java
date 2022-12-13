@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import backend.VaccinationCenterDatabaseColumns;
 import backend.VaccinationCentreDetailsController;
+import backend.VaccinationCentreDetailsImpl;
 
 public class UpdateVaccinationCentre {
 	
@@ -19,6 +20,8 @@ public class UpdateVaccinationCentre {
 			{
 			scanner=new Scanner(System.in);
 			String value;
+			VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
+			VaccinationCentreDetailsController vaccinationCentreDetailsController=new VaccinationCentreDetailsController(vaccinationCentreDetailsImpl);
 			System.out.println("1. Centre code\n"
 					+ "2. Centre name\n"
 					+ "3. Centre address\n"
@@ -31,31 +34,31 @@ public class UpdateVaccinationCentre {
 			case "1":
 				System.out.println("enter the "+VaccinationCenterDatabaseColumns.centre_code+" value");
 				value=scanner.nextLine();
-				updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_code,value);
+				updateResult=vaccinationCentreDetailsController.updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_code,value);
 			    System.out.println(updateResult);
 			    break;
 			case "2": 
 				System.out.println("enter the "+VaccinationCenterDatabaseColumns.centre_name+" value");
 				value=scanner.nextLine();
-				updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_name,value);
+				updateResult=vaccinationCentreDetailsController.updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_name,value);
 			    System.out.println(updateResult);
 			    break;
 			case "3": 
 				System.out.println("enter the "+VaccinationCenterDatabaseColumns.centre_address+" value");
 				value=scanner.nextLine();
-				updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_address,value);
+				updateResult=vaccinationCentreDetailsController.updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_address,value);
 			    System.out.println(updateResult);
 			    break;
 			case "4": 				
 				System.out.println("enter the "+VaccinationCenterDatabaseColumns.centre_city+" value");
 			    value=scanner.nextLine();
-			    updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_city,value);
+			    updateResult=vaccinationCentreDetailsController.updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_city,value);
 			    System.out.println(updateResult);
 			    break;
 			case "5": 				
 				System.out.println("enter the "+VaccinationCenterDatabaseColumns.centre_zip+" value");
 			    value=scanner.nextLine();
-			    updateResult=VaccinationCentreDetailsController.instance().updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_zip,value);
+			    updateResult=vaccinationCentreDetailsController.updateVaccinationCentreDetailsController(centre_number,VaccinationCenterDatabaseColumns.centre_zip,value);
 			    System.out.println(updateResult);
 			    break;
 			}

@@ -4,19 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import database.DatabaseConnection;
 import java.sql.Statement;
+import java.util.Base64;
 
 public class LoginImpl {
 	
 	private User user;
-	
-	private static LoginImpl instance;
-
-	 public static LoginImpl instance() {
-		 if (instance == null) {
-			 instance = new LoginImpl();
-		 }
-		 return instance;
-	 }
 	
 	public User getPasswordByEmail(String email)
 	{
@@ -78,6 +70,25 @@ public class LoginImpl {
 		user.setPassword(rs.getString(UserDatabaseColumns.user_password));
 		user.setRole(rs.getString(UserDatabaseColumns.user_role));
 		return user;
+	}
+	
+	public User userCheck(User user,String password) throws Exception {
+		if(user==null)
+		{
+			return user;
+		}else
+		{
+			String encodedPassword = Base64.getEncoder().encodeToString(password.getBytes());
+			if(encodedPassword.equals(user.getPassword()))
+			{
+				return user;
+			}
+			else
+			{
+				return null;
+			}
+			
+		}		
 	}
 
 }

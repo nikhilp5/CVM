@@ -43,7 +43,8 @@ public class BookAppointmentView {
 
         else {
             BookAppointmentImpl bk = new BookAppointmentImpl();
-            vac_centres = VaccinationCentreDetailsImpl.instance().getVaccinationCentres(user);
+            VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
+            vac_centres = vaccinationCentreDetailsImpl.getVaccinationCentres(user);
             System.out.println("Vaccine Centres: ");
             for (VaccinationCentreDetails vac_centre : vac_centres) {
                 System.out.println(index + " " + vac_centre.getCentre_name());

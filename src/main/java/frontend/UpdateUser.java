@@ -1,13 +1,13 @@
 package frontend;
 
 import backend.UserUpdateController;
+import backend.UserUpdateImpl;
 import backend.IUserUpdateController;
 import backend.User;
 import backend.UserDatabaseColumns;
-import java.util.Scanner;
 
 import java.util.HashMap;
-
+import java.util.Scanner;
 
 public class UpdateUser {
 
@@ -25,8 +25,10 @@ public class UpdateUser {
             final String lastName = scanner.nextLine().trim().toLowerCase();
             System.out.println("Enter email ID ");
             final String emailId = scanner.nextLine().trim();
+            
+            UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
 
-            final IUserUpdateController userUpdateController = new UserUpdateController();
+            final IUserUpdateController userUpdateController = new UserUpdateController(userUpdateImpl);
 
             User user= userUpdateController.getUser(firstName,lastName,emailId);
 

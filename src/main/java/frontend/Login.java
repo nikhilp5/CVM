@@ -2,23 +2,18 @@ package frontend;
 
 import java.util.Scanner;
 
+import backend.LoginChain;
 import backend.LoginController;
+import backend.LoginImpl;
 import backend.User;
 
 public class Login {
 	
 	  private User user;
 	  
-	  private static Login login;
-
-	  public static Login instance() {
-	        if (login == null) {
-	        	login = new Login();
-	        }
-	        return login;
-	}
 	  public final User login(String option,Scanner scanner) throws Exception {
-		  LoginController loginController=new LoginController();
+		  LoginImpl loginImpl=new LoginImpl();
+		  LoginController loginController=new LoginController(loginImpl);
 
 		  if(option.equals("2"))
 		  {
@@ -43,5 +38,18 @@ public class Login {
 		  }
 		  return user;	
 	  }
+	  
+	  public void Chain(User user) {
+		  if(user==null)
+		  {
+			  System.out.println("wrong password");
+		  }
+		  else
+		  {
+			LoginChain loginChain=new LoginChain();
+			loginChain.process(user);
+		  }
+	  }
+	  
 	  
 }

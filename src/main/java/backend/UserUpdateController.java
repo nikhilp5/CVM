@@ -4,9 +4,13 @@ import java.util.HashMap;
 
 public class UserUpdateController implements IUserUpdateController {
 
-	UserUpdateTemplate userUpdateImpl = UserUpdateImpl.instance();
+	UserUpdateTemplate userUpdateImpl;
 
-    @Override
+    public UserUpdateController(UserUpdateImpl userUpdateImpl) {
+		this.userUpdateImpl=userUpdateImpl;
+	}
+
+	@Override
     public User getUser(String firstName, String lastName, String emailId) {
         return userUpdateImpl.getUser(firstName, lastName, emailId);
     }

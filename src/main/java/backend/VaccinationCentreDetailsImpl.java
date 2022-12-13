@@ -12,12 +12,6 @@ public class VaccinationCentreDetailsImpl {
 	List<VaccinationCentreDetails> vac_centres = new ArrayList<>();
 	public static VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
 	
-	  public static VaccinationCentreDetailsImpl instance() {
-	        if (vaccinationCentreDetailsImpl == null) {
-	        	vaccinationCentreDetailsImpl= new VaccinationCentreDetailsImpl();
-	        }
-	        return vaccinationCentreDetailsImpl;
-	}
 	
 	public String updateVaccinationCentreDetails(String centreCode,String updateParameterName, String value) {
 		try {

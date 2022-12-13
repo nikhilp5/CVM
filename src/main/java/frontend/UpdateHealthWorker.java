@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import backend.HealthWorkerUpdateController;
+import backend.HealthWorkerUpdateImpl;
 import backend.IHealthWorkerUpdateController;
 import backend.User;
 import backend.UserDatabaseColumns;
@@ -23,7 +24,9 @@ public class UpdateHealthWorker {
 			System.out.println("Enter email ID ");
 			final String emailId = scanner.nextLine().trim();
 			
-			final IHealthWorkerUpdateController healthWorkerUpdateController = new HealthWorkerUpdateController();
+			HealthWorkerUpdateImpl healthWorkerImpl=new HealthWorkerUpdateImpl();
+			
+			final IHealthWorkerUpdateController healthWorkerUpdateController = new HealthWorkerUpdateController(healthWorkerImpl);
 			
 			User healthWorker=healthWorkerUpdateController.getHealthWorker(firstName,lastName,emailId);
 			
