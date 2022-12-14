@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import model.user.User;
 import model.user.UserUpdateImpl;
+import model.vaccinationCentre.VaccinationCentreDetails;
 
 public class UserUpdateController implements IUserUpdateController {
 
@@ -28,4 +29,6 @@ public class UserUpdateController implements IUserUpdateController {
     {
         return userUpdateImpl.updateUserDetails(user, updateValues);
     }
+
+
 }

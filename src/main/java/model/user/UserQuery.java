@@ -1,5 +1,7 @@
 package model.user;
 
+import model.vaccinationDetails.VaccinationDetailsDatabaseColumns;
+
 import java.util.HashMap;
 
 public class UserQuery implements IUserQuery{
@@ -94,5 +96,12 @@ public class UserQuery implements IUserQuery{
 		}
 		query = query.concat(" where user_id= " +user.getUserId());
 		return query;
+	}
+
+	@Override
+	public String updateVaccinationStatus(User user, String vaccinationStatus) {
+		return "Update "+ VaccinationDetailsDatabaseColumns.vaccination_details_table+
+				" set "+VaccinationDetailsDatabaseColumns.vaccination_status+"='"+vaccinationStatus+
+				"' where "+UserDatabaseColumns.user_id+ "='"+user.getUserId()+"' LIMIT 1";
 	}
 }

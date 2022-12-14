@@ -11,4 +11,5 @@ public interface IUserQuery{
 
 	String updateUser(User user,HashMap<String,String> updateValues);
 
+	String updateVaccinationStatus(User user, String vaccinationStatus);
 }
