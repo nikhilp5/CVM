@@ -7,19 +7,19 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.BookAppointmentImpl;
-import backend.DeleteAppointmentController;
-import backend.User;
-import backend.VaccinationCentreDetails;
+import controller.deleteAppointment.DeleteAppointmentController;
+import model.bookAppointment.BookAppointmentImpl;
+import model.user.User;
+import model.vaccinationCentre.VaccinationCentreDetails;
 
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class DeleteAppointmentTest {
 	
-	public DeleteAppointmentController deleteAppointmentController;
-	public BookAppointmentImpl deleteAppointmentImpl;
-	public User user=new User();
-	public VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
+	private DeleteAppointmentController deleteAppointmentController;
+	private BookAppointmentImpl deleteAppointmentImpl;
+	User user=new User();
+	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
 	
 	@BeforeAll
 	public void setup() {

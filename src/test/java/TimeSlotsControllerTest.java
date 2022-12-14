@@ -7,16 +7,16 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.TimeSlotsController;
-import backend.TimeSlotsImpl;
-import backend.VaccinationCentreDetails;
-import backend.TimeSlots;
+import controller.timeSlots.TimeSlotsController;
+import model.timeSlots.TimeSlots;
+import model.timeSlots.TimeSlotsImpl;
+import model.vaccinationCentre.VaccinationCentreDetails;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TimeSlotsControllerTest {
 	
-	TimeSlotsController timeSlotsController;
-	TimeSlotsImpl timeSlotsImpl;
+	private TimeSlotsController timeSlotsController;
+	private TimeSlotsImpl timeSlotsImpl;
 	TimeSlots timeSlots=new TimeSlots();
 	
 	@BeforeAll

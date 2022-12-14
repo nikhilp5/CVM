@@ -9,16 +9,16 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.HealthWorkerUpdateController;
-import backend.HealthWorkerUpdateImpl;
-import backend.User;
-import backend.UserDatabaseColumns;
+import controller.userUpdate.HealthWorkerUpdateController;
+import model.user.HealthWorkerUpdateImpl;
+import model.user.User;
+import model.user.UserDatabaseColumns;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class HealthWorkerUpdateControllerTest {
 	
-	public HealthWorkerUpdateController healthWorkerUpdateController;
-	public HealthWorkerUpdateImpl healthWorkerUpdateImpl;
+	private HealthWorkerUpdateController healthWorkerUpdateController;
+	private HealthWorkerUpdateImpl healthWorkerUpdateImpl;
 	static User user=new User();
 	
 	@BeforeAll

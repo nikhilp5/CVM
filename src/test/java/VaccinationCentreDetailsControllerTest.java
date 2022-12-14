@@ -1,16 +1,20 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.mockito.Mockito;
 
-import backend.VaccinationCenterDatabaseColumns;
-import backend.VaccinationCentreDetails;
-import backend.VaccinationCentreDetailsController;
-import backend.VaccinationCentreDetailsImpl;
+import controller.vaccinationCentreDetails.VaccinationCentreDetailsController;
+import model.user.User;
+import model.vaccinationCentre.VaccinationCenterDatabaseColumns;
+import model.vaccinationCentre.VaccinationCentreDetails;
+import model.vaccinationCentre.VaccinationCentreDetailsImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class VaccinationCentreDetailsControllerTest {
@@ -18,6 +22,7 @@ public class VaccinationCentreDetailsControllerTest {
 	VaccinationCentreDetailsController vaccinationCentreDetailsController;
 	VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
 	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
+	User user=new User();
 	
 	@BeforeAll
 	public void setup() {
@@ -78,65 +83,18 @@ public class VaccinationCentreDetailsControllerTest {
 		when(vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails)).thenReturn(false);
 		assertEquals(false,vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails));
 	}
-//	
-//	@Test
-//	public void updateVaccinationCentreDetailsTestFailure() {
-//		String updationResult=VaccinationCentreDetailsController.instance()
-//				.updateVaccinationCentreDetailsController("11002",VaccinationCenterDatabaseColumns.centre_name,"iwk hospital");
-//		assertEquals(updationResult, "wrong centre code");
-//	}
 	
-//	@Test
-//	public void deleteVaccinationCentreDetailsTestSuccess() {
-//		VaccinationCentreDetailsController.instance()
-//		.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject());
-//		String deletionResult=VaccinationCentreDetailsController.instance()
-//				.deleteVaccinationCentreDetailsController("2006");
-//		assertEquals(deletionResult, "deleted successfully");
-//	}
-//	
-//	@Test
-//	public void deleteVaccinationCentreDetailsTestFailure() {
-//		String deletionResult=VaccinationCentreDetailsController.instance()
-//				.deleteVaccinationCentreDetailsController("2010");
-//		assertEquals(deletionResult, "wrong centre code");
-//	}
-//	
-//	@Test
-//	public void addVaccinationCentreDetailsTestSuccess() {
-//		boolean insertionResult=VaccinationCentreDetailsController.instance()
-//				.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject());
-//		assertEquals(insertionResult,true);
-//		VaccinationCentreDetailsController.instance()
-//		.deleteVaccinationCentreDetailsController("2006");
-//	}
-	
-//	@Test
-//	public void addVaccinationCentreDetailsTestFailure() {
-//		boolean insertionResult=VaccinationCentreDetailsController.instance()
-//				.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject2());
-//		assertEquals(insertionResult,false);
-//	}
-//	
-	
-	public VaccinationCentreDetails vaccinationCentreDetailsTestObject() {
-		VaccinationCentreDetails vaccinationCentreDetailsTestObject=new VaccinationCentreDetails();
-		vaccinationCentreDetailsTestObject.setCentre_name("northwood");
-		vaccinationCentreDetailsTestObject.setCentre_city("halifax");
-		vaccinationCentreDetailsTestObject.setCentre_address("gottingen street");
-		vaccinationCentreDetailsTestObject.setCentre_zip("B30H72");
-		vaccinationCentreDetailsTestObject.setCentre_code("2006");
-		return vaccinationCentreDetailsTestObject;
+	@Test
+	public void selectVaccinationCentresTestSuccess() {
+		List<VaccinationCentreDetails> vaccinationCentres=new ArrayList<VaccinationCentreDetails>();
+		when(vaccinationCentreDetailsImpl.getVaccinationCentres(user)).thenReturn(vaccinationCentres);
+		assertEquals(vaccinationCentres,vaccinationCentreDetailsController.selectVaccinationCentres(user));
 	}
 	
-	public VaccinationCentreDetails vaccinationCentreDetailsTestObject2() {
-		VaccinationCentreDetails vaccinationCentreDetailsTestObject=new VaccinationCentreDetails();
-		vaccinationCentreDetailsTestObject.setCentre_name("");
-		vaccinationCentreDetailsTestObject.setCentre_city("halifax");
-		vaccinationCentreDetailsTestObject.setCentre_address("gottingen street");
-		vaccinationCentreDetailsTestObject.setCentre_zip("B30H72");
-		vaccinationCentreDetailsTestObject.setCentre_code("2006");
-		return vaccinationCentreDetailsTestObject;
+	@Test
+	public void selectVaccinationCentresTestFailure() {
+		List<VaccinationCentreDetails> vaccinationCentres=new ArrayList<VaccinationCentreDetails>();
+		when(vaccinationCentreDetailsImpl.getVaccinationCentres(null)).thenReturn(vaccinationCentres);
+		assertEquals(vaccinationCentres,vaccinationCentreDetailsController.selectVaccinationCentres(null));
 	}
-
 }
