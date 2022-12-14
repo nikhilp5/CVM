@@ -2,13 +2,12 @@ package controller.userUpdate;
 
 import model.user.User;
 import model.user.VaccinationStatusUpdateImpl;
-import model.vaccinationDetails.VaccinationDetails;
 
 public class VaccinationStatusUpdateController implements IVaccineUpdateController{
 
-    public VaccinationStatusUpdateImpl vaccinationStatusUpdateImpl=new VaccinationStatusUpdateImpl();
-    @Override
-    public boolean updateVaccinationStatus(User user) {
-        return vaccinationStatusUpdateImpl.updateVaccinationStatus(user);
-    }
+	public VaccinationStatusUpdateImpl vaccinationStatusUpdateImpl=new VaccinationStatusUpdateImpl();
+	@Override
+	public boolean updateVaccinationStatus(User user) {
+		return vaccinationStatusUpdateImpl.updateVaccinationStatus(user);
+	}
 }

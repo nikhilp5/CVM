@@ -36,7 +36,6 @@ public class UserRegistrationImpl {
 			if (rowCount > 0) {
 				VaccinationDetailsImpl vac_detail =  new VaccinationDetailsImpl();
 				String selectQuery = UserQuery.instance().selectUserId(user);
-				System.out.println(selectQuery);
 				ResultSet rs = statement.executeQuery(selectQuery);
 				if (rs.next()) {
 					user.setUserId(rs.getString(UserDatabaseColumns.user_id));

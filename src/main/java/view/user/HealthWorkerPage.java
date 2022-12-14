@@ -37,9 +37,9 @@ public class HealthWorkerPage {
 			case "1":
 				healthWorkerPage.updateUser(scanner);
 				break;
-				case "2":
-					healthWorkerPage.updateVaccinationStatus(scanner);
-					break;
+			case "2":
+				healthWorkerPage.updateVaccinationStatus(scanner);
+				break;
 			case "3":
 				healthWorkerPage.cancelAppointment(scanner);
 				break;

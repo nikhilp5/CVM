@@ -11,35 +11,36 @@ import java.util.Scanner;
 
 public class UpdateVaccinationStatus {
 
-    private final Scanner scanner;
+	private final Scanner scanner;
 
-    public UpdateVaccinationStatus(final Scanner scanner){
-        this.scanner=scanner;
-    }
-    public void updateVaccinationStatus(){
-        System.out.println("Enter First name ");
-        final String firstName = scanner.nextLine().trim().toLowerCase();
-        System.out.println("Enter Last name ");
-        final String lastName = scanner.nextLine().trim().toLowerCase();
-        System.out.println("Enter Email ID ");
-        final String emailId = scanner.nextLine().trim();
+	public UpdateVaccinationStatus(final Scanner scanner){
+		this.scanner=scanner;
+	}
 
-        UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
+	public void updateVaccinationStatus(){
+		System.out.println("Enter First name ");
+		final String firstName = scanner.nextLine().trim().toLowerCase();
+		System.out.println("Enter Last name ");
+		final String lastName = scanner.nextLine().trim().toLowerCase();
+		System.out.println("Enter Email ID ");
+		final String emailId = scanner.nextLine().trim();
 
-        final IUserUpdateController userUpdateController = new UserUpdateController(userUpdateImpl);
+		UserUpdateImpl userUpdateImpl=new UserUpdateImpl();
 
-        User user= userUpdateController.getUser(firstName,lastName,emailId);
+		final IUserUpdateController userUpdateController = new UserUpdateController(userUpdateImpl);
 
-        if(user == null)
-        {
-            System.out.println("User doesn't Exist. Enter proper Details.");
-        }
-        else {
-            final IVaccineUpdateController vaccineUpdateController=new VaccinationStatusUpdateController();
-            boolean updatedVaccinationStatus= vaccineUpdateController.updateVaccinationStatus(user);
-            if(updatedVaccinationStatus) {
-                System.out.println("vaccination status updated");
-            }
-        }
-    }
+		User user= userUpdateController.getUser(firstName,lastName,emailId);
+
+		if(user == null)
+		{
+			System.out.println("User doesn't Exist. Enter proper Details.");
+		}
+		else {
+			final IVaccineUpdateController vaccineUpdateController=new VaccinationStatusUpdateController();
+			boolean updatedVaccinationStatus= vaccineUpdateController.updateVaccinationStatus(user);
+			if(updatedVaccinationStatus) {
+				System.out.println("vaccination status updated");
+			}
+		}
+	}
 }
