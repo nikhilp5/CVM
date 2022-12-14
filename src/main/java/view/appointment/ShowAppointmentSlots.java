@@ -21,16 +21,16 @@ public class ShowAppointmentSlots {
 	
 	public void showAvailableSlots(VaccinationCentreDetails vac_details){
 		int index=1;
-		System.out.println("Centre_name: "+ vac_details.getCentre_name()+" id: "+ vac_details.centre_id);
+		System.out.println("Centre_name: "+ vac_details.getCentre_name()+" 	id: "+ vac_details.centre_id);
 		timeSlots = bk_ctrl.getAvailableAppointmentSlots(vac_details);
 		if(timeSlots.isEmpty())
 		{
 			System.out.println("No Time-Slots available at this Centre !!");
 		}
 		else {
+			System.out.println("Available Time Slots: ");
 			for (TimeSlots timeSlot : timeSlots) {
-				System.out.println(index + " Date: " + timeSlot.getDate());
-				System.out.println(" Time: " + timeSlot.getStartTime() + " " + timeSlot.getEndTime());
+				System.out.println(index + ")	 Date: " + timeSlot.getDate()+"			Time: " + timeSlot.getStartTime() + " " + timeSlot.getEndTime());
 				index++;
 			}
 		}

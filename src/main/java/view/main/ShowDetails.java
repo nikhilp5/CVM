@@ -32,15 +32,10 @@ public class ShowDetails extends User implements IShowDetails{
 			VaccinationDetailsController vac_con = new VaccinationDetailsController(vaccinationDetailsImpl);
 			System.out.println("\n *Vaccination Details*\n ");
 			vac_details = vac_con.fetchVaccinationDetails(user);
-			System.out.println(vac_details.getUser_id());
 			if(vac_details.getVaccination_status().contains("vaccinated")) {
 				System.out.println("Vaccination_status:       " +vac_details.getVaccination_status());
-				System.out.println("Vaccine Name:             " + vac_details.getVaccine_name());
 				System.out.println("Dose 1:                   " + vac_details.getDose1());
 				System.out.println("Dose 1 Date:              " + vac_details.getDose1_date());
-				System.out.println("Dose 1 HealthWorker:      " + vac_details.getDose1_healthWorker());
-				System.out.println("Dose 1 VaccinationCenter: " + vac_details.getDose1_vaccinationCenter());
-
 				if(vac_details.getVaccination_status().contains("fully_vaccinated"))
 				{
 					System.out.println("Dose 2:                   " + vac_details.getDose2());
