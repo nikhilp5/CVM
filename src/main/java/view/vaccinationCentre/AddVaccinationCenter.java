@@ -6,6 +6,7 @@ import controller.vaccinationCentreDetails.VaccinationCentreDetailsController;
 import database.DatabaseConnection;
 import database.IDatabaseConnection;
 import model.vaccinationCentre.VaccinationCentreDetails;
+import model.vaccinationCentre.VaccinationCentreDetailsImpl;
 
 public class AddVaccinationCenter {
 	private final IDatabaseConnection databaseConnection;
@@ -31,8 +32,9 @@ public class AddVaccinationCenter {
 
 			VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails(centreCode,centreName,
 					centreAddress, centreCity,centreAreaCode);
+			VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
 
-			VaccinationCentreDetailsController vaccinationCentreDetailsController=new VaccinationCentreDetailsController();
+			VaccinationCentreDetailsController vaccinationCentreDetailsController=new VaccinationCentreDetailsController(vaccinationCentreDetailsImpl);
 
 			boolean centreInserted=vaccinationCentreDetailsController.addVaccinationCentreDetails(vaccinationCentreDetails);
 			if(centreInserted) {
