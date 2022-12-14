@@ -23,7 +23,7 @@ public class UserRegistration {
 			System.out.println("Enter last name");
 			final String lastName = scanner.nextLine().trim();
 
-			System.out.println("Enter gender");
+			System.out.println("Enter gender(MALE/FEMALE/OTHER)");
 			final String gender = scanner.nextLine().trim().toUpperCase();
 
 			System.out.println("Enter mobile number");
@@ -32,7 +32,7 @@ public class UserRegistration {
 			System.out.println("Enter email ID");
 			final String emailId = scanner.nextLine().trim();
 
-			System.out.println("Enter Date Of Birth");
+			System.out.println("Enter Date Of Birth(DD-MM-YYYY)");
 			final String dateOfBirth = scanner.nextLine().trim();
 
 			System.out.println("Enter Address");
@@ -44,7 +44,7 @@ public class UserRegistration {
 			System.out.println("Enter AreaCode(Address)");
 			final String areaCode = scanner.nextLine().trim();
 
-			System.out.println("Enter password");
+			System.out.println("Enter password(1 UPPERCASE/1 LOWERCASE/1 NUMBER/1 SPECIAL CHAR)");
 			String firstPass = scanner.nextLine().trim();
 
 			System.out.println("Confirm password");

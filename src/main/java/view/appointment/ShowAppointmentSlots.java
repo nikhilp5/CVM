@@ -12,13 +12,13 @@ import java.util.List;
 public class ShowAppointmentSlots {
 
 	BookAppointmentImpl bookImpl=new BookAppointmentImpl();
-	
+
 	BookAppointmentController bk_ctrl = new BookAppointmentController(bookImpl);
-	
+
 	TimeSlots slot = new TimeSlots();
-	
+
 	private List<TimeSlots> timeSlots;
-	
+
 	public void showAvailableSlots(VaccinationCentreDetails vac_details){
 		int index=1;
 		System.out.println("Centre_name: "+ vac_details.getCentre_name()+" 	id: "+ vac_details.centre_id);
