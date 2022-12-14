@@ -1,10 +1,13 @@
 package model.user;
 
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Base64;
 
 import database.DatabaseConnection;
+import model.vaccinationDetails.Subject;
+import model.vaccinationDetails.VaccinationDetailsImpl;
 
 public class UserRegistrationImpl {
 	private static UserRegistrationImpl userRegistrationImpl;
@@ -31,6 +34,15 @@ public class UserRegistrationImpl {
 			String insertUserQuery = UserQuery.instance().insertUser(user);
 			int rowCount=statement.executeUpdate(insertUserQuery);
 			if (rowCount > 0) {
+				VaccinationDetailsImpl vac_detail =  new VaccinationDetailsImpl();
+				String selectQuery = UserQuery.instance().selectUserId(user);
+				System.out.println(selectQuery);
+				ResultSet rs = statement.executeQuery(selectQuery);
+				if (rs.next()) {
+					user.setUserId(rs.getString(UserDatabaseColumns.user_id));
+				}
+				Subject.Instance().attach(vac_detail);
+				Subject.Instance().notifyObservers(user);
 				return true;
 			}
 			return false;

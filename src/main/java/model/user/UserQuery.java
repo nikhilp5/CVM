@@ -104,4 +104,13 @@ public class UserQuery implements IUserQuery{
 				" set "+VaccinationDetailsDatabaseColumns.vaccination_status+"='"+vaccinationStatus+
 				"' where "+UserDatabaseColumns.user_id+ "='"+user.getUserId()+"' LIMIT 1";
 	}
+	@Override
+	public String selectUserId(User user) {
+		return "select * from "+UserDatabaseColumns.user_table+" where LOWER("+UserDatabaseColumns.user_first_name+")"
+				+" = '"+user.getFirstName()
+				+"' and LOWER(" +UserDatabaseColumns.user_last_name+")"
+				+" = '"+user.getLastName()
+				+"' and LOWER(" +UserDatabaseColumns.user_email+")"
+				+" = '"+user.getEmailId() +"' and role='"+UserType.user+"' limit 1";
+	}
 }
