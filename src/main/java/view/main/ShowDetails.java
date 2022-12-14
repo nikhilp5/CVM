@@ -34,15 +34,6 @@ public class ShowDetails extends User implements IShowDetails{
 			vac_details = vac_con.fetchVaccinationDetails(user);
 			if(vac_details.getVaccination_status().contains("vaccinated")) {
 				System.out.println("Vaccination_status:       " +vac_details.getVaccination_status());
-				System.out.println("Dose 1:                   " + vac_details.getDose1());
-				System.out.println("Dose 1 Date:              " + vac_details.getDose1_date());
-				if(vac_details.getVaccination_status().contains("fully_vaccinated"))
-				{
-					System.out.println("Dose 2:                   " + vac_details.getDose2());
-					System.out.println("Dose 2 Date:              " + vac_details.getDose2_date());
-					System.out.println("Dose 2 HealthWorker:      " + vac_details.getDose2_healthWorker());
-					System.out.println("Dose 2 VaccinationCenter: " + vac_details.getDose2_vaccinationCenter());
-				}
 			}
 			else {
 				System.out.println("Not Vaccinated ");
