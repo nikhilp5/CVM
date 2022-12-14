@@ -16,7 +16,7 @@ public class User {
 	private String addressZipCode;
 	private String password;
 	private String role;
-	
+
 	public User(String firstName, String lastName, String gender, String mobileNumber, String emailId,
 			String dateOfBirth, String address, String addressCity, String addressZipCode, String password,String role) {
 		super();

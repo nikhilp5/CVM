@@ -5,9 +5,9 @@ import model.timeSlots.TimeSlotsImpl;
 import model.vaccinationCentre.VaccinationCentreDetails;
 
 public class TimeSlotsController implements ITimeSlotsController{
-	
+
 	TimeSlotsImpl timeSlotsImpl;
-	
+
 	public TimeSlotsController(TimeSlotsImpl timeSlotsImpl) {
 		this.timeSlotsImpl=timeSlotsImpl;
 	}

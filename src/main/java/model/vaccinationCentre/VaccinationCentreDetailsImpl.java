@@ -14,8 +14,8 @@ import model.user.UserFieldValidation;
 public class VaccinationCentreDetailsImpl {
 	List<VaccinationCentreDetails> vac_centres = new ArrayList<>();
 	public static VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl;
-	
-	
+
+
 	public String updateVaccinationCentreDetails(String centreCode,String updateParameterName, String value) {
 		try {
 			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
@@ -43,29 +43,29 @@ public class VaccinationCentreDetailsImpl {
 			DatabaseConnection.instance().stopDatabaseConnection();
 		}
 	}
-	
+
 	public String deleteVaccinationCentreDetails(String centreCode) {
 		try
 		{
-		Connection connection=DatabaseConnection.instance().getDatabaseConnection();
-		Statement statement= connection.createStatement();
-		String selectResult=VaccinationCentreQuery.instance().validCentreNumber(centreCode);
-		ResultSet rs=statement.executeQuery(selectResult);
-		if(rs.next())
-		{
-			Statement deleteSlotsQuery=connection.createStatement();
-			TimeSlotsQuery vaccinationSlotsQuery=new TimeSlotsQuery();
-			String deleteSlots=vaccinationSlotsQuery.deleteSlots(rs.getString(VaccinationCenterDatabaseColumns.centre_id));
-			deleteSlotsQuery.execute(deleteSlots);
-			Statement deleteCentreQuery=connection.createStatement();
-			deleteCentreQuery.execute(VaccinationCentreQuery.instance().deleteCentreDetails(centreCode));
-			connection.close();
-			return "deleted successfully";
-		}
-		else
-		{
-			return "wrong centre code";
-		}
+			Connection connection=DatabaseConnection.instance().getDatabaseConnection();
+			Statement statement= connection.createStatement();
+			String selectResult=VaccinationCentreQuery.instance().validCentreNumber(centreCode);
+			ResultSet rs=statement.executeQuery(selectResult);
+			if(rs.next())
+			{
+				Statement deleteSlotsQuery=connection.createStatement();
+				TimeSlotsQuery vaccinationSlotsQuery=new TimeSlotsQuery();
+				String deleteSlots=vaccinationSlotsQuery.deleteSlots(rs.getString(VaccinationCenterDatabaseColumns.centre_id));
+				deleteSlotsQuery.execute(deleteSlots);
+				Statement deleteCentreQuery=connection.createStatement();
+				deleteCentreQuery.execute(VaccinationCentreQuery.instance().deleteCentreDetails(centreCode));
+				connection.close();
+				return "deleted successfully";
+			}
+			else
+			{
+				return "wrong centre code";
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -74,7 +74,7 @@ public class VaccinationCentreDetailsImpl {
 		}
 		return centreCode;
 	}
-	
+
 	public boolean addVaccinationCentreDetails(VaccinationCentreDetails vaccineCentreDetails) {
 		try
 		{ 
@@ -106,7 +106,7 @@ public class VaccinationCentreDetailsImpl {
 			DatabaseConnection.instance().stopDatabaseConnection();
 		}
 	}
-	
+
 	private ArrayList<String> validateVaccineCentreDetails(VaccinationCentreDetails vaccineCentreDetails){
 		ArrayList<String> errorList=new ArrayList<String>();
 
@@ -122,7 +122,7 @@ public class VaccinationCentreDetailsImpl {
 			errorList.add("Centre Area Code is not valid"); }
 		return errorList;
 	}
-	
+
 	public VaccinationCentreDetails checkVaccineCentreExists(String centreCode) {
 		try
 		{ 

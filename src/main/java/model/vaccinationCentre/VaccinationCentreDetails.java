@@ -1,14 +1,14 @@
 package model.vaccinationCentre;
 
 public class VaccinationCentreDetails {
-	
+
 	public String centre_code;
 	public String centre_name;
 	public String centre_address;
 	public String centre_city;
 	public String centre_zip;
 	public String centre_id;
-	
+
 	public String getCentre_code() {
 		return centre_code;
 	}

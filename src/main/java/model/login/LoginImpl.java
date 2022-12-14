@@ -10,9 +10,9 @@ import java.sql.Statement;
 import java.util.Base64;
 
 public class LoginImpl {
-	
+
 	private User user;
-	
+
 	public User getPasswordByEmail(String email)
 	{
 		try {
@@ -20,13 +20,12 @@ public class LoginImpl {
 			Statement statement= connection.createStatement();
 			String getQuery = LoginQuery.instance().loginByEmail(email);
 			ResultSet rs = statement.executeQuery(getQuery);
-			
+
 			if(rs.next()) {
 				user=resultUser(rs);
-				}
+			}
 			connection.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {
@@ -34,7 +33,7 @@ public class LoginImpl {
 		}
 		return user;
 	}
-	
+
 	public User getPasswordByPhoneNumber(String phoneNumber)
 	{
 		try {
@@ -43,8 +42,8 @@ public class LoginImpl {
 			String getQuery = LoginQuery.instance().loginByMobile(phoneNumber);
 			ResultSet rs = statement.executeQuery(getQuery);
 			if(rs.next()){
-				  user=resultUser(rs);
-				}
+				user=resultUser(rs);
+			}
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +54,7 @@ public class LoginImpl {
 		System.out.println(user.getRole());
 		return user;
 	}
-	
+
 	public User resultUser(ResultSet rs) throws SQLException
 	{
 		User user=new User();
@@ -73,7 +72,7 @@ public class LoginImpl {
 		user.setRole(rs.getString(UserDatabaseColumns.user_role));
 		return user;
 	}
-	
+
 	public User userCheck(User user,String password) throws Exception {
 		if(user==null)
 		{
@@ -89,7 +88,7 @@ public class LoginImpl {
 			{
 				return null;
 			}
-			
+
 		}		
 	}
 

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import model.user.Gender;
 
 public class GenderTest {
-	
+
 	@Test
 	public void isGenderValidTest() {
 		Assertions.assertTrue(Gender.isGenderValid("MALE"));
@@ -12,5 +12,5 @@ public class GenderTest {
 		Assertions.assertTrue(Gender.isGenderValid("OTHER"));
 		Assertions.assertFalse(Gender.isGenderValid("NegativeTest"));
 	}
-	
+
 }

@@ -78,46 +78,6 @@ public class VaccinationCentreDetailsControllerTest {
 		when(vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails)).thenReturn(false);
 		assertEquals(false,vaccinationCentreDetailsImpl.addVaccinationCentreDetails(vaccinationCentreDetails));
 	}
-//	
-//	@Test
-//	public void updateVaccinationCentreDetailsTestFailure() {
-//		String updationResult=VaccinationCentreDetailsController.instance()
-//				.updateVaccinationCentreDetailsController("11002",VaccinationCenterDatabaseColumns.centre_name,"iwk hospital");
-//		assertEquals(updationResult, "wrong centre code");
-//	}
-	
-//	@Test
-//	public void deleteVaccinationCentreDetailsTestSuccess() {
-//		VaccinationCentreDetailsController.instance()
-//		.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject());
-//		String deletionResult=VaccinationCentreDetailsController.instance()
-//				.deleteVaccinationCentreDetailsController("2006");
-//		assertEquals(deletionResult, "deleted successfully");
-//	}
-//	
-//	@Test
-//	public void deleteVaccinationCentreDetailsTestFailure() {
-//		String deletionResult=VaccinationCentreDetailsController.instance()
-//				.deleteVaccinationCentreDetailsController("2010");
-//		assertEquals(deletionResult, "wrong centre code");
-//	}
-//	
-//	@Test
-//	public void addVaccinationCentreDetailsTestSuccess() {
-//		boolean insertionResult=VaccinationCentreDetailsController.instance()
-//				.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject());
-//		assertEquals(insertionResult,true);
-//		VaccinationCentreDetailsController.instance()
-//		.deleteVaccinationCentreDetailsController("2006");
-//	}
-	
-//	@Test
-//	public void addVaccinationCentreDetailsTestFailure() {
-//		boolean insertionResult=VaccinationCentreDetailsController.instance()
-//				.addVaccinationCentreDetails(vaccinationCentreDetailsTestObject2());
-//		assertEquals(insertionResult,false);
-//	}
-//	
 	
 	public VaccinationCentreDetails vaccinationCentreDetailsTestObject() {
 		VaccinationCentreDetails vaccinationCentreDetailsTestObject=new VaccinationCentreDetails();

@@ -13,17 +13,17 @@ import model.user.User;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class LoginControllerTest {
-	
+
 	private LoginController loginController;
 	private LoginImpl loginImpl;
 	static User user=new User();
-	
+
 	@BeforeAll
 	public void setup() {
 		loginImpl= Mockito.mock(LoginImpl.class);
 		loginController=new LoginController(loginImpl);
 	}
-	
+
 	@BeforeAll
 	public void mockObject() {
 		user.setUserId("10000");
@@ -39,7 +39,7 @@ public class LoginControllerTest {
 		user.setRole("USER");
 		user.setPassword("password");
 	}
-	
+
 	@Test
 	public void userLoginByEmailTestSuccess() {
 		try {
@@ -49,7 +49,7 @@ public class LoginControllerTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-}
+	}
 	@Test
 	public void userLoginByEmailTestFailure() {
 		try {
@@ -59,7 +59,7 @@ public class LoginControllerTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-}
+	}
 	@Test
 	public void userLoginByPhoneTestSuccess() {
 		try {

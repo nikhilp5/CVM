@@ -1,14 +1,14 @@
 package model.vaccinationCentre;
 
 public class VaccinationCentreQuery implements IVaccinationCentreQuery {
-	
+
 	private static VaccinationCentreQuery vaccinationCentreQuery;
-	
-	  public static VaccinationCentreQuery instance() {
-	        if (vaccinationCentreQuery == null) {
-	        	vaccinationCentreQuery= new VaccinationCentreQuery();
-	        }
-	        return vaccinationCentreQuery;
+
+	public static VaccinationCentreQuery instance() {
+		if (vaccinationCentreQuery == null) {
+			vaccinationCentreQuery= new VaccinationCentreQuery();
+		}
+		return vaccinationCentreQuery;
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class VaccinationCentreQuery implements IVaccinationCentreQuery {
 		return "Delete From "+VaccinationCenterDatabaseColumns.vaccination_centre_details_table+
 				" where "+VaccinationCenterDatabaseColumns.centre_code+ "="+centreCode;
 	}
-	
+
 	@Override
 	public String addCentreDetails(VaccinationCentreDetails vaccineCentreDetails) {
 		return "insert into " + VaccinationCenterDatabaseColumns.vaccination_centre_details_table + "(" +
@@ -38,12 +38,12 @@ public class VaccinationCentreQuery implements IVaccinationCentreQuery {
 				VaccinationCenterDatabaseColumns.centre_address + ", " +
 				VaccinationCenterDatabaseColumns.centre_city + ", " +
 				VaccinationCenterDatabaseColumns.centre_zip + ")" +	
-		        "values (" +
-		        "'" + vaccineCentreDetails.getCentre_code() + "', " +
-		        "'" + vaccineCentreDetails.getCentre_name() + "', " +
-		        "'" + vaccineCentreDetails.getCentre_address() + "', " +
-		        "'" + vaccineCentreDetails.getCentre_city() + "', " +
-		        "'" + vaccineCentreDetails.getCentre_zip()+ "');";
+				"values (" +
+				"'" + vaccineCentreDetails.getCentre_code() + "', " +
+				"'" + vaccineCentreDetails.getCentre_name() + "', " +
+				"'" + vaccineCentreDetails.getCentre_address() + "', " +
+				"'" + vaccineCentreDetails.getCentre_city() + "', " +
+				"'" + vaccineCentreDetails.getCentre_zip()+ "');";
 	}
 
 	public String getVaccinationCentreQuery(String user_city){

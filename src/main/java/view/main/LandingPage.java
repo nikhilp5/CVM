@@ -6,17 +6,16 @@ import model.user.User;
 import view.user.UserRegistration;
 
 public class LandingPage {
-	
-    
-    public static User user;
-    	
+
+	public static User user;
+
 	private void userRegistration(final Scanner scanner) {
 		UserRegistration userRegistration =new UserRegistration(scanner);
 		userRegistration.registerUser();
 	}	
 	public static void main(String[] args) {
 		try {
-		    final LandingPage cvmApp = new LandingPage();
+			final LandingPage cvmApp = new LandingPage();
 			System.out.println("\n COVID VACCINATION MANAGEMENT SYSTEM \n *Select an option* \n");
 			while(true) {
 				Login login=new Login();

@@ -18,7 +18,7 @@ public class UserFieldValidationTest {
 		Assertions.assertTrue(!UserFieldValidation.genderValidation(Gender.male));
 		Assertions.assertFalse(!UserFieldValidation.genderValidation("NotAValidGender"));
 	}
-	
+
 	@Test
 	public void dateValidationTest() {
 		Assertions.assertTrue(!UserFieldValidation.dateValidation("02-02-2020"));
@@ -36,29 +36,29 @@ public class UserFieldValidationTest {
 		Assertions.assertTrue(!UserFieldValidation.passwordValidation("Test@123"));
 		Assertions.assertFalse(!UserFieldValidation.passwordValidation("NotAValidPassword"));
 	}
-	
+
 	@Test
 	public void mobileNumberValidationTest() {
 		Assertions.assertTrue(!UserFieldValidation.mobileNumberValidation("123456789"));
 		Assertions.assertFalse(!UserFieldValidation.mobileNumberValidation("testNumber"));
 	}
-	
+
 	@Test
 	public void areaCodeValidationTest() {
 		Assertions.assertTrue(!UserFieldValidation.areaCodeValidation("B3K9K3"));
 		Assertions.assertFalse(!UserFieldValidation.areaCodeValidation("AreaCodeTest"));
 	}
-	
+
 	@Test
 	public void isEmptyStringTest() {
 		Assertions.assertTrue(!UserFieldValidation.isEmptyString("EmptyStringTest"));
 		Assertions.assertFalse(!UserFieldValidation.isEmptyString(null));
 	}
-	
+
 	@Test
 	public void timeValidationTest() {
 		Assertions.assertTrue(!UserFieldValidation.timeValidation("12:00"));
 		Assertions.assertFalse(!UserFieldValidation.timeValidation("99:99"));
 	}
-	
+
 }

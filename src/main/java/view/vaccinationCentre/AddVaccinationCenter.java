@@ -15,7 +15,7 @@ public class AddVaccinationCenter {
 		this.scanner = scanner;
 		databaseConnection = DatabaseConnection.instance();
 	}
-	
+
 	public final void add() {
 		try {
 			System.out.println("Enter Centre Code ");
@@ -31,7 +31,7 @@ public class AddVaccinationCenter {
 
 			VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails(centreCode,centreName,
 					centreAddress, centreCity,centreAreaCode);
-			
+
 			VaccinationCentreDetailsController vaccinationCentreDetailsController=new VaccinationCentreDetailsController();
 
 			boolean centreInserted=vaccinationCentreDetailsController.addVaccinationCentreDetails(vaccinationCentreDetails);

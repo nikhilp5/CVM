@@ -23,13 +23,13 @@ public class UpdateHealthWorker {
 			final String lastName = scanner.nextLine().trim().toLowerCase();
 			System.out.println("Enter email ID ");
 			final String emailId = scanner.nextLine().trim();
-			
+
 			HealthWorkerUpdateImpl healthWorkerImpl=new HealthWorkerUpdateImpl();
-			
+
 			final IHealthWorkerUpdateController healthWorkerUpdateController = new HealthWorkerUpdateController(healthWorkerImpl);
-			
+
 			User healthWorker=healthWorkerUpdateController.getHealthWorker(firstName,lastName,emailId);
-			
+
 			if(healthWorker==null) {
 				System.out.println("User doesn't Exist. Enter proper Details.");
 			}
@@ -53,7 +53,7 @@ public class UpdateHealthWorker {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public final HashMap<String,String> getAllUpdateKeyValues() {
 		HashMap<String,String> columnValue=new HashMap<String,String>();
 		boolean breakLoop=true;
@@ -121,7 +121,7 @@ public class UpdateHealthWorker {
 		}
 		return columnValue;
 	}
-	
+
 	public final String setValue(Scanner scanner) {
 		System.out.println("Enter value");
 		String value=scanner.nextLine().trim();

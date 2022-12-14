@@ -1,7 +1,5 @@
 package controller.vaccinationDetails;
 
-import java.sql.ResultSet;
-
 import model.user.User;
 import model.vaccinationDetails.VaccinationDetails;
 

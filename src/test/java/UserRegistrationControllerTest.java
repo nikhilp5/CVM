@@ -13,17 +13,17 @@ import model.user.UserRegistrationImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class UserRegistrationControllerTest {
-	
+
 	private UserRegistrationController userRegistrationController;
 	private UserRegistrationImpl userRegistrationImpl;
 	User user=new User();
-	
+
 	@BeforeAll
 	public void setup() {
 		userRegistrationImpl= Mockito.mock(UserRegistrationImpl.class);
 		userRegistrationController=new UserRegistrationController(userRegistrationImpl);
 	}
-	
+
 	@BeforeAll
 	public void mockObject() {
 		user.setUserId("10000");
@@ -39,13 +39,13 @@ public class UserRegistrationControllerTest {
 		user.setRole("USER");
 		user.setPassword("password");
 	}
-	
+
 	@Test
 	public void userRegistrationTestSuccess() {
 		when(userRegistrationImpl.register(user)).thenReturn(true);
 		assertEquals(true,userRegistrationController.register(user));
 	}
-	
+
 	@Test
 	public void userRegistrationTestFailure() {
 		when(userRegistrationImpl.register(null)).thenReturn(false);

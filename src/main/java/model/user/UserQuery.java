@@ -3,15 +3,15 @@ package model.user;
 import java.util.HashMap;
 
 public class UserQuery implements IUserQuery{
-	
-	 private static UserQuery instance;
 
-	 public static UserQuery instance() {
-		 if (instance == null) {
-			 instance = new UserQuery();
-		 }
-		 return instance;
-	 }
+	private static UserQuery instance;
+
+	public static UserQuery instance() {
+		if (instance == null) {
+			instance = new UserQuery();
+		}
+		return instance;
+	}
 
 	@Override
 	public String insertUser(User user) {
@@ -27,18 +27,18 @@ public class UserQuery implements IUserQuery{
 				UserDatabaseColumns.user_zip + ", " +
 				UserDatabaseColumns.user_password + ", " +
 				UserDatabaseColumns.user_role + ")" +
-		        "values (" +
-		        "'" + user.getFirstName() + "', " +
-		        "'" + user.getLastName() + "', " +
-		        "'" + user.getGender() + "', " +
-		        "'" + user.getMobileNumber() + "', " +
-		        "'" + user.getEmailId() + "', " +
-		        "'" + user.getDateOfBirth() + "', " +
-		        "'" + user.getAddress() + "', " +
-		        "'" + user.getAddressCity() + "', " +
-		        "'" + user.getAddressZipCode() + "', " +
-		        "'" + user.getPassword() + "', " +
-		        "'" + user.getRole()+ "');";
+				"values (" +
+				"'" + user.getFirstName() + "', " +
+				"'" + user.getLastName() + "', " +
+				"'" + user.getGender() + "', " +
+				"'" + user.getMobileNumber() + "', " +
+				"'" + user.getEmailId() + "', " +
+				"'" + user.getDateOfBirth() + "', " +
+				"'" + user.getAddress() + "', " +
+				"'" + user.getAddressCity() + "', " +
+				"'" + user.getAddressZipCode() + "', " +
+				"'" + user.getPassword() + "', " +
+				"'" + user.getRole()+ "');";
 	}
 
 	@Override
@@ -56,14 +56,14 @@ public class UserQuery implements IUserQuery{
 		String query="update "+UserDatabaseColumns.user_table+" set ";
 		int count = 1;
 		for (String key : updateValues.keySet()) {
-		    query=query+key+"= '"+updateValues.get(key)+"'";
-		    if(count==updateValues.size()) {
-		    	break;
-		    }
-		    else {
-		    	count++;
-		    	query=query.concat(" , ");
-		    }
+			query=query+key+"= '"+updateValues.get(key)+"'";
+			if(count==updateValues.size()) {
+				break;
+			}
+			else {
+				count++;
+				query=query.concat(" , ");
+			}
 		}
 		query=query.concat(" where user_id= "+user.getUserId());
 		return query;

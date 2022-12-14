@@ -1,14 +1,14 @@
 package model.vaccinationCentre;
 
 public class VaccinationCenterDatabaseColumns {
-	
+
 	public static VaccinationCenterDatabaseColumns vaccinationCentreDatabaseColumns;
-	
-	  public static VaccinationCenterDatabaseColumns instance() {
-	        if (vaccinationCentreDatabaseColumns == null) {
-	        	vaccinationCentreDatabaseColumns= new VaccinationCenterDatabaseColumns();
-	        }
-	        return vaccinationCentreDatabaseColumns;
+
+	public static VaccinationCenterDatabaseColumns instance() {
+		if (vaccinationCentreDatabaseColumns == null) {
+			vaccinationCentreDatabaseColumns= new VaccinationCenterDatabaseColumns();
+		}
+		return vaccinationCentreDatabaseColumns;
 	}
 	public static final String vaccination_centre_details_table ="vaccine_centre_details";
 	public static final String centre_id ="centre_id";

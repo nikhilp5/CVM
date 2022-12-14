@@ -8,7 +8,7 @@ public class UserProcessor extends LoginProcessor {
 	public UserProcessor(LoginProcessor nextLoginProcessor) {
 		super(nextLoginProcessor);
 	}
-	
+
 	public void process(User user)
 	{
 		if (user.getRole().equals(UserType.user))

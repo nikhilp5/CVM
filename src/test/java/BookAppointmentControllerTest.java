@@ -25,7 +25,7 @@ public class BookAppointmentControllerTest {
 	private User user=new User();
 	TimeSlots timeSlots=new TimeSlots();
 	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
-	
+
 	@BeforeAll
 	public void mockTimeSlots() {
 		timeSlots.setCentreId("1001");
@@ -34,7 +34,7 @@ public class BookAppointmentControllerTest {
 		timeSlots.setEndTime("10:20");
 		timeSlots.setDate("29-12-2022");
 	}
-	
+
 	@BeforeAll
 	public void mockUser() {
 		user.setUserId("10000");
@@ -50,25 +50,25 @@ public class BookAppointmentControllerTest {
 		user.setRole("USER");
 		user.setPassword("password");
 	}
-	
+
 	@BeforeAll
 	public void setup() {
 		bookAppointmentImpl= Mockito.mock(BookAppointmentImpl.class);
 		bookAppointmentController=new BookAppointmentController(bookAppointmentImpl);
 	}
-	
+
 	@Test
 	public void addAppointmentTestSuccess() {
 		when(bookAppointmentImpl.bookAppointment(timeSlots, user)).thenReturn(true);
 		assertEquals(true,bookAppointmentController.addAppointment(timeSlots, user));
 	}
-	
+
 	@Test
 	public void addAppointmentTestFailure() {
 		when(bookAppointmentImpl.bookAppointment(timeSlots,null)).thenReturn(false);
 		assertEquals(false,bookAppointmentController.addAppointment(timeSlots, user));
 	}
-	
+
 	@Test
 	public void getAvailableTimeSlotsTestSuccess() {
 		List<TimeSlots> timeSlots=new ArrayList<TimeSlots>();
@@ -76,21 +76,21 @@ public class BookAppointmentControllerTest {
 				.getAvailableAppointmentSlots(vaccinationCentreDetails)).thenReturn(timeSlots);
 		assertEquals(timeSlots,bookAppointmentController.getAvailableAppointmentSlots(vaccinationCentreDetails));
 	}
-	
+
 	@Test
 	public void getAvailableTimeSlotsTestFailure() {
 		when(bookAppointmentImpl
 				.getAvailableAppointmentSlots(vaccinationCentreDetails)).thenReturn(null);
 		assertEquals(null,bookAppointmentController.getAvailableAppointmentSlots(vaccinationCentreDetails));
 	}
-	
+
 	@Test
 	public void getUserAppointmentTestSuccess() {
 		List<BookAppointment> listOfBookedAppointment= new ArrayList<BookAppointment>();
 		when(bookAppointmentImpl.getBookedAppointments(user)).thenReturn(listOfBookedAppointment);
 		assertEquals(listOfBookedAppointment,bookAppointmentController.getUserAppointments(user));
 	}
-	
+
 	@Test
 	public void getUserAppointmentTestFailure() {
 		List<BookAppointment> listOfBookedAppointment= new ArrayList<BookAppointment>();

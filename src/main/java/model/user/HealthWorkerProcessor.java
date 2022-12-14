@@ -8,7 +8,7 @@ public class HealthWorkerProcessor extends LoginProcessor {
 	public HealthWorkerProcessor(LoginProcessor nextLoginProcessor) {
 		super(nextLoginProcessor);
 	}
-	
+
 	public void process(User user)
 	{
 		if (user.getRole().equals(UserType.healthworker))

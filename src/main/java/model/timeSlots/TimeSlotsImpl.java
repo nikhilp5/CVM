@@ -10,7 +10,6 @@ import model.user.UserFieldValidation;
 
 public class TimeSlotsImpl {
 
-	
 	public boolean addTimeSlot(TimeSlots timeSlotEntry) {
 		try {
 			ArrayList<String> errorList=validateInputs(timeSlotEntry);
@@ -34,7 +33,7 @@ public class TimeSlotsImpl {
 			return false;
 		}
 	}
-	
+
 	public ArrayList<String> validateInputs(TimeSlots timeSlotEntry){
 		ArrayList<String> errorList=new ArrayList<String>();
 
@@ -46,7 +45,7 @@ public class TimeSlotsImpl {
 			errorList.add("End time is not Valid"); }
 		return errorList;
 	}
-	
+
 	public boolean deleteAllTimeSlot(VaccinationCentreDetails centre) {
 		try {
 			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();

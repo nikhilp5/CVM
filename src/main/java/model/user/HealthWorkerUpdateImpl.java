@@ -11,19 +11,19 @@ import database.DatabaseConnection;
 public class HealthWorkerUpdateImpl extends UserUpdateTemplate{
 
 	private static HealthWorkerUpdateImpl healthWorkerUpdateImpl;
-	
+
 	public static HealthWorkerUpdateImpl instance() {
 		if (healthWorkerUpdateImpl == null) {
 			healthWorkerUpdateImpl = new HealthWorkerUpdateImpl();
 		}
 		return healthWorkerUpdateImpl;
 	}
-	
+
 	public User getUser(String firstName, String lastName, String emailId) {
 		User healthWorker=this.checkUserExists(firstName, lastName, emailId);
 		return healthWorker;
 	}
-	
+
 	public User checkUserExists(String firstName,String lastName,String emailId) {
 		try {
 			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
@@ -65,11 +65,11 @@ public class HealthWorkerUpdateImpl extends UserUpdateTemplate{
 			}
 			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
 			String updateUserQuery = UserQuery.instance().updateHealthWorker(user,updateValues);
-			 int rowCount=statement.executeUpdate(updateUserQuery);
-			    if (rowCount > 0) {
-			    	return true;
-			    }
-				return false;		
+			int rowCount=statement.executeUpdate(updateUserQuery);
+			if (rowCount > 0) {
+				return true;
+			}
+			return false;		
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class HealthWorkerUpdateImpl extends UserUpdateTemplate{
 			DatabaseConnection.instance().stopDatabaseConnection();
 		}
 	}
-	
+
 	public ArrayList<String> validateUserInputs(HashMap<String,String> updateValues){
 		ArrayList<String> errorList=new ArrayList<String>();
 		if(updateValues.get(UserDatabaseColumns.user_first_name)!=null) {

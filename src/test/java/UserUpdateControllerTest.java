@@ -15,18 +15,18 @@ import model.user.UserDatabaseColumns;
 import model.user.UserUpdateImpl;
 
 @TestInstance(Lifecycle.PER_CLASS)
-public class UserUpdateControllerTest
-{
+public class UserUpdateControllerTest{
+
 	private UserUpdateController userUpdateController;
 	private UserUpdateImpl userUpdateImpl;
 	static User user=new User();
-	
+
 	@BeforeAll
 	public void setup() {
-	    userUpdateImpl= Mockito.mock(UserUpdateImpl.class);
+		userUpdateImpl= Mockito.mock(UserUpdateImpl.class);
 		userUpdateController=new UserUpdateController(userUpdateImpl);
 	}
-	
+
 	@BeforeAll
 	public void mockObject() {
 		user.setUserId("10000");
@@ -42,31 +42,31 @@ public class UserUpdateControllerTest
 		user.setRole("USER");
 		user.setPassword("password");
 	}
-	
+
 	@Test
 	public void getUserTestSuccess() {
 		when(userUpdateImpl.getUser(user.getFirstName(), user.getLastName(), user.getEmailId())).thenReturn(user);
 		assertEquals(user,userUpdateController.getUser(user.getFirstName(), user.getLastName(), user.getEmailId()));
 	}
-	
+
 	@Test
 	public void getUserTestFailure() {
 		when(userUpdateImpl.getUser(null, null, user.getEmailId())).thenReturn(null);
 		assertEquals(null,userUpdateController.getUser(null, null, user.getEmailId()));
 	}
-	
+
 	@Test
 	public void checkUserExistsSuccess() {
 		when(userUpdateImpl.checkUserExists(user.getFirstName(),user.getLastName(),user.getEmailId())).thenReturn(user);
 		assertEquals(user,userUpdateController.checkUserExists(user.getFirstName(),user.getLastName(),user.getEmailId()));
 	}
-	
+
 	@Test
 	public void checkUserExistsFailure() {
 		when(userUpdateImpl.checkUserExists(null,null,user.getEmailId())).thenReturn(null);
 		assertEquals(null,userUpdateController.checkUserExists(null,null,user.getEmailId()));
 	}
-	
+
 	@Test
 	public void updateHealthWorkerDetailsTestSuccess() {
 		HashMap<String,String> updateValues=new HashMap<String,String>();
@@ -74,7 +74,7 @@ public class UserUpdateControllerTest
 		when(userUpdateImpl.updateUserDetails(user,updateValues)).thenReturn(true);
 		assertEquals(true,userUpdateController.updateUserDetails(user, updateValues));		
 	}
-	
+
 	@Test
 	public void updateHealthWorkerDetailsTestFailure() {
 		HashMap<String,String> updateValues=new HashMap<String,String>();

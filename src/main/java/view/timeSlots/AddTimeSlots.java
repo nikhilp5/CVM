@@ -13,7 +13,7 @@ public class AddTimeSlots {
 	public AddTimeSlots(final Scanner scanner) {
 		this.scanner = scanner;
 	}
-	
+
 	public final void add() {
 		try {
 			VaccinationCentreDetailsImpl vaccinationCentreDetailsImpl=new VaccinationCentreDetailsImpl();
@@ -33,8 +33,8 @@ public class AddTimeSlots {
 			e.printStackTrace();
 		}
 	}
-	
-		public final void addTimeSlots(VaccinationCentreDetails centre) {
+
+	public final void addTimeSlots(VaccinationCentreDetails centre) {
 		try {	
 			System.out.println("Enter Date");
 			final String date = scanner.nextLine().trim();
@@ -42,24 +42,24 @@ public class AddTimeSlots {
 			final String startTime = scanner.nextLine().trim();
 			System.out.println("Enter End time(24 hours format ex.13:00 for 1 pm)");
 			final String endTime = scanner.nextLine().trim();
-			
+
 			TimeSlots timeSlotEntry=new TimeSlots();
 			timeSlotEntry.setCentreId(centre.getCentre_id());
 			timeSlotEntry.setDate(date);
 			timeSlotEntry.setStartTime(startTime);
 			timeSlotEntry.setEndTime(endTime);
-			
+
 			TimeSlotsImpl timeSlotsImpl=new TimeSlotsImpl();
 			TimeSlotsController timeSlotsController=new TimeSlotsController(timeSlotsImpl);
-			
+
 			boolean timeSlotInserted=timeSlotsController.addTimeSlot(timeSlotEntry);
-			
+
 			if(timeSlotInserted) {
-				 System.out.println("Time-Slot added Successfully");
-			 }
-			 else {
-				 System.out.println("Time-Slot not added");
-			 }
+				System.out.println("Time-Slot added Successfully");
+			}
+			else {
+				System.out.println("Time-Slot not added");
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();

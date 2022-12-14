@@ -6,7 +6,7 @@ import model.user.UserRegistrationImpl;
 public class UserRegistrationController implements IUserRegistrationController{
 
 	UserRegistrationImpl userRegistrationImpl;
-	
+
 	public UserRegistrationController(UserRegistrationImpl userRegistrationImpl) {
 		this.userRegistrationImpl=userRegistrationImpl;
 	}

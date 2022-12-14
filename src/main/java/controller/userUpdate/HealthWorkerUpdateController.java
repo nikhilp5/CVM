@@ -6,9 +6,9 @@ import model.user.HealthWorkerUpdateImpl;
 import model.user.User;
 
 public class HealthWorkerUpdateController implements IHealthWorkerUpdateController{
-	
+
 	UserUpdateTemplate healthWorkerUpdateImpl;
-	
+
 	public HealthWorkerUpdateController(HealthWorkerUpdateImpl healthWorkerUpdateImpl) {
 		this.healthWorkerUpdateImpl=healthWorkerUpdateImpl;
 	}

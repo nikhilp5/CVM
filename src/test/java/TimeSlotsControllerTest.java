@@ -14,17 +14,17 @@ import model.vaccinationCentre.VaccinationCentreDetails;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class TimeSlotsControllerTest {
-	
+
 	private TimeSlotsController timeSlotsController;
 	private TimeSlotsImpl timeSlotsImpl;
 	TimeSlots timeSlots=new TimeSlots();
-	
+
 	@BeforeAll
 	public void setup() {
 		timeSlotsImpl= Mockito.mock(TimeSlotsImpl.class);
 		timeSlotsController=new TimeSlotsController(timeSlotsImpl);
 	}
-	
+
 	@BeforeAll
 	public void mockObject() {
 		timeSlots.setCentreId("1001");
@@ -33,19 +33,19 @@ public class TimeSlotsControllerTest {
 		timeSlots.setEndTime("10:15");
 		timeSlots.setTime_slot_id("20");
 	}
-	
+
 	@Test
 	public void addTimeSlotTestSuccess() {
 		when(timeSlotsImpl.addTimeSlot(timeSlots)).thenReturn(true);
 		assertEquals(true,timeSlotsController.addTimeSlot(timeSlots));
 	}
-	
+
 	@Test
 	public void addTimeSlotTestFailure() {
 		when(timeSlotsImpl.addTimeSlot(null)).thenReturn(false);
 		assertEquals(false,timeSlotsController.addTimeSlot(null));
 	}
-	
+
 	@Test
 	public void deleteTimeSlotTestSuccess() {
 		VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
@@ -58,7 +58,7 @@ public class TimeSlotsControllerTest {
 		when(timeSlotsImpl.deleteAllTimeSlot(vaccinationCentreDetails)).thenReturn(true);
 		assertEquals(true,timeSlotsController.deleteAllTimeSlot(vaccinationCentreDetails));
 	}
-	
+
 	@Test
 	public void deleteTimeSlotTestFailure() {
 		when(timeSlotsImpl.deleteAllTimeSlot(null)).thenReturn(false);

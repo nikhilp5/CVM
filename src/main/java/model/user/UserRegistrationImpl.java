@@ -15,7 +15,7 @@ public class UserRegistrationImpl {
 		}
 		return userRegistrationImpl;
 	}
-	
+
 	public boolean register(User user) {
 		try {
 			ArrayList<String> errorList=validateUserInputs(user);
@@ -28,11 +28,11 @@ public class UserRegistrationImpl {
 			String encodedPassword = Base64.getEncoder().encodeToString(user.getPassword().getBytes());
 			user.setPassword(encodedPassword);
 			Statement statement = DatabaseConnection.instance().getDatabaseConnection().createStatement();
-		    String insertUserQuery = UserQuery.instance().insertUser(user);
-		    int rowCount=statement.executeUpdate(insertUserQuery);
-		    if (rowCount > 0) {
-		    	return true;
-		    }
+			String insertUserQuery = UserQuery.instance().insertUser(user);
+			int rowCount=statement.executeUpdate(insertUserQuery);
+			if (rowCount > 0) {
+				return true;
+			}
 			return false;
 		}
 		catch(Exception e) {

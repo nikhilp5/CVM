@@ -15,18 +15,18 @@ import model.vaccinationCentre.VaccinationCentreDetails;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class DeleteAppointmentTest {
-	
+
 	private DeleteAppointmentController deleteAppointmentController;
 	private BookAppointmentImpl deleteAppointmentImpl;
 	User user=new User();
 	VaccinationCentreDetails vaccinationCentreDetails=new VaccinationCentreDetails();
-	
+
 	@BeforeAll
 	public void setup() {
 		deleteAppointmentImpl= Mockito.mock(BookAppointmentImpl.class);
 		deleteAppointmentController=new DeleteAppointmentController(deleteAppointmentImpl);
 	}
-	
+
 	@BeforeAll
 	public void mockUserObject() {
 		user.setUserId("10000");
@@ -42,7 +42,7 @@ public class DeleteAppointmentTest {
 		user.setRole("USER");
 		user.setPassword("password");
 	}
-	
+
 	@BeforeAll
 	public void mockCentreDetailsObject() {
 		vaccinationCentreDetails.setCentre_id("1298");
@@ -52,13 +52,13 @@ public class DeleteAppointmentTest {
 		vaccinationCentreDetails.setCentre_code("5691000");
 		vaccinationCentreDetails.setCentre_zip("B3L987");
 	}
-	
+
 	@Test
 	public void deleteAppointmentForUserAndCentreTestSuccess() {
 		when(deleteAppointmentImpl.deleteAppointmentForUserAndCentre(user, vaccinationCentreDetails)).thenReturn(true);
 		assertEquals(true,deleteAppointmentController.deleteAppointmentForUserAndCentre(user, vaccinationCentreDetails));
 	}
-	
+
 	@Test
 	public void deleteAppointmentForUserAndCentreTestFailure() {
 		when(deleteAppointmentImpl.deleteAppointmentForUserAndCentre(user,null)).thenReturn(false);
